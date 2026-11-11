@@ -1,27 +1,23 @@
-import { useState } from "react";
 import { useLang } from "../i18n";
 import { useAsync } from "../hooks";
-import { getWoredas, getOpportunities } from "../api";
-import { Loading } from "../components/Common";
-import { WoredaCard } from "../components/Cards";
+import { getWoredas } from "../api";
+import { Loading, PageHero, WoredaCard } from "../components/ui";
+import { CTA } from "./Home";
 
 export default function Woredas() {
-  const { t, tx } = useLang();
-  const w = useAsync(getWoredas);
-  const o = useAsync(getOpportunities);
-  const [q, setQ] = useState("");
-  if (w.loading || o.loading) return <Loading />;
-  const list = w.data.filter((x) => (tx(x.name) + tx(x.town)).toLowerCase().includes(q.toLowerCase()));
+  const { t } = useLang();
+  const { data, loading } = useAsync(getWoredas);
   return (
-    <section className="wrap section">
-      <h1 className="h1">{t("woredaList")}</h1>
-      <p className="muted">{t("woredaIntro")}</p>
-      <input className="input" placeholder={t("search") + "…"} value={q} onChange={(e) => setQ(e.target.value)} />
-      {list.length === 0 ? <p className="muted">{t("noResults")}</p> : (
-        <div className="grid">
-          {list.map((x) => <WoredaCard key={x.id} w={x} count={o.data.filter((p) => p.woreda === x.id).length} />)}
-        </div>
+    <>
+      <PageHero eyebrow={t("woredasEyebrow")} title={t("woredasTitle")} image="turmi-hills" />
+      {loading ? <Loading /> : (
+        <section className="py-24">
+          <div className="container grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {data.woredas.map((w, i) => <WoredaCard key={w.id} w={w} index={i} count={data.opportunities.filter((o) => o.woreda === w.id).length} />)}
+          </div>
+        </section>
       )}
-    </section>
+      <CTA />
+    </>
   );
 }

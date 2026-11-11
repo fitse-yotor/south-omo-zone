@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-sand-50 text-ink font-sans antialiased; text-rendering: optimizeLegibility; }
+  html[lang="am"] body { @apply font-sans-am; }
+  html[lang="am"] .font-serif { font-family: "Noto Serif Ethiopic", "Playfair Display", serif; }
+  ::selection { @apply bg-royal-200 text-royal-950; }
+  :focus-visible { @apply outline-none ring-2 ring-royal-400 ring-offset-2; }
+}
+
+@layer components {
+  .eyebrow { @apply inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-eyebrow text-royal-600; }
+  .eyebrow::before { content: ""; @apply h-px w-8 bg-current; }
+  html[lang="am"] .eyebrow { @apply text-xs tracking-normal normal-case; }
+  .h-display { @apply font-serif text-4xl leading-[1.08] tracking-tight text-royal-950 sm:text-5xl lg:text-[3.5rem]; }
+  .h-section { @apply font-serif text-3xl leading-tight tracking-tight text-royal-950 sm:text-4xl; }
+  .lead { @apply text-lg leading-relaxed text-ink-soft; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-300; }
+  .btn-primary { @apply btn bg-royal-600 text-white shadow-soft hover:bg-royal-700; }
+  .btn-light { @apply btn bg-white text-royal-900 hover:bg-sand-100; }
+  .btn-ghost { @apply btn border border-white/40 text-white backdrop-blur-sm hover:bg-white/10; }
+  .btn-outline { @apply btn border border-royal-200 text-royal-700 hover:border-royal-600 hover:bg-royal-50; }
+  .card { @apply rounded-2xl bg-white shadow-soft ring-1 ring-royal-950/5; }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium; }
+  .link-arrow { @apply inline-flex items-center gap-1.5 text-sm font-semibold text-royal-600 transition hover:gap-2.5 hover:text-royal-800; }
+}

@@ -1,69 +1,46 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useMemo, useState } from "react";
+import { Info } from "lucide-react";
 import { useLang } from "../i18n";
 import { useAsync, daysLeft } from "../hooks";
 import { getAnnouncements } from "../api";
-import { Loading } from "../components/Common";
-import { AnnCard } from "../components/Cards";
+import { AnnDetail, AnnRow, Loading, Modal, PageHero, Reveal } from "../components/ui";
 
 export default function Announcements() {
-  const { t, tx, fmtDate } = useLang();
-  const a = useAsync(getAnnouncements);
-  const loc = useLocation();
+  const { t } = useLang();
+  const { data, loading } = useAsync(getAnnouncements);
   const [tab, setTab] = useState("all");
   const [showClosed, setShowClosed] = useState(false);
   const [sel, setSel] = useState(null);
-
-  useEffect(() => {
-    if (a.data && loc.state?.open) setSel(a.data.find((x) => x.id === loc.state.open) || null);
-  }, [a.data, loc.state]);
-  useEffect(() => {
-    const onKey = (e) => e.key === "Escape" && setSel(null);
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
-  if (a.loading) return <Loading />;
-  const list = a.data
-    .filter((x) => (tab === "all" || x.type === tab) && (showClosed || daysLeft(x.deadline) >= 0))
-    .sort((x, y) => x.deadline.localeCompare(y.deadline));
-  const tabs = [["all", t("all")], ["vacancy", t("vacancies")], ["tender", t("tenders")]];
-
+  const list = useMemo(() => (data || [])
+    .filter((a) => (tab === "all" || a.type === tab) && (showClosed || daysLeft(a.deadline) >= 0))
+    .sort((a, b) => (daysLeft(a.deadline) < 0) - (daysLeft(b.deadline) < 0) || a.deadline.localeCompare(b.deadline)), [data, tab, showClosed]);
+  const count = (type) => (data || []).filter((a) => a.type === type && daysLeft(a.deadline) >= 0).length;
   return (
-    <section className="wrap section">
-      <h1 className="h1">{t("announcements")}</h1>
-      <p className="muted">{t("annIntro")}</p>
-      <div className="row between wrapflex">
-        <div className="chips">
-          {tabs.map(([k, l]) => (
-            <button key={k} className={tab === k ? "chipbtn on" : "chipbtn"} onClick={() => setTab(k)}>{l}</button>
-          ))}
-        </div>
-        <label className="check"><input type="checkbox" checked={showClosed} onChange={(e) => setShowClosed(e.target.checked)} /> {t("showClosed")}</label>
-      </div>
-      {list.length === 0 ? <p className="muted">{t("noResults")}</p> : (
-        <div className="grid">{list.map((x) => <AnnCard key={x.id} a={x} onOpen={setSel} />)}</div>
-      )}
-
-      {sel && (
-        <div className="modal" onClick={() => setSel(null)} role="dialog" aria-modal="true">
-          <div className="sheet" onClick={(e) => e.stopPropagation()}>
-            <span className={"pill " + sel.type}>{sel.type === "vacancy" ? t("vacancies") : t("tenders")}</span>
-            <h2>{tx(sel.title)}</h2>
-            <dl className="facts">
-              <div><dt>{t("organization")}</dt><dd>{tx(sel.org)}</dd></div>
-              <div><dt>{t("location")}</dt><dd>{tx(sel.location)}</dd></div>
-              {sel.ref && <div><dt>{t("reference")}</dt><dd>{sel.ref}</dd></div>}
-              <div><dt>{t("posted")}</dt><dd>{fmtDate(sel.posted)}</dd></div>
-              <div><dt>{t("deadline")}</dt><dd>{fmtDate(sel.deadline)}</dd></div>
-            </dl>
-            <p>{tx(sel.description)}</p>
-            <h4>{t("requirements")}</h4>
-            <ul>{tx(sel.details).map((d, i) => <li key={i}>{d}</li>)}</ul>
-            <button className="btn green" onClick={() => setSel(null)}>{t("close")}</button>
+    <>
+      <PageHero eyebrow={t("annEyebrow")} title={t("annTitle")} image="dassanech-elder" />
+      {loading ? <Loading /> : (
+        <section className="py-20">
+          <div className="container max-w-4xl">
+            <Reveal className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex rounded-full bg-white p-1 shadow-soft ring-1 ring-royal-950/5">
+                {[["all", t("all")], ["vacancy", t("vacancies")], ["tender", t("tenders")]].map(([k, l]) => (
+                  <button key={k} onClick={() => setTab(k)} className={`rounded-full px-5 py-2 text-sm font-medium transition ${tab === k ? "bg-royal-600 text-white" : "text-ink-soft hover:text-royal-700"}`}>
+                    {l}{k !== "all" && <span className={`ml-2 rounded-full px-1.5 text-xs ${tab === k ? "bg-white/20" : "bg-sand-100"}`}>{count(k)}</span>}
+                  </button>
+                ))}
+              </div>
+              <label className="flex cursor-pointer items-center gap-2 text-sm text-ink-soft">
+                <input type="checkbox" checked={showClosed} onChange={(e) => setShowClosed(e.target.checked)} className="h-4 w-4 rounded border-royal-200 text-royal-600 focus:ring-royal-400" />{t("showClosed")}
+              </label>
+            </Reveal>
+            <p className="mt-6 flex items-start gap-2 text-sm text-ink-mute"><Info size={15} className="mt-0.5 shrink-0" />{t("sampleAnn")}</p>
+            <div className="mt-6 divide-y divide-sand-200 rounded-3xl bg-sand-100 p-3">
+              {list.length ? list.map((a) => <AnnRow key={a.id} a={a} onOpen={setSel} />) : <p className="p-10 text-center text-ink-mute">{t("noResults")}</p>}
+            </div>
           </div>
-        </div>
+          <Modal open={!!sel} onClose={() => setSel(null)}><AnnDetail a={sel} /></Modal>
+        </section>
       )}
-    </section>
+    </>
   );
 }
