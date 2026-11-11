@@ -52,7 +52,7 @@ export default function Home() {
             {shown.map((p, i) => <p key={i}>{p}</p>)}
             {msg.length > 1 && (
               <button className="link btnlink" onClick={() => setExpanded(!expanded)}>
-                {expanded ? "−" : t("readMore") + " →"}
+                {expanded ? "↑ " + t("showLess") : t("readMore") + " →"}
               </button>
             )}
           </div>

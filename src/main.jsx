@@ -9,6 +9,12 @@ import WoredaDetail from "./pages/WoredaDetail";
 import Opportunities from "./pages/Opportunities";
 import Announcements from "./pages/Announcements";
 import Contact from "./pages/Contact";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/noto-sans-ethiopic/400.css";
+import "@fontsource/noto-sans-ethiopic/600.css";
+import "@fontsource/noto-sans-ethiopic/700.css";
 import "./styles.css";
 
 createRoot(document.getElementById("root")).render(

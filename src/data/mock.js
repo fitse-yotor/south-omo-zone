@@ -8,7 +8,7 @@ export const leader = {
   photo: "./leader.svg",
   // mp4 URL or YouTube link. Leave "" to hide the player.
   video: "https://www.w3schools.com/html/mov_bbb.mp4",
-  videoPoster: "",
+  videoPoster: "./video-poster.svg",
   message: {
     en: [
       "Welcome to South Omo, a land of rivers, rich soil and some of the most remarkable living cultures on Earth.",

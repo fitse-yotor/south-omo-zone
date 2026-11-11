@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#074a24"/><stop offset="1" stop-color="#0b6b34"/></linearGradient></defs>
+  <rect width="1280" height="720" fill="url(#g)"/>
+  <circle cx="1080" cy="140" r="220" fill="#e8a317" opacity=".18"/>
+  <rect x="0" y="704" width="427" height="16" fill="#0b6b34"/><rect x="427" y="704" width="426" height="16" fill="#e8a317"/><rect x="853" y="704" width="427" height="16" fill="#c8102e"/>
+  <circle cx="330" cy="330" r="150" fill="#dfe9df"/>
+  <circle cx="330" cy="290" r="62" fill="#8a5a3c"/>
+  <path d="M215 445 Q225 360 330 356 Q435 360 445 445 Z" fill="#0b6b34"/>
+  <text x="560" y="300" font-family="Inter,Noto Sans Ethiopic,sans-serif" font-size="30" fill="#e8a317" font-weight="600" letter-spacing="4">SOUTH OMO ZONE</text>
+  <text x="560" y="365" font-family="Inter,sans-serif" font-size="52" fill="#fff" font-weight="700">A message from the</text>
+  <text x="560" y="430" font-family="Inter,sans-serif" font-size="52" fill="#fff" font-weight="700">Zone Administrator</text>
+  <text x="560" y="490" font-family="Noto Sans Ethiopic,sans-serif" font-size="34" fill="#cfe3d3">የዞኑ ዋና አስተዳዳሪ መልዕክት</text>
+</svg>

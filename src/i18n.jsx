@@ -4,7 +4,7 @@ const dict = {
   en: {
     home: "Home", woredas: "Woredas", opportunities: "Opportunities", announcements: "Announcements", contact: "Contact",
     invest: "Explore opportunities", leaderMsg: "Message from the Zone Administrator", readMore: "Read full message",
-    watch: "Watch the message", noVideo: "Video coming soon", viewWoreda: "View woreda", viewDetails: "View details",
+    showLess: "Show less", watch: "Watch the message", noVideo: "Video coming soon", viewWoreda: "View woreda", viewDetails: "View details",
     woredaList: "Our woredas", woredaIntro: "Explore each woreda and the investment opportunities waiting there.",
     search: "Search", all: "All", sector: "Sector", woreda: "Woreda", land: "Land", investment: "Investment", jobs: "Jobs",
     ha: "ha", musd: "M USD", population: "Population", area: "Area", centre: "Administrative centre",
@@ -25,7 +25,7 @@ const dict = {
   am: {
     home: "መነሻ", woredas: "ወረዳዎች", opportunities: "የኢንቨስትመንት ዕድሎች", announcements: "ማስታወቂያዎች", contact: "ያግኙን",
     invest: "ዕድሎችን ይመልከቱ", leaderMsg: "የዞኑ ዋና አስተዳዳሪ መልዕክት", readMore: "ሙሉ መልዕክቱን ያንብቡ",
-    watch: "መልዕክቱን በቪዲዮ ይመልከቱ", noVideo: "ቪዲዮ በቅርቡ ይቀርባል", viewWoreda: "ወረዳውን ይመልከቱ", viewDetails: "ዝርዝር ይመልከቱ",
+    showLess: "አሳንስ", watch: "መልዕክቱን በቪዲዮ ይመልከቱ", noVideo: "ቪዲዮ በቅርቡ ይቀርባል", viewWoreda: "ወረዳውን ይመልከቱ", viewDetails: "ዝርዝር ይመልከቱ",
     woredaList: "ወረዳዎቻችን", woredaIntro: "እያንዳንዱን ወረዳና በውስጡ የሚጠብቁ የኢንቨስትመንት ዕድሎችን ይቃኙ።",
     search: "ፈልግ", all: "ሁሉም", sector: "ዘርፍ", woreda: "ወረዳ", land: "መሬት", investment: "ኢንቨስትመንት", jobs: "የሥራ ዕድል",
     ha: "ሄክታር", musd: "ሚሊዮን ዶላር", population: "የህዝብ ብዛት", area: "የቆዳ ስፋት", centre: "የአስተዳደር ማዕከል",
