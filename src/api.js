@@ -7,7 +7,7 @@ export const getHome = () => wait({ opportunities: c.opportunities, leader: c.le
 export const getWoredas = () => wait({ woredas: c.woredas, opportunities: c.opportunities });
 export const getWoreda = (id) => wait({ woreda: c.woredas.find((w) => w.id === id) || null, opportunities: c.opportunities.filter((o) => o.woreda === id), sectors: c.sectors });
 export const getInvest = () => wait({ sectors: c.sectors, opportunities: c.opportunities, woredas: c.woredas, steps: c.investSteps, principles: c.principles });
-export const getTourism = () => wait({ journeys: c.journeys, attractionJourney: c.attractionJourney, attractions: c.attractions, markets: c.markets, etiquette: c.etiquette, peoples: c.peoples, peoplesAm: c.peoplesAm, woredas: c.woredas });
+export const getTourism = () => wait({ journeys: c.journeys, itineraries: c.itineraries, attractionJourney: c.attractionJourney, attractions: c.attractions, markets: c.markets, etiquette: c.etiquette, peoples: c.peoples, peoplesAm: c.peoplesAm, woredas: c.woredas });
 export const getAnnouncements = () => wait(c.announcements);
 export const getAbout = () => wait({ leader: c.leader, facts: c.facts, woredas: c.woredas, peoples: c.peoples, peoplesAm: c.peoplesAm });
 export const getCredits = () => wait(credits, 0);

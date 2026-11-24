@@ -50,7 +50,7 @@
 .route-map .rm-stays em { @apply mt-2.5 block text-[11px] not-italic text-sun-400/85; }
 .route-map .rm-note { @apply mx-3.5 mt-5 text-xs leading-relaxed text-white/40; }
 .route-map .rm-mapwrap { position: relative; min-width: 0; align-self: start; }
-.route-map .rm-map { @apply relative h-[400px] overflow-hidden rounded-[22px] bg-[#0d1626] sm:h-[520px] lg:h-[640px] lg:rounded-[28px]; box-shadow: 0 30px 60px -20px rgba(0,0,0,.55); }
+.route-map .rm-map { @apply relative h-[400px] overflow-hidden rounded-[22px] bg-[#0d1626] sm:h-[520px] lg:h-[700px] lg:rounded-[28px]; box-shadow: 0 30px 60px -20px rgba(0,0,0,.55); }
 .route-map .rm-map::after { content: ""; @apply pointer-events-none absolute inset-0 z-[450] rounded-[inherit]; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); background: radial-gradient(120% 90% at 60% 40%, transparent 55%, rgba(5,12,30,.55)); }
 .route-map img.leaflet-tile { filter: saturate(.82) brightness(.86) contrast(1.05); }
 .route-map .leaflet-container { @apply font-sans; }
@@ -61,7 +61,7 @@
 .route-map .leaflet-bar a { background: rgba(11,26,61,.72) !important; color: #fff !important; border: 0 !important; width: 34px !important; height: 34px !important; line-height: 34px !important; @apply backdrop-blur; }
 .route-map .rm-replay { @apply absolute left-5 top-5 z-[500] flex items-center gap-2 rounded-full bg-royal-950/70 px-3.5 py-2 text-[12.5px] font-semibold text-white backdrop-blur hover:bg-royal-950/90; box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
 .route-map .rm-legend { position: absolute; top: 64px; left: 1.25rem; z-index: 500; display: flex; flex-direction: column; gap: 6px; @apply rounded-[14px] bg-royal-950/70 px-3 py-2 text-[11px] text-white/85 backdrop-blur lg:px-3.5 lg:py-2.5 lg:text-xs; box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); }
-.route-map .rm-legend > div { @apply flex items-center gap-2.5; }
+.route-map .rm-legend > div:not(.rm-key-svc) { @apply flex items-center gap-2.5; }
 .route-map .rm-key-bed { @apply mx-[5px] grid h-5 w-5 place-items-center rounded-md bg-white p-[3px] text-royal-950; }
 .route-map .rm-card { position: relative; margin-top: .75rem; display: grid; column-gap: 2rem; row-gap: .875rem; border-radius: 22px; background: rgba(255,255,255,.05); padding: 1.25rem 1.5rem .375rem; color: #fff; grid-template-columns: minmax(0,1fr); box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), 0 20px 40px -10px rgba(0,0,0,.5); }
 @media (min-width: 1024px) {
@@ -114,3 +114,46 @@
 @keyframes rm-ping { from { transform: scale(1); opacity: .9; } to { transform: scale(3.2); opacity: 0; } }
 @media (min-width: 640px) and (max-width: 1023px) { .route-map .rm-legend { top: calc(520px - 4rem); } }
 @media (prefers-reduced-motion: reduce) { .rm-stop.end i::after, .rm-airport.land b::after { animation: none; } }
+
+/* Route map: markets, road status, itineraries, services, photos */
+.route-map .rm-market { @apply flex items-start gap-2.5 rounded-xl bg-sun-400/10 px-3.5 py-2.5 text-[13px] leading-snug text-white/85; box-shadow: inset 0 0 0 1px rgba(242,201,76,.2); }
+.route-map .rm-mkt-dot { @apply mt-1 h-2 w-2 flex-none rounded-full bg-sun-400; box-shadow: 0 0 0 4px rgba(242,201,76,.2); }
+.route-map .rm-rain { @apply flex gap-2.5 rounded-xl bg-ember-500/15 px-3.5 py-2.5 text-[13px] leading-snug text-white/85; box-shadow: inset 0 0 0 1px rgba(200,55,45,.35); }
+.route-map .rm-tabs { @apply flex rounded-full bg-white/[0.06] p-1; }
+.route-map .rm-tabs button { @apply flex-1 rounded-full px-4 py-2 text-[13px] font-semibold text-white/60 transition hover:text-white; }
+.route-map .rm-tabs button[aria-selected="true"] { @apply bg-white text-royal-950; }
+.route-map .rm-startday { @apply flex flex-wrap items-center gap-x-3 gap-y-2 px-1 text-xs text-white/55; }
+.route-map .rm-startday > div { @apply flex gap-1; }
+.route-map .rm-startday button { @apply relative rounded-lg px-2 py-1.5 text-xs font-medium text-white/70 ring-1 ring-white/10 transition hover:bg-white/10; }
+.route-map .rm-startday button[aria-pressed="true"] { @apply bg-sun-400 text-royal-950 ring-sun-400; }
+.route-map .rm-startday button i { @apply absolute -right-0.5 -top-0.5 h-1.5 w-1.5 rounded-full bg-leaf-500; }
+.route-map .rm-days { @apply flex flex-col gap-1.5; }
+.route-map .rm-days li { @apply rounded-2xl px-4 py-3 text-[13px] text-white/60 transition duration-300; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
+.route-map .rm-days li.on { @apply bg-white/[0.07] text-white/80; box-shadow: inset 0 0 0 1px rgba(242,201,76,.35); }
+.route-map .rm-days b { @apply font-semibold text-white; }
+.route-map .rm-days .rm-path { @apply mt-0.5 text-xs text-sun-400/90; }
+.route-map .rm-days p { @apply mt-1 leading-snug; }
+.route-map .rm-chip { @apply inline-flex items-center gap-1 rounded-full bg-white/[0.08] px-2 py-0.5 text-[11px] text-white/75; }
+.route-map .rm-chip.mkt { @apply bg-sun-400/15 text-sun-400; }
+.route-map .rm-key-svc { @apply flex-wrap gap-x-3 gap-y-1; }
+.route-map .rm-key-svc span { @apply inline-flex items-center gap-1.5; }
+.route-map .rm-surf sup { @apply text-white/50; }
+.route-map .rm-foot { grid-column: 1 / -1; @apply -mt-1 pb-1 text-[10.5px] text-white/40; }
+.rm-svc { display: inline-grid; place-items: center; width: 16px; height: 16px; margin-left: 5px; padding: 2.5px; border-radius: 4px; background: rgba(255,255,255,.9); color: #0b1a3d; vertical-align: -3px; }
+.rm-svc svg { width: 100%; height: 100%; }
+.rm-airport .rm-svc { background: #0b1a3d; color: #fff; }
+.route-map .rm-legend .rm-svc { margin-left: 0; }
+.rm-mkt { position: absolute; left: 12px; top: 14px; white-space: nowrap; font-style: normal; font-size: 10.5px; font-weight: 600; color: #0b1a3d; background: #f2c94c; padding: 1px 7px; border-radius: 99px; box-shadow: 0 2px 8px rgba(0,0,0,.35); }
+.rm-roadflag { position: absolute; transform: translate(-50%, -50%); white-space: nowrap; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; padding: 2px 8px; border-radius: 6px; box-shadow: 0 3px 10px rgba(0,0,0,.4); }
+.rm-roadflag.slow { background: #d97706; }
+.rm-roadflag.closed { background: #dc2626; }
+.rm-night { position: absolute; left: -14px; top: -40px; display: flex; align-items: center; gap: 5px; white-space: nowrap; padding: 3px 9px 3px 6px; border-radius: 99px; background: #142a5c; color: #fff; font-size: 11px; font-weight: 600; box-shadow: 0 0 0 1px rgba(255,255,255,.25), 0 4px 12px rgba(0,0,0,.4); animation: rm-pop .4s ease-out; }
+.rm-night svg { width: 13px; height: 13px; color: #f2c94c; }
+.rm-photo { position: absolute; left: -96px; bottom: 22px; width: 192px; margin: 0; padding: 5px; border-radius: 14px; background: #fff; box-shadow: 0 16px 32px -8px rgba(0,0,0,.55); animation: rm-pop .45s cubic-bezier(.22,1,.36,1); transition: opacity .45s, transform .45s; }
+.rm-photo::after { content: ""; position: absolute; left: 50%; bottom: -6px; width: 12px; height: 12px; margin-left: -6px; background: #fff; transform: rotate(45deg); }
+.rm-photo img { display: block; width: 100%; height: 112px; object-fit: cover; border-radius: 10px; }
+.rm-photo figcaption { padding: 6px 4px 2px; font: 600 13px/1.2 "Playfair Display", "Noto Serif Ethiopic", serif; color: #0b1a3d; }
+.rm-photo small { display: block; margin-top: 2px; font: 400 9.5px/1.3 Inter, "Noto Sans Ethiopic", sans-serif; color: #7a8296; }
+.rm-photo.out { opacity: 0; transform: translateY(6px) scale(.96); }
+@keyframes rm-pop { from { opacity: 0; transform: translateY(8px) scale(.92); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .rm-night, .rm-photo { animation: none; } }

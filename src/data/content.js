@@ -293,9 +293,9 @@ export const attractions = [
 
 // Day index: 0=Sun … 6=Sat. Market days change: confirm locally before travelling.
 export const markets = [
-  { place: { en: "Turmi", am: "ቱርሚ" }, woreda: "hamer", days: [1] },
-  { place: { en: "Dimeka", am: "ዲመካ" }, woreda: "hamer", days: [2, 4] },
-  { place: { en: "Key Afer", am: "ቀይ አፈር" }, woreda: "bena-tsemay", days: [4] },
+  { place: { en: "Turmi", am: "ቱርሚ" }, woreda: "hamer", stop: "turmi", days: [1] },
+  { place: { en: "Dimeka", am: "ዲመካ" }, woreda: "hamer", stop: "dimeka", days: [2, 4] },
+  { place: { en: "Key Afer", am: "ቀይ አፈር" }, woreda: "bena-tsemay", stop: "keyafer", days: [4] },
 ];
 
 export const peoples = ["Hamer", "Banna", "Tsemay", "Dassanech", "Nyangatom", "Mursi", "Bodi", "Kara", "Arbore", "Male", "Kwegu", "Birale"];
@@ -439,16 +439,35 @@ export const routeStops = {
   arbore: { en: "Arbore", am: "አርቦሬ" },
 };
 
-// Per road leg: surface and dry-season drive time in minutes with a 4×4
+// Per road leg: surface, dry-season drive time in minutes with a 4×4, and current status.
+// TOURISM / ROADS OFFICE: update `status` ("open", "slow" or "closed"), add a `note` if needed,
+// and set roadStatusUpdated to the date you checked. The map and journey card follow automatically.
+export const roadStatusUpdated = null; // e.g. "2026-12-01"
 export const roadLegs = {
-  "jinka-keyafer": { surface: "asphalt", minutes: 60 },
-  "keyafer-weyto": { surface: "asphalt", minutes: 60 },
-  "turmi-omorate": { surface: "asphalt", minutes: 90 },
-  "keyafer-dimeka": { surface: "gravel", minutes: 75 },
-  "dimeka-turmi": { surface: "gravel", minutes: 40 },
-  "jinka-mago": { surface: "gravel", minutes: 75 },
-  "weyto-arbore": { surface: "gravel", minutes: 90 },
+  "jinka-keyafer": { surface: "asphalt", minutes: 60, status: "open" },
+  "keyafer-weyto": { surface: "asphalt", minutes: 60, status: "open" },
+  "turmi-omorate": { surface: "asphalt", minutes: 90, status: "open" },
+  "keyafer-dimeka": { surface: "gravel", minutes: 75, status: "open" },
+  "dimeka-turmi": { surface: "gravel", minutes: 40, status: "open" },
+  "jinka-mago": { surface: "gravel", minutes: 75, status: "open" },
+  "weyto-arbore": { surface: "gravel", minutes: 90, status: "open" },
+  "turmi-arbore": { surface: "gravel", minutes: 90, status: "open" },
 };
+// Months when gravel roads are often slow (0 = January). Shows a warning automatically.
+export const rainyMonths = [2, 3, 4];
+
+// Services in each town, shown as icons on the map (to confirm with the woreda offices)
+export const townServices = {
+  jinka: ["fuel", "bank", "health"],
+  keyafer: ["fuel", "health"],
+  dimeka: ["health"],
+  turmi: ["health"],
+  omorate: ["fuel", "health"],
+  mago: ["gate"],
+};
+
+// Photo shown when the vehicle reaches each town (ids from credits.json)
+export const townPhotos = { keyafer: "banna-village", dimeka: "hamer-village", turmi: "hamer-boys", omorate: "omo-river-omorate", mago: "mursi-woman", arbore: "turmi-hills" };
 
 export const stays = {
   jinka: [
@@ -503,6 +522,33 @@ export const journeys = [
     tip: { en: "Cross the Omo by dugout to Dassanech villages. Check in with the local authorities in Omorate before you cross.", am: "ኦሞን በታንኳ ተሻግረው የዳሰነች መንደሮችን ይጎብኙ። ከመሻገርዎ በፊት በኦሞራቴ ለአካባቢው ባለሥልጣናት ያሳውቁ።" },
     stayAt: ["turmi", "omorate"],
     stayNote: { en: "Most visitors stay in Turmi and visit Omorate as a day trip.", am: "አብዛኞቹ ጎብኚዎች ቱርሚ አድረው ኦሞራቴን በቀን ጉዞ ይጎበኛሉ።" },
+  },
+];
+
+// Ready-made trips. Each day is a drive; `night` is where you sleep. `start` is the best weekday
+// to begin (0 = Sunday) so the trip meets the weekly markets.
+export const itineraries = [
+  {
+    id: "3day", start: 3, image: "hamer-boys",
+    name: { en: "3 days · Hamer country & markets", am: "3 ቀን · የሐመር ምድርና ገበያዎች" },
+    sub: { en: "Mago, Key Afer, Dimeka, Turmi", am: "ማጎ፣ ቀይ አፈር፣ ዲመካ፣ ቱርሚ" },
+    days: [
+      { stops: ["jinka", "mago", "jinka"], night: "jinka", note: { en: "Land at Jinka and drive into Mago National Park for the afternoon.", am: "ጂንካ አርፈው ከሰዓት በኋላ ወደ ማጎ ብሔራዊ ፓርክ ይጓዙ።" } },
+      { stops: ["jinka", "keyafer", "dimeka", "turmi"], night: "turmi", note: { en: "Stop at the Key Afer and Dimeka markets on the way south to Turmi.", am: "ወደ ቱርሚ ሲጓዙ በቀይ አፈርና በዲመካ ገበያዎች ይቆዩ።" } },
+      { stops: ["turmi", "dimeka", "keyafer", "jinka"], night: null, note: { en: "Morning in a Hamer village, then back to Jinka for your flight.", am: "ጠዋት የሐመር መንደር ጎብኝተው ለበረራዎ ወደ ጂንካ ይመለሱ።" } },
+    ],
+  },
+  {
+    id: "5day", start: 0, image: "omo-river-aerial",
+    name: { en: "5 days · Lower Omo circuit", am: "5 ቀን · የታችኛው ኦሞ ዙር" },
+    sub: { en: "Mago, Turmi, Omorate, Arbore", am: "ማጎ፣ ቱርሚ፣ ኦሞራቴ፣ አርቦሬ" },
+    days: [
+      { stops: ["jinka", "mago", "jinka"], night: "jinka", note: { en: "Land at Jinka and spend the afternoon in Mago National Park.", am: "ጂንካ አርፈው ከሰዓት በኋላውን በማጎ ብሔራዊ ፓርክ ያሳልፉ።" } },
+      { stops: ["jinka", "keyafer", "dimeka", "turmi"], night: "turmi", note: { en: "Drive south through Banna and Hamer country to Turmi.", am: "በበና እና በሐመር ምድር አቋርጠው ወደ ቱርሚ ይጓዙ።" } },
+      { stops: ["turmi", "omorate", "turmi"], night: "turmi", note: { en: "Day trip to Omorate and across the Omo to Dassanech villages.", am: "ወደ ኦሞራቴ የቀን ጉዞ፤ ኦሞን ተሻግረው የዳሰነች መንደሮችን ይጎብኙ።" } },
+      { stops: ["turmi", "arbore", "turmi"], night: "turmi", note: { en: "Arbore villages and the shores of Chew Bahir.", am: "የአርቦሬ መንደሮችና የጨው ባሕር ዳርቻ።" } },
+      { stops: ["turmi", "dimeka", "keyafer", "jinka"], night: null, note: { en: "Thursday markets at Dimeka and Key Afer, then Jinka for your flight.", am: "የሐሙስ ገበያዎች በዲመካና በቀይ አፈር፤ ከዚያም ለበረራዎ ወደ ጂንካ።" } },
+    ],
   },
 ];
 
