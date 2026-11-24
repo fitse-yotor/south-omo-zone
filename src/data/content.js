@@ -424,3 +424,87 @@ export const announcements = [
     details: { en: ["Road contractors grade RC-5 or above"], am: ["ደረጃ RC-5 እና ከዚያ በላይ የመንገድ ተቋራጮች"] },
   },
 ];
+
+// Journeys from Jinka Airport, drawn on the Tourism page map.
+// Road shapes and distances come from OpenStreetMap (src/data/routes.json).
+// Surfaces, drive times and stays are estimates: confirm with the zone roads and tourism offices.
+export const routeStops = {
+  jinka: { en: "Jinka Airport", am: "ጂንካ አውሮፕላን ማረፊያ" },
+  keyafer: { en: "Key Afer", am: "ቀይ አፈር" },
+  dimeka: { en: "Dimeka", am: "ዲመካ" },
+  turmi: { en: "Turmi", am: "ቱርሚ" },
+  omorate: { en: "Omorate", am: "ኦሞራቴ" },
+  mago: { en: "Mago Park HQ", am: "የማጎ ፓርክ ጽ/ቤት" },
+  weyto: { en: "Weyto", am: "ወይጦ" },
+  arbore: { en: "Arbore", am: "አርቦሬ" },
+};
+
+// Per road leg: surface and dry-season drive time in minutes with a 4×4
+export const roadLegs = {
+  "jinka-keyafer": { surface: "asphalt", minutes: 60 },
+  "keyafer-weyto": { surface: "asphalt", minutes: 60 },
+  "turmi-omorate": { surface: "asphalt", minutes: 90 },
+  "keyafer-dimeka": { surface: "gravel", minutes: 75 },
+  "dimeka-turmi": { surface: "gravel", minutes: 40 },
+  "jinka-mago": { surface: "gravel", minutes: 75 },
+  "weyto-arbore": { surface: "gravel", minutes: 90 },
+};
+
+export const stays = {
+  jinka: [
+    { name: "Eco-Omo Lodge", type: { en: "Tented lodge", am: "የድንኳን ሎጅ" } },
+    { name: "Jinka Resort", type: { en: "Hotel", am: "ሆቴል" } },
+  ],
+  turmi: [
+    { name: "Buska Lodge", type: { en: "Lodge", am: "ሎጅ" } },
+    { name: "Turmi Lodge", type: { en: "Lodge", am: "ሎጅ" } },
+  ],
+  mago: [{ name: { en: "Park campsites", am: "የፓርኩ የካምፕ ቦታዎች" }, type: { en: "Camping", am: "ካምፕ" } }],
+  omorate: [{ name: { en: "Town guesthouses", am: "የከተማው እንግዳ ማረፊያዎች" }, type: { en: "Basic", am: "መሠረታዊ" } }],
+};
+
+export const journeys = [
+  {
+    id: "mago", image: "omo-savanna", stops: ["jinka", "mago"],
+    name: { en: "Mago National Park", am: "የማጎ ብሔራዊ ፓርክ" },
+    sub: { en: "Wildlife & Mursi country", am: "የዱር እንስሳትና የሙርሲ ምድር" },
+    tip: { en: "Pay park fees and pick up a scout at the park gate. The Mursi villages lie further in, along park tracks.", am: "የፓርኩን ክፍያ ከፍለው በመግቢያው ስካውት ይያዙ። የሙርሲ መንደሮች በፓርኩ መንገዶች ወደ ውስጥ ይገኛሉ።" },
+    stayAt: ["jinka", "mago"],
+    stayNote: { en: "Most visitors stay in Jinka and visit the park for the day. Campsites inside the park are booked at the HQ.", am: "አብዛኞቹ ጎብኚዎች ጂንካ አድረው ፓርኩን በቀን ይጎበኛሉ። በፓርኩ ውስጥ ያሉ የካምፕ ቦታዎች በፓርኩ ጽ/ቤት ይያዛሉ።" },
+  },
+  {
+    id: "markets", image: "banna-enterprise", stops: ["jinka", "keyafer"],
+    name: { en: "Key Afer market", am: "የቀይ አፈር ገበያ" },
+    sub: { en: "Thursday market", am: "የሐሙስ ገበያ" },
+    tip: { en: "Thursday is market day. Arrive by mid-morning, when trading is at its busiest.", am: "ሐሙስ የገበያ ቀን ነው። ግብይቱ በሚደምቅበት ረፋድ ላይ ይድረሱ።" },
+    stayAt: ["jinka"],
+    stayNote: { en: "Key Afer is an easy morning drive from Jinka, so stay in Jinka the night before.", am: "ቀይ አፈር ከጂንካ በጠዋት በቀላሉ ይደረሳል፤ የቀደመውን ሌሊት ጂንካ ያድሩ።" },
+  },
+  {
+    id: "hamer", image: "hamer-ceremony", stops: ["jinka", "keyafer", "dimeka", "turmi"],
+    name: { en: "Turmi & Hamer country", am: "ቱርሚና የሐመር ምድር" },
+    sub: { en: "Living heritage", am: "ህያው ቅርስ" },
+    tip: { en: "Turmi is the base for Hamer villages. Ceremonies are by invitation only; your guide can ask on your behalf.", am: "ቱርሚ ወደ ሐመር መንደሮች መነሻ ናት። ሥነ ሥርዓቶች በግብዣ ብቻ ናቸው፤ አስጎብኚዎ ሊጠይቅልዎ ይችላል።" },
+    stayAt: ["turmi"],
+    stayNote: { en: "Turmi is the best base for Hamer villages and the Monday market.", am: "ቱርሚ ለሐመር መንደሮችና ለሰኞ ገበያ ምርጥ መነሻ ናት።" },
+  },
+  {
+    id: "arbore", image: "turmi-hills", stops: ["jinka", "keyafer", "weyto", "arbore"],
+    name: { en: "Arbore & Chew Bahir", am: "አርቦሬና የጨው ባሕር" },
+    sub: { en: "Lakes & birdlife", am: "ሐይቆችና አእዋፍ" },
+    tip: { en: "Flamingos gather on Chew Bahir after the rains. Fill up with fuel and water at Key Afer.", am: "ከዝናብ በኋላ ፍላሚንጎዎች በጨው ባሕር ይሰበሰባሉ። በቀይ አፈር ነዳጅና ውሃ ይሙሉ።" },
+    stayAt: ["turmi"],
+    stayNote: { en: "Arbore has few places to stay. Most visitors base themselves in Turmi, 48 km away.", am: "አርቦሬ ጥቂት ማረፊያዎች አሏት። አብዛኞቹ ጎብኚዎች 48 ኪ.ሜ ርቃ በምትገኘው ቱርሚ ያርፋሉ።" },
+  },
+  {
+    id: "omorate", image: "omo-river-omorate", stops: ["jinka", "keyafer", "dimeka", "turmi", "omorate"],
+    name: { en: "Omorate & the Lower Omo", am: "ኦሞራቴና የታችኛው ኦሞ" },
+    sub: { en: "UNESCO World Heritage", am: "የዩኔስኮ የዓለም ቅርስ" },
+    tip: { en: "Cross the Omo by dugout to Dassanech villages. Check in with the local authorities in Omorate before you cross.", am: "ኦሞን በታንኳ ተሻግረው የዳሰነች መንደሮችን ይጎብኙ። ከመሻገርዎ በፊት በኦሞራቴ ለአካባቢው ባለሥልጣናት ያሳውቁ።" },
+    stayAt: ["turmi", "omorate"],
+    stayNote: { en: "Most visitors stay in Turmi and visit Omorate as a day trip.", am: "አብዛኞቹ ጎብኚዎች ቱርሚ አድረው ኦሞራቴን በቀን ጉዞ ይጎበኛሉ።" },
+  },
+];
+
+// Which journey each attraction on the Tourism page links to
+export const attractionJourney = { "lower-omo": "omorate", mago: "mago", "omo-river": "omorate", hamer: "hamer", markets: "markets", turkana: "arbore" };

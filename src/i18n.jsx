@@ -26,6 +26,11 @@ const dict = {
     general: "General enquiry", investDesk: "Investment desk", tourismDesk: "Tourism office", address: "Address", phone: "Phone", hours: "Office hours",
     creditsLead: "Photographs on this site are used under Creative Commons licences from Wikimedia Commons. We thank the photographers.",
     photo: "Photo", license: "License", source: "Source", footerAbout: "The official portal of the South Omo Zone Administration for investors, visitors and citizens.",
+    routeTitle: "From Jinka Airport into the valley", routeLead: "Daily flights from Addis Ababa land at Jinka. From the airport, licensed guides drive you by 4×4 to every corner of the zone. Choose a destination to follow the road.",
+    addis: "Addis Ababa", jinka: "Jinka", byAir: "about 1 h 30 by air", replay: "Replay", asphaltRoad: "Asphalt road", gravelRoad: "Gravel road", placesToStay: "Places to stay",
+    kmAsphalt: "km asphalt", kmGravel: "km gravel", byRoad: "By road", drive: "Drive", onTheWay: "On the way", direct: "Direct", town: "town", towns: "towns", airport: "Airport",
+    travelTip: "Travel tip", whereToStay: "Where to stay", staysFlag: "Suggested stays, to be confirmed by the Zone Tourism Office.", hr: "h", min: "min",
+    routeNote: "Distances follow the main roads. Drive times are estimates for the dry season with a 4×4 and will be longer after heavy rain.", fromJinka: "from Jinka Airport", seeRoute: "See the route", mapLabel: "Satellite map of roads from Jinka Airport", destinations: "Destinations",
     quickLinks: "Explore", reachUs: "Reach us", rights: "South Omo Zone Administration", loading: "Loading…", notFound: "Page not found.", menu: "Menu",
   },
   am: {
@@ -53,6 +58,11 @@ const dict = {
     general: "አጠቃላይ ጥያቄ", investDesk: "የኢንቨስትመንት ጽ/ቤት", tourismDesk: "የቱሪዝም ጽ/ቤት", address: "አድራሻ", phone: "ስልክ", hours: "የሥራ ሰዓት",
     creditsLead: "በዚህ ድረ-ገጽ ላይ ያሉት ፎቶዎች ከዊኪሚዲያ ኮመንስ በክሪኤቲቭ ኮመንስ ፈቃድ የተወሰዱ ናቸው። ፎቶ አንሺዎቹን እናመሰግናለን።",
     photo: "ፎቶ", license: "ፈቃድ", source: "ምንጭ", footerAbout: "ለባለሀብቶች፣ ለጎብኚዎችና ለዜጎች የደቡብ ኦሞ ዞን አስተዳደር ኦፊሴላዊ ፖርታል።",
+    routeTitle: "ከጂንካ አውሮፕላን ማረፊያ ወደ ሸለቆው", routeLead: "ከአዲስ አበባ የሚነሱ ዕለታዊ በረራዎች ጂንካ ያርፋሉ። ከአውሮፕላን ማረፊያው ፈቃድ ያላቸው አስጎብኚዎች በባለአራት እግር ተሽከርካሪ ወደ ዞኑ ማዕዘናት ሁሉ ይወስዱዎታል። መንገዱን ለመከተል መዳረሻ ይምረጡ።",
+    addis: "አዲስ አበባ", jinka: "ጂንካ", byAir: "በአውሮፕላን 1 ሰዓት ተኩል ገደማ", replay: "እንደገና", asphaltRoad: "የአስፋልት መንገድ", gravelRoad: "የጠጠር መንገድ", placesToStay: "ማረፊያዎች",
+    kmAsphalt: "ኪ.ሜ አስፋልት", kmGravel: "ኪ.ሜ ጠጠር", byRoad: "በመንገድ", drive: "ጉዞ", onTheWay: "በመንገድ ላይ", direct: "ቀጥታ", town: "ከተማ", towns: "ከተሞች", airport: "አውሮፕላን ማረፊያ",
+    travelTip: "የጉዞ ምክር", whereToStay: "የት ማረፍ ይቻላል", staysFlag: "የተጠቆሙ ማረፊያዎች፤ በዞኑ ቱሪዝም ጽሕፈት ቤት የሚረጋገጡ።", hr: "ሰ", min: "ደ",
+    routeNote: "ርቀቶቹ ዋና መንገዶችን ይከተላሉ። የጉዞ ሰዓቶቹ በበጋ ወቅት በባለአራት እግር ተሽከርካሪ የተገመቱ ሲሆኑ ከከባድ ዝናብ በኋላ ይረዝማሉ።", fromJinka: "ከጂንካ አውሮፕላን ማረፊያ", seeRoute: "መንገዱን ይመልከቱ", mapLabel: "ከጂንካ አውሮፕላን ማረፊያ የሚነሱ መንገዶች የሳተላይት ካርታ", destinations: "መዳረሻዎች",
     quickLinks: "ይቃኙ", reachUs: "ያግኙን", rights: "የደቡብ ኦሞ ዞን አስተዳደር", loading: "በመጫን ላይ…", notFound: "ገጹ አልተገኘም።", menu: "ማውጫ",
   },
 };

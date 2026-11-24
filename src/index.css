@@ -27,3 +27,90 @@
   .chip { @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium; }
   .link-arrow { @apply inline-flex items-center gap-1.5 text-sm font-semibold text-royal-600 transition hover:gap-2.5 hover:text-royal-800; }
 }
+
+/* Route map (Tourism page): journeys from Jinka Airport */
+.route-map .rm-list { @apply flex flex-col gap-1.5; }
+.route-map .rm-dest { @apply grid cursor-pointer items-center gap-4 rounded-[18px] py-2.5 pl-2.5 pr-3.5 text-left text-white transition duration-300 hover:bg-white/[0.04]; grid-template-columns: 64px 1fr auto; }
+.route-map .rm-dest img { @apply h-16 w-16 rounded-[14px] object-cover; filter: saturate(.85); }
+.route-map .rm-dest[aria-pressed="true"] { @apply bg-white/[0.07]; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+.route-map .rm-dest[aria-pressed="true"] img { filter: none; }
+.route-map .rm-sub { @apply mt-0.5 block text-[12.5px] text-white/50; }
+.route-map .rm-km { @apply text-[13px] tabular-nums text-white/45; }
+.route-map .rm-dest[aria-pressed="true"] .rm-km { @apply text-sun-400; }
+.route-map .rm-tip { @apply mx-1 mt-5 rounded-[18px] bg-sun-400/[0.08] px-5 py-4; box-shadow: inset 0 0 0 1px rgba(242,201,76,.18); }
+.route-map .rm-tip small, .route-map .rm-stays small { @apply flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[.18em] text-sun-400; }
+.route-map .rm-tip p { @apply mt-1.5 text-sm leading-relaxed text-white/80; }
+.route-map .rm-stays { @apply rounded-[18px] bg-white/[0.04] px-5 py-4 lg:mx-1 lg:mt-4; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+.route-map .rm-stays small { @apply text-white/60; }
+.route-map .rm-stays ul { @apply mt-2.5 flex flex-col gap-2.5; }
+.route-map .rm-stays li { @apply flex items-baseline justify-between gap-3; }
+.route-map .rm-stays li b { @apply font-serif text-base font-medium; }
+.route-map .rm-stays li span { @apply text-right text-xs text-white/50; }
+.route-map .rm-stays p { @apply mt-2.5 text-[12.5px] leading-relaxed text-white/55; }
+.route-map .rm-stays em { @apply mt-2.5 block text-[11px] not-italic text-sun-400/85; }
+.route-map .rm-note { @apply mx-3.5 mt-5 text-xs leading-relaxed text-white/40; }
+.route-map .rm-mapwrap { position: relative; min-width: 0; align-self: start; }
+.route-map .rm-map { @apply relative h-[400px] overflow-hidden rounded-[22px] bg-[#0d1626] sm:h-[520px] lg:h-[640px] lg:rounded-[28px]; box-shadow: 0 30px 60px -20px rgba(0,0,0,.55); }
+.route-map .rm-map::after { content: ""; @apply pointer-events-none absolute inset-0 z-[450] rounded-[inherit]; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); background: radial-gradient(120% 90% at 60% 40%, transparent 55%, rgba(5,12,30,.55)); }
+.route-map img.leaflet-tile { filter: saturate(.82) brightness(.86) contrast(1.05); }
+.route-map .leaflet-container { @apply font-sans; }
+.route-map .leaflet-control-attribution { background: rgba(11,26,61,.6) !important; color: rgba(255,255,255,.55) !important; @apply rounded-tl-lg text-[10px] backdrop-blur; }
+.route-map .leaflet-control-attribution a { color: rgba(255,255,255,.75) !important; }
+.route-map .leaflet-bar { border: 0 !important; box-shadow: none !important; }
+.route-map .leaflet-top.leaflet-right { margin: 10px 10px 0 0; }
+.route-map .leaflet-bar a { background: rgba(11,26,61,.72) !important; color: #fff !important; border: 0 !important; width: 34px !important; height: 34px !important; line-height: 34px !important; @apply backdrop-blur; }
+.route-map .rm-replay { @apply absolute left-5 top-5 z-[500] flex items-center gap-2 rounded-full bg-royal-950/70 px-3.5 py-2 text-[12.5px] font-semibold text-white backdrop-blur hover:bg-royal-950/90; box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
+.route-map .rm-legend { position: absolute; top: 64px; left: 1.25rem; z-index: 500; display: flex; flex-direction: column; gap: 6px; @apply rounded-[14px] bg-royal-950/70 px-3 py-2 text-[11px] text-white/85 backdrop-blur lg:px-3.5 lg:py-2.5 lg:text-xs; box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); }
+.route-map .rm-legend > div { @apply flex items-center gap-2.5; }
+.route-map .rm-key-bed { @apply mx-[5px] grid h-5 w-5 place-items-center rounded-md bg-white p-[3px] text-royal-950; }
+.route-map .rm-card { position: relative; margin-top: .75rem; display: grid; column-gap: 2rem; row-gap: .875rem; border-radius: 22px; background: rgba(255,255,255,.05); padding: 1.25rem 1.5rem .375rem; color: #fff; grid-template-columns: minmax(0,1fr); box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), 0 20px 40px -10px rgba(0,0,0,.5); }
+@media (min-width: 1024px) {
+  .route-map .rm-card { position: absolute; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; z-index: 500; margin-top: 0; align-items: end; row-gap: 0; background: rgba(11,26,61,.8); backdrop-filter: blur(12px); grid-template-columns: minmax(0,1fr) auto; }
+  .route-map .rm-legend { top: 66px; gap: 7px; }
+}
+.route-map .rm-from { @apply text-[11px] font-semibold uppercase tracking-[.18em] text-white/50; }
+.route-map .rm-surf { @apply mt-2 flex flex-wrap gap-4 text-[12.5px] tabular-nums text-white/70; }
+.route-map .rm-surf span { @apply inline-flex items-center gap-2; }
+.route-map .rm-stats { @apply flex flex-wrap gap-x-7 gap-y-2 tabular-nums; }
+.route-map .rm-stats div { @apply flex flex-col gap-0.5; }
+.route-map .rm-stats strong { @apply text-2xl font-semibold tracking-tight; }
+.route-map .rm-stats small { @apply text-[11px] uppercase tracking-[.14em] text-white/50; }
+.route-map .rm-rail { grid-column: 1 / -1; }
+.route-map .rm-track { @apply relative mb-1 mt-5 h-0.5 rounded bg-white/15; }
+.route-map .rm-fill { @apply absolute inset-y-0 left-0 w-0 rounded bg-sun-400; }
+.route-map .rm-pt { @apply absolute top-1/2 -ml-1 -mt-1 h-2 w-2 rounded-full bg-[#33426a] transition-colors duration-300; }
+.route-map .rm-pt.on { @apply bg-sun-400; }
+.route-map .rm-labels { @apply relative h-[30px] text-[11.5px] text-white/55; }
+.route-map .rm-labels span { @apply absolute top-2 -translate-x-1/2 whitespace-nowrap; }
+.route-map .rm-labels span:first-child { @apply translate-x-0; }
+.route-map .rm-labels span:last-child { @apply -translate-x-full text-white; }
+@media (max-width: 1023px) {
+  .route-map .rm-legend { top: calc(400px - 5.25rem); left: .75rem; flex-direction: row; flex-wrap: wrap; gap: 4px 12px; max-width: calc(100% - 1.5rem); }
+  .route-map .rm-list { @apply -mx-5 flex-row overflow-x-auto px-5; scrollbar-width: none; }
+  .route-map .rm-dest { grid-template-columns: 44px auto; @apply flex-none py-2 pl-2 pr-3.5; }
+  .route-map .rm-dest img { @apply h-11 w-11 rounded-xl; }
+  .route-map .rm-dest .rm-km, .route-map .rm-dest .rm-sub { @apply hidden; }
+}
+/* map markers */
+.rm-stop { position: relative; }
+.rm-stop i { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 3px rgba(11,26,61,.55); transition: transform .4s, background .4s; }
+.rm-stop span { position: absolute; left: 12px; top: -12px; white-space: nowrap; font-size: 12px; font-weight: 500; color: #fff; padding: 3px 9px; border-radius: 99px; background: rgba(11,26,61,.62); backdrop-filter: blur(6px); opacity: .75; transition: opacity .4s, background .4s, color .4s; }
+.rm-stop.dim i { background: rgba(255,255,255,.55); }
+.rm-stop.dim span { opacity: 0; }
+.rm-stop.hit i { background: #f2c94c; transform: scale(1.25); }
+.rm-stop.hit span { opacity: 1; }
+.rm-stop.end span { background: #f2c94c; color: #0b1a3d; font-weight: 600; }
+.rm-stop.end i::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid #f2c94c; animation: rm-ping 1.8s ease-out infinite; }
+.rm-airport { position: relative; }
+.rm-airport b { position: absolute; left: -17px; top: -17px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: #0b1a3d; box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+.rm-airport b svg { width: 16px; height: 16px; }
+.rm-airport span { position: absolute; left: 24px; top: -13px; white-space: nowrap; font-size: 12px; font-weight: 600; color: #0b1a3d; background: #fff; padding: 4px 10px; border-radius: 99px; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+.rm-airport.land b::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid #fff; animation: rm-ping 1.2s ease-out 2; }
+.rm-plane { position: absolute; left: -22px; top: -22px; width: 44px; height: 44px; color: #fff; filter: drop-shadow(0 10px 8px rgba(0,0,0,.45)); }
+.rm-vehicle { position: absolute; left: -12px; top: -23px; width: 24px; height: 46px; transition: transform .12s linear; filter: drop-shadow(0 4px 4px rgba(0,0,0,.55)); }
+.rm-bed { position: absolute; left: -36px; top: -13px; width: 26px; height: 26px; padding: 6px; border-radius: 8px; background: #fff; color: #0b1a3d; box-shadow: 0 4px 12px rgba(0,0,0,.35); opacity: .55; transition: opacity .4s, background .4s; }
+.rm-bed.j { left: -34px; top: 14px; }
+.rm-bed.on { opacity: 1; background: #f2c94c; }
+@keyframes rm-ping { from { transform: scale(1); opacity: .9; } to { transform: scale(3.2); opacity: 0; } }
+@media (min-width: 640px) and (max-width: 1023px) { .route-map .rm-legend { top: calc(520px - 4rem); } }
+@media (prefers-reduced-motion: reduce) { .rm-stop.end i::after, .rm-airport.land b::after { animation: none; } }

@@ -1,9 +1,11 @@
-import { CalendarDays, Camera, Compass, Plane, ShoppingBasket, Sun as SunIcon, HeartHandshake } from "lucide-react";
+import { useState } from "react";
+import { ArrowDown, CalendarDays, Camera, Compass, ShoppingBasket, Sun as SunIcon, HeartHandshake } from "lucide-react";
 import { useLang } from "../i18n";
 import { useAsync } from "../hooks";
 import { getTourism } from "../api";
 import { Loading, PageHero, Photo, Reveal, SectionHeading } from "../components/ui";
 import { CTA } from "./Home";
+import RouteMap, { journeyStats } from "../components/RouteMap";
 
 const DAYS = { en: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], am: ["እሑድ", "ሰኞ", "ማክሰ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"] };
 const ETI_ICONS = [Camera, Compass, ShoppingBasket, HeartHandshake];
@@ -12,6 +14,8 @@ export default function Tourism() {
   const { t, tx, lang } = useLang();
   const { data, loading } = useAsync(getTourism);
   const today = new Date().getDay();
+  const [journey, setJourney] = useState("hamer");
+  const showRoute = (id) => { setJourney(id); document.getElementById("getting-there")?.scrollIntoView({ behavior: "smooth", block: "start" }); };
   return (
     <>
       <PageHero eyebrow={t("tourismEyebrow")} title={t("tourismTitle")} lead={t("tourismLead")} image="omo-river-omorate" />
@@ -26,13 +30,37 @@ export default function Tourism() {
                     <span className="text-xs font-semibold uppercase tracking-eyebrow text-sun-600">{String(i + 1).padStart(2, "0")} · {tx(a.tag)}</span>
                     <h2 className="h-section mt-3">{tx(a.title)}</h2>
                     <p className="lead mt-5">{tx(a.text)}</p>
+                    {data.attractionJourney[a.id] && (() => { const jr = data.journeys.find((x) => x.id === data.attractionJourney[a.id]); return (
+                      <button type="button" onClick={() => showRoute(jr.id)} className="mt-6 inline-flex items-center gap-3 rounded-full bg-white py-2 pl-4 pr-2 text-sm shadow-soft ring-1 ring-royal-950/5 transition hover:ring-royal-300">
+                        <span className="text-ink-soft"><b className="font-semibold text-royal-950">{journeyStats(jr).km} km</b> {t("fromJinka")}</span>
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-royal-600 px-3 py-1 text-xs font-semibold text-white">{t("seeRoute")}<ArrowDown size={13} /></span>
+                      </button>
+                    ); })()}
                   </Reveal>
                 </div>
               ))}
             </div>
           </section>
 
-          <section className="bg-royal-950 py-24 text-white">
+          <section id="getting-there" className="scroll-mt-20 bg-royal-950 py-24 text-white">
+            <div className="container">
+              <div className="mb-11 flex flex-wrap items-end justify-between gap-10">
+                <Reveal className="max-w-xl">
+                  <span className="eyebrow !text-sun-400">{t("gettingThere")}</span>
+                  <h2 className="h-section mt-4 !text-white">{t("routeTitle")}</h2>
+                </Reveal>
+                <Reveal delay={0.1} className="max-w-md">
+                  <p className="text-[17px] leading-relaxed text-white/70">{t("routeLead")}</p>
+                  <div className="mt-4 flex items-center gap-2.5 whitespace-nowrap text-[13px] text-white/60 sm:gap-3.5">
+                    <b className="font-medium text-white">{t("addis")}</b><span className="h-px min-w-3 flex-1 border-t border-dashed border-white/50 sm:w-12 sm:flex-none" /><span>{t("byAir")}</span><span className="h-px min-w-3 flex-1 border-t border-dashed border-white/50 sm:w-12 sm:flex-none" /><b className="font-medium text-white">{t("jinka")}</b>
+                  </div>
+                </Reveal>
+              </div>
+              <RouteMap journeys={data.journeys} selected={journey} onSelect={setJourney} />
+            </div>
+          </section>
+
+          <section className="border-t border-white/10 bg-royal-950 py-24 text-white">
             <div className="container grid gap-14 lg:grid-cols-12">
               <div className="lg:col-span-7">
                 <SectionHeading eyebrow={t("attractions")} title={t("markets")} lead={t("marketsLead")} light />
@@ -54,7 +82,7 @@ export default function Tourism() {
                 </Reveal>
               </div>
               <div className="space-y-5 lg:col-span-5">
-                {[[Plane, t("gettingThere"), t("gettingThereText")], [SunIcon, t("bestTime"), t("bestTimeText")], [CalendarDays, t("markets"), t("marketsLead")]].map(([I, h, p], k) => (
+                {[[SunIcon, t("bestTime"), t("bestTimeText")], [CalendarDays, t("markets"), t("marketsLead")]].map(([I, h, p], k) => (
                   <Reveal key={k} delay={k * 0.08} className="rounded-2xl bg-white/[0.06] p-6 ring-1 ring-white/10">
                     <I className="text-sun-400" size={20} /><h3 className="mt-3 font-serif text-xl">{h}</h3><p className="mt-2 text-sm leading-relaxed text-white/70">{p}</p>
                   </Reveal>
