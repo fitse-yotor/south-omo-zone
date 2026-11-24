@@ -23,7 +23,7 @@ import Tourism from "./pages/Tourism";
 import Announcements from "./pages/Announcements";
 import Contact from "./pages/Contact";
 import Credits from "./pages/Credits";
-import News from "./pages/News";
+import News, { NewsArticle } from "./pages/News";
 import { initStore } from "./cms/store";
 import { RequireAuth } from "./cms/auth";
 import Login from "./admin/Login";
@@ -53,6 +53,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="woredas/:id" element={<WoredaDetail />} />
             <Route path="tourism" element={<Tourism />} />
             <Route path="news" element={<News />} />
+            <Route path="news/:id" element={<NewsArticle />} />
             <Route path="announcements" element={<Announcements />} />
             <Route path="contact" element={<Contact />} />
             <Route path="credits" element={<Credits />} />

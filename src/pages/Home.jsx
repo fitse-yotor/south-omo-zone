@@ -9,7 +9,7 @@ import { img, zone } from "../data/content";
 import credits from "../data/credits.json";
 import { AnnDetail, AnnRow, icons, Loading, Modal, Photo, Reveal, Rings, SectionHeading, VideoPlayer, WoredaCard } from "../components/ui";
 import { LOGO } from "../components/Layout";
-import { NewsCard, NewsDetail } from "./News";
+import { NewsCard } from "./News";
 
 const SLIDES = [
   { id: "turmi-hills", caption: { en: "Hills near Turmi, Hamer", am: "በቱርሚ አቅራቢያ ያሉ ኮረብቶች፣ ሐመር" } },
@@ -189,7 +189,6 @@ function Tourism({ attractions }) {
 
 function News({ news }) {
   const { t } = useLang();
-  const [sel, setSel] = useState(null);
   if (!news.length) return null;
   return (
     <section className="bg-sand-100 py-24 sm:py-32">
@@ -199,10 +198,9 @@ function News({ news }) {
           <Reveal className="mb-12"><Link to="/news" className="link-arrow">{t("allNews")}<ArrowRight size={15} /></Link></Reveal>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
-          {news.map((n, i) => <Reveal key={n.id} delay={i * 0.08}><NewsCard n={n} onOpen={setSel} /></Reveal>)}
+          {news.map((n, i) => <Reveal key={n.id} delay={i * 0.08}><NewsCard n={n} /></Reveal>)}
         </div>
       </div>
-      <Modal open={!!sel} onClose={() => setSel(null)}><NewsDetail n={sel} /></Modal>
     </section>
   );
 }

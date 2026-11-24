@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const dict = {
   en: {
-    news: "News", newsEyebrow: "Newsroom", newsTitle: "News from the zone", allNews: "All news", readMore: "Read more", noNews: "No news yet.", sampleNews: "Sample news: official stories will be published by the zone communication office.", staffLogin: "Staff login",
+    news: "News", newsEyebrow: "Newsroom", newsTitle: "News from the zone", allNews: "All news", readMore: "Read more", backToNews: "All news", moreNews: "More news", minRead: "min read", copyLink: "Copy link", linkCopied: "Link copied", newsNotFound: "This story isn't available", noNews: "No news yet.", sampleNews: "Sample news: official stories will be published by the zone communication office.", staffLogin: "Staff login",
     home: "Home", about: "The Zone", invest: "Invest", woredas: "Woredas", tourism: "Tourism", announcements: "Announcements", contact: "Contact", credits: "Photo credits",
     region: "South Ethiopia Regional State", officialPortal: "Official portal",
     exploreInvest: "Investment opportunities", planVisit: "Plan your visit",
@@ -32,7 +32,7 @@ const dict = {
     kmAsphalt: "km asphalt", kmGravel: "km gravel", byRoad: "By road", drive: "Drive", onTheWay: "On the way", direct: "Direct", town: "town", towns: "towns", airport: "Airport",
     travelTip: "Travel tip", whereToStay: "Where to stay", staysFlag: "Suggested stays, to be confirmed by the Zone Tourism Office.", hr: "h", min: "min",
     routeNote: "Distances follow the main roads. Drive times are estimates for the dry season with a 4×4 and will be longer after heavy rain.", fromJinka: "from Jinka Airport", seeRoute: "See the route", mapLabel: "Satellite map of roads from Jinka Airport", destinations: "Destinations",
-    itinerariesTab: "Itineraries", day: "Day", nights: "nights", night: "Night", startOn: "Start on", bestStart: "best", market: "market", marketToday: "Market today", marketsToday: "Today is {day}: {places} market is on.", noMarketToday: "No market today. Next: {day}, {place}.", nextMarket: "Next market", today: "Today",
+    itinerariesTab: "Itineraries", day: "Day", nights: "nights", night: "Night", startOn: "Start on", bestStart: "best", market: "market", marketToday: "Market today", marketsToday: "Today is {day}: {places} market is on.", noMarketToday: "No market today. Next: {day}, {place}.", nextMarket: "Next market",
     roadOpen: "Open", roadSlow: "Slow", roadClosed: "Closed", roadsOnRoute: "Roads", allRoadsOpen: "All roads open", roadStatusUnconfirmed: "Status not yet confirmed by the roads office", roadStatusAsOf: "Checked {date}", rainyWarning: "Rainy season: gravel roads can be slow or blocked after heavy rain. Check with your guide before setting out.",
     fuel: "Fuel", bank: "Bank", health: "Health post", gate: "Park gate", lastFuel: "Last fuel", servicesNote: "Services to confirm locally", photoBy: "Photo",
     quickLinks: "Explore", reachUs: "Reach us", rights: "South Omo Zone Administration", loading: "Loading…", notFound: "Page not found.", menu: "Menu",
@@ -67,10 +67,10 @@ const dict = {
     kmAsphalt: "ኪ.ሜ አስፋልት", kmGravel: "ኪ.ሜ ጠጠር", byRoad: "በመንገድ", drive: "ጉዞ", onTheWay: "በመንገድ ላይ", direct: "ቀጥታ", town: "ከተማ", towns: "ከተሞች", airport: "አውሮፕላን ማረፊያ",
     travelTip: "የጉዞ ምክር", whereToStay: "የት ማረፍ ይቻላል", staysFlag: "የተጠቆሙ ማረፊያዎች፤ በዞኑ ቱሪዝም ጽሕፈት ቤት የሚረጋገጡ።", hr: "ሰ", min: "ደ",
     routeNote: "ርቀቶቹ ዋና መንገዶችን ይከተላሉ። የጉዞ ሰዓቶቹ በበጋ ወቅት በባለአራት እግር ተሽከርካሪ የተገመቱ ሲሆኑ ከከባድ ዝናብ በኋላ ይረዝማሉ።", fromJinka: "ከጂንካ አውሮፕላን ማረፊያ", seeRoute: "መንገዱን ይመልከቱ", mapLabel: "ከጂንካ አውሮፕላን ማረፊያ የሚነሱ መንገዶች የሳተላይት ካርታ", destinations: "መዳረሻዎች",
-    itinerariesTab: "የጉዞ ዕቅዶች", day: "ቀን", nights: "ምሽቶች", night: "ምሽት", startOn: "የሚጀምሩበት", bestStart: "ምርጥ", market: "ገበያ", marketToday: "ዛሬ ገበያ", marketsToday: "ዛሬ {day} ነው፤ የ{places} ገበያ ይውላል።", noMarketToday: "ዛሬ ገበያ የለም። ቀጣዩ፦ {day}፣ {place}።", nextMarket: "ቀጣይ ገበያ", today: "ዛሬ",
+    itinerariesTab: "የጉዞ ዕቅዶች", day: "ቀን", nights: "ምሽቶች", night: "ምሽት", startOn: "የሚጀምሩበት", bestStart: "ምርጥ", market: "ገበያ", marketToday: "ዛሬ ገበያ", marketsToday: "ዛሬ {day} ነው፤ የ{places} ገበያ ይውላል።", noMarketToday: "ዛሬ ገበያ የለም። ቀጣዩ፦ {day}፣ {place}።", nextMarket: "ቀጣይ ገበያ",
     roadOpen: "ክፍት", roadSlow: "አዝጋሚ", roadClosed: "ዝግ", roadsOnRoute: "መንገዶች", allRoadsOpen: "ሁሉም መንገዶች ክፍት ናቸው", roadStatusUnconfirmed: "ሁኔታው ገና በመንገድ ጽ/ቤቱ አልተረጋገጠም", roadStatusAsOf: "የተረጋገጠው {date}", rainyWarning: "የዝናብ ወቅት፦ ከከባድ ዝናብ በኋላ የጠጠር መንገዶች ሊያዘገዩ ወይም ሊዘጉ ይችላሉ። ከመነሳትዎ በፊት አስጎብኚዎን ይጠይቁ።",
     fuel: "ነዳጅ", bank: "ባንክ", health: "ጤና ጣቢያ", gate: "የፓርክ መግቢያ", lastFuel: "የመጨረሻ ነዳጅ", servicesNote: "አገልግሎቶቹ በአካባቢው ይረጋገጣሉ", photoBy: "ፎቶ",
-    news: "ዜና", newsEyebrow: "የዜና ክፍል", newsTitle: "ከዞኑ የተገኙ ዜናዎች", allNews: "ሁሉም ዜናዎች", readMore: "ተጨማሪ ያንብቡ", noNews: "እስካሁን ዜና የለም።", sampleNews: "የናሙና ዜና፦ ይፋዊ ዜናዎች በዞኑ የኮሙኒኬሽን ጽ/ቤት ይወጣሉ።", staffLogin: "የሠራተኞች መግቢያ",
+    news: "ዜና", newsEyebrow: "የዜና ክፍል", newsTitle: "ከዞኑ የተገኙ ዜናዎች", allNews: "ሁሉም ዜናዎች", readMore: "ተጨማሪ ያንብቡ", backToNews: "ሁሉም ዜናዎች", moreNews: "ተጨማሪ ዜናዎች", minRead: "ደቂቃ ንባብ", copyLink: "ሊንኩን ቅዳ", linkCopied: "ሊንኩ ተቀድቷል", newsNotFound: "ይህ ዜና አይገኝም", noNews: "እስካሁን ዜና የለም።", sampleNews: "የናሙና ዜና፦ ይፋዊ ዜናዎች በዞኑ የኮሙኒኬሽን ጽ/ቤት ይወጣሉ።", staffLogin: "የሠራተኞች መግቢያ",
     quickLinks: "ይቃኙ", reachUs: "ያግኙን", rights: "የደቡብ ኦሞ ዞን አስተዳደር", loading: "በመጫን ላይ…", notFound: "ገጹ አልተገኘም።", menu: "ማውጫ",
   },
 };

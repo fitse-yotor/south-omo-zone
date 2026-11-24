@@ -10,6 +10,7 @@ export const getInvest = () => wait({ sectors: c.sectors, opportunities: c.oppor
 export const getTourism = () => wait({ journeys: c.journeys, itineraries: c.itineraries, attractionJourney: c.attractionJourney, attractions: c.attractions, markets: c.markets, etiquette: c.etiquette, peoples: c.peoples, peoplesAm: c.peoplesAm, woredas: c.woredas });
 const publishedNews = () => c.news.filter((n) => n.published).sort((a, b) => b.date.localeCompare(a.date));
 export const getNews = () => wait(publishedNews());
+export const getNewsItem = (id) => wait({ item: publishedNews().find((n) => n.id === id) || null, more: publishedNews().filter((n) => n.id !== id).slice(0, 3) });
 export const getAnnouncements = () => wait(c.announcements);
 export const getAbout = () => wait({ leader: c.leader, facts: c.facts, woredas: c.woredas, peoples: c.peoples, peoplesAm: c.peoplesAm });
 export const getCredits = () => wait(credits, 0);
