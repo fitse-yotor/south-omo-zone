@@ -3,7 +3,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { AlertTriangle, CheckCircle2, Fuel, Moon, RotateCcw } from "lucide-react";
 import { useLang } from "../i18n";
-import { img, markets, rainyMonths, roadLegs, roadStatusUpdated, routeStops, stays, townPhotos, townServices } from "../data/content";
+import { img, markets, rainyMonths, roadInfo, roadLegs, routeStops, stays, townPhotos, townServices } from "../data/content";
 import credits from "../data/credits.json";
 import routes from "../data/routes.json";
 
@@ -172,7 +172,7 @@ export default function RouteMap({ journeys, itineraries, selected, onSelect }) 
       markers[k] = L.marker(ll, { icon: L.divIcon({ className: "", iconSize: [0, 0], html }), interactive: false, zIndexOffset: k === "jinka" ? 1000 : 0 }).addTo(map);
     });
     const beds = {};
-    Object.keys(stays).forEach((k) => {
+    Object.keys(stays).filter((k) => stays[k]?.length && S[k]).forEach((k) => {
       beds[k] = L.marker(S[k], { icon: L.divIcon({ className: "", iconSize: [0, 0], html: `<div class="rm-bed${k === "jinka" ? " j" : ""}">${BED}</div>` }), interactive: false, zIndexOffset: 900 }).addTo(map);
     });
     api.current = { map, markers, beds, layers: [], run: 0 };
@@ -448,7 +448,7 @@ export default function RouteMap({ journeys, itineraries, selected, onSelect }) 
               {st.asphalt > 0 && <span><svg width="22" height="6"><line x1="1" y1="3" x2="21" y2="3" stroke="#50555e" strokeWidth="5" strokeLinecap="round" /><line x1="3" y1="3" x2="21" y2="3" stroke="#fff" strokeWidth="1" strokeDasharray="3 3" /></svg>{st.asphalt} {t("kmAsphalt")}</span>}
               {st.gravel > 0 && <span><svg width="22" height="6"><line x1="2" y1="3" x2="21" y2="3" stroke="#e2bd76" strokeWidth="3" strokeDasharray="1 5" strokeLinecap="round" /></svg>{st.gravel} {t("kmGravel")}</span>}
               {notOpen.length === 0
-                ? <span title={roadStatusUpdated ? fill2(t("roadStatusAsOf"), { date: roadStatusUpdated }) : t("roadStatusUnconfirmed")}><CheckCircle2 size={14} className="text-leaf-500" />{t("allRoadsOpen")}{!roadStatusUpdated && <sup>*</sup>}</span>
+                ? <span title={roadInfo.updated ? fill2(t("roadStatusAsOf"), { date: roadInfo.updated }) : t("roadStatusUnconfirmed")}><CheckCircle2 size={14} className="text-leaf-500" />{t("allRoadsOpen")}{!roadInfo.updated && <sup>*</sup>}</span>
                 : [...new Map(notOpen.map((l) => [l.key, l])).values()].map((l) => <span key={l.key} className={l.info.status === "closed" ? "text-ember-500" : "text-sun-400"}><AlertTriangle size={14} />{town(l.key.split("-")[0])}–{town(l.key.split("-")[1])}: {t(l.info.status === "closed" ? "roadClosed" : "roadSlow")}</span>)}
               {fuelStop && <span><Fuel size={14} className="text-sun-400" />{t("lastFuel")}: {town(fuelStop)}</span>}
             </div>
@@ -473,7 +473,7 @@ export default function RouteMap({ journeys, itineraries, selected, onSelect }) 
                 : st.pos.map((p, i) => <span key={i} style={{ left: `${p * 100}%` }}>{i === 0 ? t("airport") : tx(routeStops[st.legs[i - 1].to])}</span>)}
             </div>
           </div>
-          {!roadStatusUpdated && notOpen.length === 0 && <p className="rm-foot">* {t("roadStatusUnconfirmed")}</p>}
+          {!roadInfo.updated && notOpen.length === 0 && <p className="rm-foot">* {t("roadStatusUnconfirmed")}</p>}
         </div>
       </div>
     </div>

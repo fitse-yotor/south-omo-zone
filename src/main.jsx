@@ -23,6 +23,21 @@ import Tourism from "./pages/Tourism";
 import Announcements from "./pages/Announcements";
 import Contact from "./pages/Contact";
 import Credits from "./pages/Credits";
+import News from "./pages/News";
+import { initStore } from "./cms/store";
+import { RequireAuth } from "./cms/auth";
+import Login from "./admin/Login";
+import AdminLayout from "./admin/AdminLayout";
+import Dashboard from "./admin/Dashboard";
+import NewsAdmin from "./admin/NewsAdmin";
+import AnnouncementsAdmin from "./admin/AnnouncementsAdmin";
+import TourismAdmin from "./admin/TourismAdmin";
+import InvestmentAdmin from "./admin/InvestmentAdmin";
+import SiteAdmin from "./admin/SiteAdmin";
+import DataAdmin from "./admin/DataAdmin";
+
+// Apply content edits saved from the admin panel before anything renders
+initStore();
 import { PageHero } from "./components/ui";
 
 createRoot(document.getElementById("root")).render(
@@ -37,10 +52,21 @@ createRoot(document.getElementById("root")).render(
             <Route path="woredas" element={<Woredas />} />
             <Route path="woredas/:id" element={<WoredaDetail />} />
             <Route path="tourism" element={<Tourism />} />
+            <Route path="news" element={<News />} />
             <Route path="announcements" element={<Announcements />} />
             <Route path="contact" element={<Contact />} />
             <Route path="credits" element={<Credits />} />
             <Route path="*" element={<PageHero eyebrow="404" title="Page not found" />} />
+          </Route>
+          <Route path="login" element={<Login />} />
+          <Route path="admin" element={<RequireAuth><AdminLayout /></RequireAuth>}>
+            <Route index element={<Dashboard />} />
+            <Route path="news" element={<NewsAdmin />} />
+            <Route path="announcements" element={<AnnouncementsAdmin />} />
+            <Route path="tourism" element={<TourismAdmin />} />
+            <Route path="investment" element={<InvestmentAdmin />} />
+            <Route path="site" element={<SiteAdmin />} />
+            <Route path="data" element={<DataAdmin />} />
           </Route>
         </Routes>
       </HashRouter>

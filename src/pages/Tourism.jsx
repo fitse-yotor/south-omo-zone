@@ -73,7 +73,7 @@ export default function Tourism() {
                     <tbody>
                       {data.markets.map((m) => (
                         <tr key={m.place.en} className="border-t border-white/10">
-                          <td className="py-4 pr-4"><p className="font-serif text-lg text-white">{tx(m.place)}</p><p className="text-xs text-white/50">{tx(data.woredas.find((w) => w.id === m.woreda).name)}</p></td>
+                          <td className="py-4 pr-4"><p className="font-serif text-lg text-white">{tx(m.place)}</p><p className="text-xs text-white/50">{tx(data.woredas.find((w) => w.id === m.woreda)?.name ?? "")}</p></td>
                           {DAYS.en.map((_, k) => <td key={k} className={`text-center ${k === today ? "bg-white/[0.04]" : ""}`}>{m.days.includes(k) ? <span className={`inline-block h-3 w-3 rounded-full ${k === today ? "bg-sun-400 ring-4 ring-sun-400/25" : "bg-royal-400"}`} /> : <span className="text-white/15">·</span>}</td>)}
                         </tr>
                       ))}

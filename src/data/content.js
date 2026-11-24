@@ -441,8 +441,8 @@ export const routeStops = {
 
 // Per road leg: surface, dry-season drive time in minutes with a 4×4, and current status.
 // TOURISM / ROADS OFFICE: update `status` ("open", "slow" or "closed"), add a `note` if needed,
-// and set roadStatusUpdated to the date you checked. The map and journey card follow automatically.
-export const roadStatusUpdated = null; // e.g. "2026-12-01"
+// and set roadInfo.updated to the date you checked (or use the admin panel at /admin/tourism). The map and journey card follow automatically.
+export const roadInfo = { updated: null }; // updated: date the roads office last checked, e.g. "2026-12-01"
 export const roadLegs = {
   "jinka-keyafer": { surface: "asphalt", minutes: 60, status: "open" },
   "keyafer-weyto": { surface: "asphalt", minutes: 60, status: "open" },
@@ -554,3 +554,22 @@ export const itineraries = [
 
 // Which journey each attraction on the Tourism page links to
 export const attractionJourney = { "lower-omo": "omorate", mago: "mago", "omo-river": "omorate", hamer: "hamer", markets: "markets", turkana: "arbore" };
+
+// News. SAMPLE items: the zone communication office replaces these from the admin panel (/admin/news).
+export const news = [
+  {
+    id: "n1", date: iso(-1), published: true, image: "turmi-hills",
+    title: { en: "Plan your trip from Jinka Airport", am: "ከጂንካ አውሮፕላን ማረፊያ ጉዞዎን ያቅዱ" },
+    summary: { en: "The Tourism page now shows every route from Jinka Airport on a satellite map, with ready-made 3- and 5-day trips and weekly market days.", am: "የቱሪዝም ገጹ አሁን ከጂንካ አውሮፕላን ማረፊያ የሚነሱ መንገዶችን በሳተላይት ካርታ፣ የ3 እና የ5 ቀን ዝግጁ ጉዞዎችንና ሳምንታዊ የገበያ ቀናትን ያሳያል።" },
+    body: {
+      en: ["Visitors can now follow the road from Jinka Airport to Mago National Park, Key Afer, Turmi, Arbore and Omorate on a satellite map, with distances, drive times and places to stay.", "Ready-made 3-day and 5-day trips line up with the weekly markets, and road warnings show during the rainy season."],
+      am: ["ጎብኚዎች ከጂንካ አውሮፕላን ማረፊያ ወደ ማጎ ብሔራዊ ፓርክ፣ ቀይ አፈር፣ ቱርሚ፣ አርቦሬና ኦሞራቴ የሚወስደውን መንገድ ከርቀት፣ ከጉዞ ሰዓትና ከማረፊያዎች ጋር በሳተላይት ካርታ መከተል ይችላሉ።", "የ3 እና የ5 ቀን ዝግጁ ጉዞዎች ከሳምንታዊ ገበያዎች ጋር ይገጥማሉ፤ በዝናብ ወቅትም የመንገድ ማስጠንቀቂያዎች ይታያሉ።"],
+    },
+  },
+  {
+    id: "n2", date: iso(-9), published: true, image: "banna-enterprise",
+    title: { en: "Sample: investor briefing at the zone office", am: "ናሙና፦ በዞኑ ጽ/ቤት የባለሀብቶች ገለጻ" },
+    summary: { en: "Sample news item. The investment desk will publish real briefings and announcements here.", am: "የናሙና ዜና። የኢንቨስትመንት ዴስኩ ትክክለኛ ገለጻዎችንና ማስታወቂያዎችን እዚህ ያወጣል።" },
+    body: { en: ["This is a sample news item. Replace it from the admin panel."], am: ["ይህ የናሙና ዜና ነው። ከአስተዳዳሪ ፓነሉ ይተኩት።"] },
+  },
+];

@@ -6,7 +6,7 @@ import { useLang } from "../i18n";
 import { zone } from "../data/content";
 
 export const LOGO = "./brand/logo.png";
-const NAV = [["/", "home"], ["/about", "about"], ["/invest", "invest"], ["/woredas", "woredas"], ["/tourism", "tourism"], ["/announcements", "announcements"], ["/contact", "contact"]];
+const NAV = [["/", "home"], ["/about", "about"], ["/invest", "invest"], ["/woredas", "woredas"], ["/tourism", "tourism"], ["/news", "news"], ["/announcements", "announcements"], ["/contact", "contact"]];
 
 function LangSwitch({ dark }) {
   const { lang, setLang } = useLang();
@@ -121,7 +121,10 @@ export default function Layout() {
         <div className="border-t border-white/10">
           <div className="container flex flex-col justify-between gap-2 py-6 text-xs sm:flex-row">
             <span>© {new Date().getFullYear()} {t("rights")}</span>
-            <Link to="/credits" className="hover:text-white">{t("credits")}: Wikimedia Commons (CC BY / CC BY-SA)</Link>
+            <span className="flex flex-wrap gap-x-5 gap-y-1">
+              <Link to="/credits" className="hover:text-white">{t("credits")}: Wikimedia Commons (CC BY / CC BY-SA)</Link>
+              <Link to="/login" className="hover:text-white">{t("staffLogin")}</Link>
+            </span>
           </div>
         </div>
       </footer>

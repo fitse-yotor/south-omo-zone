@@ -9,6 +9,7 @@ import { img, zone } from "../data/content";
 import credits from "../data/credits.json";
 import { AnnDetail, AnnRow, icons, Loading, Modal, Photo, Reveal, Rings, SectionHeading, VideoPlayer, WoredaCard } from "../components/ui";
 import { LOGO } from "../components/Layout";
+import { NewsCard, NewsDetail } from "./News";
 
 const SLIDES = [
   { id: "turmi-hills", caption: { en: "Hills near Turmi, Hamer", am: "በቱርሚ አቅራቢያ ያሉ ኮረብቶች፣ ሐመር" } },
@@ -186,6 +187,26 @@ function Tourism({ attractions }) {
   );
 }
 
+function News({ news }) {
+  const { t } = useLang();
+  const [sel, setSel] = useState(null);
+  if (!news.length) return null;
+  return (
+    <section className="bg-sand-100 py-24 sm:py-32">
+      <div className="container">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <SectionHeading eyebrow={t("newsEyebrow")} title={t("newsTitle")} />
+          <Reveal className="mb-12"><Link to="/news" className="link-arrow">{t("allNews")}<ArrowRight size={15} /></Link></Reveal>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {news.map((n, i) => <Reveal key={n.id} delay={i * 0.08}><NewsCard n={n} onOpen={setSel} /></Reveal>)}
+        </div>
+      </div>
+      <Modal open={!!sel} onClose={() => setSel(null)}><NewsDetail n={sel} /></Modal>
+    </section>
+  );
+}
+
 function Notices({ announcements }) {
   const { t } = useLang();
   const [sel, setSel] = useState(null);
@@ -253,6 +274,7 @@ export default function Home() {
             </div>
           </section>
           <Tourism attractions={data.attractions} />
+          <News news={data.news} />
           <Notices announcements={data.announcements} />
           <CTA />
         </>

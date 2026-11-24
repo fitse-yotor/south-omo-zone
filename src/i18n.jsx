@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const dict = {
   en: {
+    news: "News", newsEyebrow: "Newsroom", newsTitle: "News from the zone", allNews: "All news", readMore: "Read more", noNews: "No news yet.", sampleNews: "Sample news: official stories will be published by the zone communication office.", staffLogin: "Staff login",
     home: "Home", about: "The Zone", invest: "Invest", woredas: "Woredas", tourism: "Tourism", announcements: "Announcements", contact: "Contact", credits: "Photo credits",
     region: "South Ethiopia Regional State", officialPortal: "Official portal",
     exploreInvest: "Investment opportunities", planVisit: "Plan your visit",
@@ -69,6 +70,7 @@ const dict = {
     itinerariesTab: "የጉዞ ዕቅዶች", day: "ቀን", nights: "ምሽቶች", night: "ምሽት", startOn: "የሚጀምሩበት", bestStart: "ምርጥ", market: "ገበያ", marketToday: "ዛሬ ገበያ", marketsToday: "ዛሬ {day} ነው፤ የ{places} ገበያ ይውላል።", noMarketToday: "ዛሬ ገበያ የለም። ቀጣዩ፦ {day}፣ {place}።", nextMarket: "ቀጣይ ገበያ", today: "ዛሬ",
     roadOpen: "ክፍት", roadSlow: "አዝጋሚ", roadClosed: "ዝግ", roadsOnRoute: "መንገዶች", allRoadsOpen: "ሁሉም መንገዶች ክፍት ናቸው", roadStatusUnconfirmed: "ሁኔታው ገና በመንገድ ጽ/ቤቱ አልተረጋገጠም", roadStatusAsOf: "የተረጋገጠው {date}", rainyWarning: "የዝናብ ወቅት፦ ከከባድ ዝናብ በኋላ የጠጠር መንገዶች ሊያዘገዩ ወይም ሊዘጉ ይችላሉ። ከመነሳትዎ በፊት አስጎብኚዎን ይጠይቁ።",
     fuel: "ነዳጅ", bank: "ባንክ", health: "ጤና ጣቢያ", gate: "የፓርክ መግቢያ", lastFuel: "የመጨረሻ ነዳጅ", servicesNote: "አገልግሎቶቹ በአካባቢው ይረጋገጣሉ", photoBy: "ፎቶ",
+    news: "ዜና", newsEyebrow: "የዜና ክፍል", newsTitle: "ከዞኑ የተገኙ ዜናዎች", allNews: "ሁሉም ዜናዎች", readMore: "ተጨማሪ ያንብቡ", noNews: "እስካሁን ዜና የለም።", sampleNews: "የናሙና ዜና፦ ይፋዊ ዜናዎች በዞኑ የኮሙኒኬሽን ጽ/ቤት ይወጣሉ።", staffLogin: "የሠራተኞች መግቢያ",
     quickLinks: "ይቃኙ", reachUs: "ያግኙን", rights: "የደቡብ ኦሞ ዞን አስተዳደር", loading: "በመጫን ላይ…", notFound: "ገጹ አልተገኘም።", menu: "ማውጫ",
   },
 };
