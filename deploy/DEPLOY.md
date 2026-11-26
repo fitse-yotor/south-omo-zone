@@ -158,17 +158,23 @@ Back up weekly, and before every update:
 
 ```bash
 cd backend
-cp .env.example .env            # then set APP_ENV=local, APP_DEBUG=true, DB_CONNECTION=sqlite
-touch database/database.sqlite
+cp .env.local.example .env      # local settings: SQLite file database, debug on, plain http
+touch database/database.sqlite  # Windows PowerShell: New-Item database/database.sqlite
 composer install
 php artisan key:generate
 php artisan migrate --seed
 php artisan portal:admin
-php artisan serve               # http://127.0.0.1:8000/admin
-
-# in another terminal, from the repository root: the website against the local API
-VITE_API_URL=http://127.0.0.1:8000/api npm run dev
+php artisan serve               # http://127.0.0.1:8000 (website) and http://127.0.0.1:8000/admin
 ```
 
-Without `VITE_API_URL`, the website uses its built-in content (`src/data/content.js`), which is how it ran before the backend.
+To work on the website with instant reload, run this in a second terminal from the repository root:
+
+```bash
+npm ci
+VITE_API_URL=http://127.0.0.1:8000/api npm run dev    # http://localhost:5173
+```
+
+(Windows PowerShell: `$env:VITE_API_URL="http://127.0.0.1:8000/api"; npm run dev`)
+
+Without `VITE_API_URL`, the website uses its built-in content (`src/data/content.js`), so `npm run dev` also works with no backend.
 To refresh the seed data after editing `src/data/content.js`, run `node scripts/export-content.mjs`.
