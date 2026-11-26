@@ -45,9 +45,15 @@ Photo credits page and on hover. Keep the credits if you keep the photos. To add
 ## Backend and admin panel (Laravel)
 `backend/` is a Laravel 12 application with a [Filament](https://filamentphp.com) admin panel and a MySQL database, built for ordinary shared hosting (cPanel, PHP 8.2+).
 
-- **Admin panel** at `/admin`: staff edit vacancies and tenders (with PDF attachments), investment opportunities, sectors, woredas, attractions,
-  the leader's message and video, road status for the Tourism map, contact details, and read contact-form messages.
-  Every text has English and Amharic fields.
+- **Admin panel** at `/admin`: everything the website shows can be edited there, in English and Amharic:
+  - *Notice board:* vacancies and tenders (with PDF attachments), contact-form messages
+  - *Home page:* zone name, headline and introduction, slideshow, key facts, investment steps, commitments and travel tips
+  - *Investment:* opportunities, sectors
+  - *Zone & tourism:* leader's message and video, woredas, attractions, road status, weekly markets, peoples
+  - *Tourism map:* towns with services and places to stay, journeys from Jinka, multi-day itineraries
+    (routes are checked against the roads the map can draw), rainy-season months
+  - *Settings:* staff accounts, interface labels (every menu, button and heading), photo credits
+  Uploaded photos get their own credit line. Only road shapes and town positions stay fixed: they come from OpenStreetMap (`src/data/routes.json`).
 - **Roles:** *Administrator* (everything), *Content editor* (all content), *Vacancies & tenders only* (HR and procurement staff).
 - **API:** `GET /api/content` returns everything the admin panel controls, in the same shape as `src/data/content.js`,
   cached and refreshed automatically when staff save. `POST /api/contact` stores messages, emails the right desk, rate-limits and filters spam.

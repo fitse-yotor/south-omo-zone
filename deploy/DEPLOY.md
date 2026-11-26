@@ -96,12 +96,14 @@ php artisan optimize
 php artisan filament:optimize
 ```
 
-- `db:seed` loads the current website content: woredas, sectors, opportunities, attractions, sample notices, the leader's message and road status.
+- `db:seed` loads the current website content into the database: zone texts, slideshow, facts, woredas, sectors,
+  opportunities, attractions, sample notices, the leader's message, markets, peoples, guide texts, tourism towns and stays,
+  roads, journeys, itineraries, interface labels and photo credits. Run it **once**, on the first install only.
 - `portal:admin` asks for a name, email, role and password for the first administrator.
 
 Open `https://your-domain/admin`, sign in, then:
 
-1. **Settings → Contact details**: replace the placeholder phone and emails.
+1. **Home page → Zone texts & contact**: replace the placeholder phone and emails.
 2. **Zone & tourism → Leader's message**: name, portrait, YouTube link.
 3. **Notice board**: delete the sample vacancies and tenders, and add real ones.
 4. **Investment → Opportunities**: confirm or replace the sample listings.
@@ -143,8 +145,14 @@ Back up weekly, and before every update:
 3. Run:
 
    ```bash
-   php artisan migrate --force && php artisan optimize && php artisan filament:optimize
+   php artisan migrate --force
+   php artisan db:seed --class=SiteContentSeeder --force
+   php artisan optimize && php artisan filament:optimize
    ```
+
+   `SiteContentSeeder` only fills sections that are still empty and adds new interface labels.
+   It never overwrites anything staff have edited, so it is safe to run on every update.
+   Do **not** run plain `php artisan db:seed` on a live site: it resets the sample notices and opportunities.
 
 ## Development (local)
 

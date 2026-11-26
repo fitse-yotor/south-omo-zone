@@ -9,7 +9,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->call(PortalSeeder::class);
+        $this->call([PortalSeeder::class, SiteContentSeeder::class]);
 
         // First administrator, only when credentials are provided (never a default password):
         //   ADMIN_EMAIL=you@example.com ADMIN_PASSWORD='a-long-passphrase' php artisan db:seed

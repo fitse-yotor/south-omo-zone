@@ -4,7 +4,10 @@ namespace Tests\Feature;
 
 use App\Models\Announcement;
 use App\Models\ContactMessage;
+use App\Models\RoadStatus;
+use App\Support\MapData;
 use Database\Seeders\PortalSeeder;
+use Database\Seeders\SiteContentSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -56,5 +59,43 @@ class PortalApiTest extends TestCase
 
         $this->assertSame(1, ContactMessage::count());
         $this->assertSame('invest', ContactMessage::first()->desk);
+    }
+
+    public function test_all_website_sections_are_served(): void
+    {
+        $this->seed([PortalSeeder::class, SiteContentSeeder::class]);
+
+        $this->getJson('/api/content')->assertOk()
+            ->assertJsonCount(4, 'heroSlides')
+            ->assertJsonCount(4, 'facts')
+            ->assertJsonCount(3, 'markets')
+            ->assertJsonCount(5, 'journeys')
+            ->assertJsonCount(2, 'itineraries')
+            ->assertJsonPath('routeStops.jinka.en', 'Jinka Airport')
+            ->assertJsonPath('roadLegs.dimeka-turmi.surface', 'gravel')
+            ->assertJsonStructure(['zone' => ['tagline' => ['en', 'am']], 'investSteps' => ['en', 'am'], 'labels' => ['en', 'am'], 'credits', 'stays', 'townServices', 'rainyMonths']);
+    }
+
+    public function test_routes_must_follow_roads_on_the_map(): void
+    {
+        $this->seed(SiteContentSeeder::class);
+
+        $this->assertNull(MapData::routeError(['jinka', 'keyafer', 'weyto']));
+        $this->assertNull(MapData::routeError([['stop' => 'turmi'], ['stop' => 'omorate']])); // form-state shape
+        $this->assertStringContainsString('no road on the map', MapData::routeError(['jinka', 'omorate']));
+    }
+
+    public function test_site_content_seeder_never_overwrites_staff_edits(): void
+    {
+        $this->seed([PortalSeeder::class, SiteContentSeeder::class]);
+        RoadStatus::where('leg', 'dimeka-turmi')->update(['status' => 'closed', 'minutes' => 55]);
+        \App\Models\Market::first()->update(['days' => [6]]);
+
+        $this->seed(SiteContentSeeder::class);
+
+        $this->assertSame('closed', RoadStatus::where('leg', 'dimeka-turmi')->value('status'));
+        $this->assertSame(55, (int) RoadStatus::where('leg', 'dimeka-turmi')->value('minutes'));
+        $this->assertSame([6], \App\Models\Market::first()->days);
+        $this->assertSame(3, \App\Models\Market::count());
     }
 }

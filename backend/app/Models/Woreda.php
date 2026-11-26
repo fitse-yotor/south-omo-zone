@@ -23,7 +23,7 @@ class Woreda extends Model
     {
         return [
             'id' => $this->slug,
-            'image' => self::imageRef($this->photo ?: $this->image),
+            'image' => $this->photoRef(),
             'name' => $this->bi('name'),
             'seat' => $this->seat_en ? $this->bi('seat') : null,
             'peoples' => $this->bi('peoples'),

@@ -40,7 +40,7 @@ export function Photo({ id, alt = "", className = "", imgClass = "", showCredit 
       <img src={img(id)} alt={alt} loading="lazy" className={`h-full w-full object-cover ${imgClass}`} />
       {showCredit && c && (
         <span className="pointer-events-none absolute bottom-2 right-2 rounded bg-black/45 px-2 py-0.5 text-[10px] text-white/80 opacity-0 backdrop-blur transition group-hover/photo:opacity-100">
-          © {c.author} · {c.license}
+          © {c.author}{c.license ? ` · ${c.license}` : ""}
         </span>
       )}
     </div>

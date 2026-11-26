@@ -13,6 +13,6 @@ class Attraction extends Model
 
     public function toPortal(): array
     {
-        return ['id' => $this->slug, 'image' => self::imageRef($this->photo ?: $this->image), 'title' => $this->bi('title'), 'tag' => $this->bi('tag'), 'text' => $this->bi('text')];
+        return ['id' => $this->slug, 'journey' => $this->journey_slug, 'image' => $this->photoRef(), 'title' => $this->bi('title'), 'tag' => $this->bi('tag'), 'text' => $this->bi('text')];
     }
 }

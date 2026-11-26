@@ -1,4 +1,5 @@
 {
+ "exportedOn": "2026-11-26",
  "photos": [
   {
    "id": "turmi-hills",
@@ -65,7 +66,162 @@
    "credit": "Rod Waddington, CC BY-SA 2.0"
   }
  ],
- "exportedOn": "2026-11-26",
+ "credits": [
+  {
+   "id": "turmi-hills",
+   "file": "images/turmi-hills.jpg",
+   "title": "Near Turmi, Omo Valley, Ethiopia (23419547879).jpg",
+   "author": "Rod Waddington",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Near_Turmi,_Omo_Valley,_Ethiopia_(23419547879).jpg"
+  },
+  {
+   "id": "omo-river-omorate",
+   "file": "images/omo-river-omorate.jpg",
+   "title": "Omo River at Omorate (1).jpg",
+   "author": "Richard Mortel",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Omo_River_at_Omorate_(1).jpg"
+  },
+  {
+   "id": "omo-river-banks",
+   "file": "images/omo-river-banks.jpg",
+   "title": "Omo River at Omorate (2).jpg",
+   "author": "Richard Mortel",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Omo_River_at_Omorate_(2).jpg"
+  },
+  {
+   "id": "banna-village",
+   "file": "images/banna-village.jpg",
+   "title": "Peaceful Village, Banna Tribe (13186577865).jpg",
+   "author": "Rod Waddington",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Peaceful_Village,_Banna_Tribe_(13186577865).jpg"
+  },
+  {
+   "id": "hamer-village",
+   "file": "images/hamer-village.jpg",
+   "title": "Hamer Village, Turmi (6191309460).jpg",
+   "author": "Rod Waddington",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Hamer_Village,_Turmi_(6191309460).jpg"
+  },
+  {
+   "id": "omo-savanna",
+   "file": "images/omo-savanna.jpg",
+   "title": "Savanna in Omo valley.JPG",
+   "author": "Jens Klinzing",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Savanna_in_Omo_valley.JPG"
+  },
+  {
+   "id": "lower-omo-aerial",
+   "file": "images/lower-omo-aerial.jpg",
+   "title": "Lower Omo River Valley, Ethiopia.jpg",
+   "author": "Yonas Kidane",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Lower_Omo_River_Valley,_Ethiopia.jpg"
+  },
+  {
+   "id": "omo-river-aerial",
+   "file": "images/omo-river-aerial.jpg",
+   "title": "Omo River 2.jpg",
+   "author": "Yonas Kidane",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Omo_River_2.jpg"
+  },
+  {
+   "id": "hamer-ceremony",
+   "file": "images/hamer-ceremony.jpg",
+   "title": "Hamer girls waiting for the bulls near Turmi, Omo Valley, Ethiopia (17054871801).jpg",
+   "author": "Alfred Weidinger from Vienna, Austria",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Hamer_girls_waiting_for_the_bulls_near_Turmi,_Omo_Valley,_Ethiopia_(17054871801).jpg"
+  },
+  {
+   "id": "banna-enterprise",
+   "file": "images/banna-enterprise.jpg",
+   "title": "Enterprise, Banna Tribe (10882077215).jpg",
+   "author": "Rod Waddington",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Enterprise,_Banna_Tribe_(10882077215).jpg"
+  },
+  {
+   "id": "lake-turkana-dusk",
+   "file": "images/lake-turkana-dusk.jpg",
+   "title": "Dusk over Lake Turkana.jpg",
+   "author": "Galkey",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Dusk_over_Lake_Turkana.jpg"
+  },
+  {
+   "id": "dassanech-mother",
+   "file": "images/dassanech-mother.jpg",
+   "title": "Dassanech Tribe, Omorate (52869527493).jpg",
+   "author": "Rod Waddington",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Dassanech_Tribe,_Omorate_(52869527493).jpg"
+  },
+  {
+   "id": "dassanech-elder",
+   "file": "images/dassanech-elder.jpg",
+   "title": "Dassanech Elder, Omorate (52876621379).jpg",
+   "author": "Rod Waddington",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Dassanech_Elder,_Omorate_(52876621379).jpg"
+  },
+  {
+   "id": "banna-woman",
+   "file": "images/banna-woman.jpg",
+   "title": "Banna Woman, Sth Ethiopia (in explore) - Flickr - Rod Waddington.jpg",
+   "author": "Rod Waddington",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Banna_Woman,_Sth_Ethiopia_(in_explore)_-_Flickr_-_Rod_Waddington.jpg"
+  },
+  {
+   "id": "hamer-boys",
+   "file": "images/hamer-boys.jpg",
+   "title": "Turmi Boys, Hamer, Ethiopia (23706337311).jpg",
+   "author": "Rod Waddington",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Turmi_Boys,_Hamer,_Ethiopia_(23706337311).jpg"
+  },
+  {
+   "id": "mursi-woman",
+   "file": "images/mursi-woman.jpg",
+   "title": "Mursi Tribe, Omo Valley (13125469145).jpg",
+   "author": "Rod Waddington",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Mursi_Tribe,_Omo_Valley_(13125469145).jpg"
+  }
+ ],
+ "zone": {
+  "name": {
+   "en": "South Omo Zone",
+   "am": "ደቡብ ኦሞ ዞን"
+  },
+  "admin": {
+   "en": "South Omo Zone Administration",
+   "am": "የደቡብ ኦሞ ዞን አስተዳደር"
+  },
+  "region": {
+   "en": "South Ethiopia Regional State",
+   "am": "የደቡብ ኢትዮጵያ ክልላዊ መንግሥት"
+  },
+  "capital": {
+   "en": "Dimeka",
+   "am": "ዲመካ"
+  },
+  "tagline": {
+   "en": "Where the Omo River meets opportunity",
+   "am": "የኦሞ ወንዝ ከዕድል ጋር የሚገናኝበት"
+  },
+  "intro": {
+   "en": "From the highlands of Male and Bako Gazer to the delta where the Omo River enters Lake Turkana, South Omo is a land of fertile river valleys, open savanna and some of the most remarkable living cultures in Africa.",
+   "am": "ከማሌና ከባኮ ጋዘር ደጋማ ቦታዎች እስከ ኦሞ ወንዝ ቱርካና ሐይቅን እስከሚቀላቀልበት ዴልታ ድረስ ደቡብ ኦሞ ለም የወንዝ ሸለቆዎች፣ ሰፊ የሳር ሜዳዎችና በአፍሪካ ካሉ አስደናቂ ህያው ባህሎች የሚገኙበት ምድር ነው።"
+  }
+ },
  "contact": {
   "address": {
    "en": "Zone Administration Office, Dimeka, South Omo Zone",
@@ -80,6 +236,66 @@
    "am": "ሰኞ – አርብ፣ 2፡30 – 11፡30"
   }
  },
+ "heroSlides": [
+  {
+   "id": "turmi-hills",
+   "caption": {
+    "en": "Hills near Turmi, Hamer",
+    "am": "በቱርሚ አቅራቢያ ያሉ ኮረብቶች፣ ሐመር"
+   }
+  },
+  {
+   "id": "omo-river-omorate",
+   "caption": {
+    "en": "The Omo River at Omorate",
+    "am": "የኦሞ ወንዝ በኦሞራቴ"
+   }
+  },
+  {
+   "id": "banna-village",
+   "caption": {
+    "en": "Farmland and homesteads, Bena Tsemay",
+    "am": "የእርሻ መሬትና መንደሮች፣ በና ጸማይ"
+   }
+  },
+  {
+   "id": "hamer-village",
+   "caption": {
+    "en": "A Hamer village near Turmi",
+    "am": "በቱርሚ አቅራቢያ የሐመር መንደር"
+   }
+  }
+ ],
+ "facts": [
+  {
+   "value": "8",
+   "label": {
+    "en": "Woredas",
+    "am": "ወረዳዎች"
+   }
+  },
+  {
+   "value": "1980",
+   "label": {
+    "en": "UNESCO World Heritage listing",
+    "am": "በዩኔስኮ የዓለም ቅርስነት የተመዘገበበት"
+   }
+  },
+  {
+   "value": "15+",
+   "label": {
+    "en": "Peoples and communities",
+    "am": "ብሔረሰቦችና ማህበረሰቦች"
+   }
+  },
+  {
+   "value": "233,000",
+   "label": {
+    "en": "Years: oldest Homo sapiens fossils",
+    "am": "ዓመታት፦ ጥንታዊው የሆሞ ሳፒየንስ ቅሪተ አካል"
+   }
+  }
+ ],
  "leader": {
   "name": {
    "en": "Chief Administrator",
@@ -759,7 +975,8 @@
    "text": {
     "en": "Fossil beds in the valley, including the Omo Kibish finds dated to about 233,000 years, are the oldest known remains of Homo sapiens. The site was inscribed on the World Heritage List in 1980.",
     "am": "በሸለቆው የሚገኙት የቅሪተ አካል ስፍራዎች፣ በ233,000 ዓመታት ገደማ የተገመቱትን የኦሞ ኪቢሽ ግኝቶች ጨምሮ፣ እስካሁን የታወቁ ጥንታዊ የሆሞ ሳፒየንስ ቅሪቶች ናቸው። ስፍራው በ1980 በዓለም ቅርስነት ተመዝግቧል።"
-   }
+   },
+   "journey": "omorate"
   },
   {
    "id": "mago",
@@ -775,7 +992,8 @@
    "text": {
     "en": "Grassland and riverine forest created to protect the plains' buffalo, giraffe and elephant, with rich birdlife. The park is also the route to Mursi villages.",
     "am": "የሜዳውን ጎሽ፣ ቀጭኔና ዝሆን ለመጠበቅ የተቋቋመ የሳርና የወንዝ ዳር ደን፤ ብዙ የአእዋፍ ዝርያዎችም አሉት። ወደ ሙርሲ መንደሮች የሚወስደው መንገድም በፓርኩ ያልፋል።"
-   }
+   },
+   "journey": "mago"
   },
   {
    "id": "omo-river",
@@ -791,7 +1009,8 @@
    "text": {
     "en": "Cross the Omo at Omorate to Dassanech villages, and follow the river to its delta on Lake Turkana.",
     "am": "በኦሞራቴ ኦሞን ተሻግረው የዳሰነች መንደሮችን ይጎብኙ፤ ወንዙን ተከትለው ቱርካና ሐይቅ ላይ ወዳለው ዴልታ ይጓዙ።"
-   }
+   },
+   "journey": "omorate"
   },
   {
    "id": "hamer",
@@ -807,7 +1026,8 @@
    "text": {
     "en": "The ukuli bula bull-jumping ceremony marks a young man's passage to adulthood. Ceremonies are family events: visit only by invitation and with a local guide.",
     "am": "የኡኩሊ ቡላ የከብት ዝላይ ሥነ ሥርዓት ወጣቱ ወደ ጉልምስና መሸጋገሩን ያበስራል። ሥነ ሥርዓቱ የቤተሰብ ጉዳይ ስለሆነ በግብዣና ከአካባቢ አስጎብኚ ጋር ብቻ ይጎብኙ።"
-   }
+   },
+   "journey": "hamer"
   },
   {
    "id": "markets",
@@ -823,7 +1043,8 @@
    "text": {
     "en": "Markets at Key Afer, Turmi and Dimeka bring together peoples from across the valley to trade cattle, grain, honey, gourds and beadwork.",
     "am": "የቀይ አፈር፣ የቱርሚና የዲመካ ገበያዎች ከሸለቆው የተለያዩ አካባቢዎች የሚመጡ ሕዝቦችን ከብት፣ እህል፣ ማር፣ ቅልና ዶቃ ለመገበያየት ያገናኛሉ።"
-   }
+   },
+   "journey": "markets"
   },
   {
    "id": "turkana",
@@ -839,7 +1060,8 @@
    "text": {
     "en": "The world's largest desert lake begins at the Omo delta, while Lake Chew Bahir near the Arbore lands attracts flamingos and waterbirds.",
     "am": "የዓለማችን ትልቁ የበረሃ ሐይቅ የሚጀምረው ከኦሞ ዴልታ ነው፤ በአርቦሬ ምድር አቅራቢያ ያለው የጨው ባሕር ሐይቅ ደግሞ ፍላሚንጎዎችንና የውሃ አእዋፍን ይስባል።"
-   }
+   },
+   "journey": "arbore"
   }
  ],
  "announcements": [
@@ -1110,39 +1332,1066 @@
    }
   }
  ],
+ "markets": [
+  {
+   "place": {
+    "en": "Turmi",
+    "am": "ቱርሚ"
+   },
+   "woreda": "hamer",
+   "stop": "turmi",
+   "days": [
+    1
+   ]
+  },
+  {
+   "place": {
+    "en": "Dimeka",
+    "am": "ዲመካ"
+   },
+   "woreda": "hamer",
+   "stop": "dimeka",
+   "days": [
+    2,
+    4
+   ]
+  },
+  {
+   "place": {
+    "en": "Key Afer",
+    "am": "ቀይ አፈር"
+   },
+   "woreda": "bena-tsemay",
+   "stop": "keyafer",
+   "days": [
+    4
+   ]
+  }
+ ],
+ "peoples": [
+  {
+   "en": "Hamer",
+   "am": "ሐመር"
+  },
+  {
+   "en": "Banna",
+   "am": "በና"
+  },
+  {
+   "en": "Tsemay",
+   "am": "ጸማይ"
+  },
+  {
+   "en": "Dassanech",
+   "am": "ዳሰነች"
+  },
+  {
+   "en": "Nyangatom",
+   "am": "ኛንጋቶም"
+  },
+  {
+   "en": "Mursi",
+   "am": "ሙርሲ"
+  },
+  {
+   "en": "Bodi",
+   "am": "ቦዲ"
+  },
+  {
+   "en": "Kara",
+   "am": "ካራ"
+  },
+  {
+   "en": "Arbore",
+   "am": "አርቦሬ"
+  },
+  {
+   "en": "Male",
+   "am": "ማሌ"
+  },
+  {
+   "en": "Kwegu",
+   "am": "ክዌጉ"
+  },
+  {
+   "en": "Birale",
+   "am": "ቢራሌ"
+  }
+ ],
+ "guide": {
+  "etiquette": {
+   "en": [
+    [
+     "Ask before you photograph",
+     "Always ask permission and agree any photo fee before taking pictures of people."
+    ],
+    [
+     "Travel with a local guide",
+     "Licensed guides from the woreda know the communities, the roads and the customs."
+    ],
+    [
+     "Buy local",
+     "Buy crafts, honey and food directly from producers at the weekly markets."
+    ],
+    [
+     "Respect ceremonies",
+     "Ceremonies are private family events. Attend only when invited."
+    ]
+   ],
+   "am": [
+    [
+     "ፎቶ ከማንሳትዎ በፊት ይጠይቁ",
+     "የሰዎችን ፎቶ ከማንሳትዎ በፊት ሁልጊዜ ፈቃድ ይጠይቁ፤ ክፍያ ካለም አስቀድመው ይስማሙ።"
+    ],
+    [
+     "ከአካባቢ አስጎብኚ ጋር ይጓዙ",
+     "ፈቃድ ያላቸው የወረዳ አስጎብኚዎች ማህበረሰቦቹን፣ መንገዶቹንና ልማዶቹን ያውቃሉ።"
+    ],
+    [
+     "የአካባቢ ምርት ይግዙ",
+     "የእጅ ሥራ፣ ማርና ምግብ በሳምንታዊ ገበያዎች በቀጥታ ከአምራቾች ይግዙ።"
+    ],
+    [
+     "ሥነ ሥርዓቶችን ያክብሩ",
+     "ሥነ ሥርዓቶች የግል የቤተሰብ ጉዳዮች ናቸው። የሚገኙት ሲጋበዙ ብቻ ይሁን።"
+    ]
+   ]
+  },
+  "step": {
+   "en": [
+    [
+     "Explore",
+     "Review sectors and woreda opportunities on this portal, or request a profile from the investment desk."
+    ],
+    [
+     "Consult",
+     "Meet the Zone Investment Office and the woreda administration to discuss land, water and access."
+    ],
+    [
+     "Visit the site",
+     "We arrange a field visit and introduce you to the host community."
+    ],
+    [
+     "Apply & license",
+     "Submit your project proposal; we support licensing with the regional investment bureau."
+    ],
+    [
+     "Launch",
+     "Agree a community development plan, recruit locally and begin operations with our follow-up support."
+    ]
+   ],
+   "am": [
+    [
+     "ይቃኙ",
+     "በዚህ ፖርታል ዘርፎችንና የወረዳ ዕድሎችን ይመልከቱ ወይም ከኢንቨስትመንት ጽ/ቤቱ መገለጫ ይጠይቁ።"
+    ],
+    [
+     "ይመካከሩ",
+     "ስለ መሬት፣ ውሃና መዳረሻ ለመወያየት የዞኑን ኢንቨስትመንት ጽ/ቤትና የወረዳውን አስተዳደር ያግኙ።"
+    ],
+    [
+     "ቦታውን ይጎብኙ",
+     "የመስክ ጉብኝት እናዘጋጃለን፤ ከአስተናጋጁ ማህበረሰብም ጋር እናስተዋውቅዎታለን።"
+    ],
+    [
+     "ያመልክቱና ፈቃድ ያውጡ",
+     "የፕሮጀክት ሀሳብዎን ያቅርቡ፤ ከክልሉ ኢንቨስትመንት ቢሮ ፈቃድ እንዲያገኙ እንደግፋለን።"
+    ],
+    [
+     "ሥራ ይጀምሩ",
+     "የማህበረሰብ ልማት ዕቅድ ይስማሙ፣ ከአካባቢው ይቅጠሩና በክትትል ድጋፋችን ሥራ ይጀምሩ።"
+    ]
+   ]
+  },
+  "principle": {
+   "en": [
+    [
+     "Community consultation",
+     "Projects are discussed with affected communities before land is allocated."
+    ],
+    [
+     "Local jobs and skills",
+     "Investors commit to hiring and training local workers."
+    ],
+    [
+     "Shared benefits",
+     "Outgrower schemes, services and infrastructure that reach surrounding villages."
+    ],
+    [
+     "Protect the river and the lake",
+     "Water use and land clearing must respect the Omo, Lake Turkana and protected areas."
+    ]
+   ],
+   "am": [
+    [
+     "የማህበረሰብ ምክክር",
+     "መሬት ከመሰጠቱ በፊት ፕሮጀክቶች ከሚመለከታቸው ማህበረሰቦች ጋር ይመከርባቸዋል።"
+    ],
+    [
+     "የአካባቢ ሥራና ክህሎት",
+     "ባለሀብቶች የአካባቢውን ሠራተኞች ለመቅጠርና ለማሰልጠን ቃል ይገባሉ።"
+    ],
+    [
+     "የጋራ ተጠቃሚነት",
+     "በዙሪያው ላሉ መንደሮች የሚደርሱ የአውትግሮወር ፕሮግራሞች፣ አገልግሎቶችና መሠረተ ልማት።"
+    ],
+    [
+     "ወንዙንና ሐይቁን መጠበቅ",
+     "የውሃ አጠቃቀምና የመሬት ምንጣሮ ኦሞን፣ ቱርካና ሐይቅንና ጥብቅ ስፍራዎችን ማክበር አለበት።"
+    ]
+   ]
+  }
+ },
+ "stops": [
+  {
+   "key": "jinka",
+   "sort": 0,
+   "name": {
+    "en": "Jinka Airport",
+    "am": "ጂንካ አውሮፕላን ማረፊያ"
+   },
+   "services": [
+    "fuel",
+    "bank",
+    "health"
+   ],
+   "photo": null,
+   "stays": [
+    {
+     "name": {
+      "en": "Eco-Omo Lodge",
+      "am": "Eco-Omo Lodge"
+     },
+     "type": {
+      "en": "Tented lodge",
+      "am": "የድንኳን ሎጅ"
+     }
+    },
+    {
+     "name": {
+      "en": "Jinka Resort",
+      "am": "Jinka Resort"
+     },
+     "type": {
+      "en": "Hotel",
+      "am": "ሆቴል"
+     }
+    }
+   ]
+  },
+  {
+   "key": "keyafer",
+   "sort": 1,
+   "name": {
+    "en": "Key Afer",
+    "am": "ቀይ አፈር"
+   },
+   "services": [
+    "fuel",
+    "health"
+   ],
+   "photo": "banna-village",
+   "stays": []
+  },
+  {
+   "key": "dimeka",
+   "sort": 2,
+   "name": {
+    "en": "Dimeka",
+    "am": "ዲመካ"
+   },
+   "services": [
+    "health"
+   ],
+   "photo": "hamer-village",
+   "stays": []
+  },
+  {
+   "key": "turmi",
+   "sort": 3,
+   "name": {
+    "en": "Turmi",
+    "am": "ቱርሚ"
+   },
+   "services": [
+    "health"
+   ],
+   "photo": "hamer-boys",
+   "stays": [
+    {
+     "name": {
+      "en": "Buska Lodge",
+      "am": "Buska Lodge"
+     },
+     "type": {
+      "en": "Lodge",
+      "am": "ሎጅ"
+     }
+    },
+    {
+     "name": {
+      "en": "Turmi Lodge",
+      "am": "Turmi Lodge"
+     },
+     "type": {
+      "en": "Lodge",
+      "am": "ሎጅ"
+     }
+    }
+   ]
+  },
+  {
+   "key": "omorate",
+   "sort": 4,
+   "name": {
+    "en": "Omorate",
+    "am": "ኦሞራቴ"
+   },
+   "services": [
+    "fuel",
+    "health"
+   ],
+   "photo": "omo-river-omorate",
+   "stays": [
+    {
+     "name": {
+      "en": "Town guesthouses",
+      "am": "የከተማው እንግዳ ማረፊያዎች"
+     },
+     "type": {
+      "en": "Basic",
+      "am": "መሠረታዊ"
+     }
+    }
+   ]
+  },
+  {
+   "key": "mago",
+   "sort": 5,
+   "name": {
+    "en": "Mago Park HQ",
+    "am": "የማጎ ፓርክ ጽ/ቤት"
+   },
+   "services": [
+    "gate"
+   ],
+   "photo": "mursi-woman",
+   "stays": [
+    {
+     "name": {
+      "en": "Park campsites",
+      "am": "የፓርኩ የካምፕ ቦታዎች"
+     },
+     "type": {
+      "en": "Camping",
+      "am": "ካምፕ"
+     }
+    }
+   ]
+  },
+  {
+   "key": "weyto",
+   "sort": 6,
+   "name": {
+    "en": "Weyto",
+    "am": "ወይጦ"
+   },
+   "services": [],
+   "photo": null,
+   "stays": []
+  },
+  {
+   "key": "arbore",
+   "sort": 7,
+   "name": {
+    "en": "Arbore",
+    "am": "አርቦሬ"
+   },
+   "services": [],
+   "photo": "turmi-hills",
+   "stays": []
+  }
+ ],
+ "legs": [
+  "jinka-keyafer",
+  "keyafer-dimeka",
+  "dimeka-turmi",
+  "turmi-omorate",
+  "jinka-mago",
+  "keyafer-weyto",
+  "weyto-arbore",
+  "turmi-arbore"
+ ],
  "roadLegs": {
   "jinka-keyafer": {
    "status": "open",
-   "note": null
+   "note": null,
+   "surface": "asphalt",
+   "minutes": 60
   },
   "keyafer-weyto": {
    "status": "open",
-   "note": null
+   "note": null,
+   "surface": "asphalt",
+   "minutes": 60
   },
   "turmi-omorate": {
    "status": "open",
-   "note": null
+   "note": null,
+   "surface": "asphalt",
+   "minutes": 90
   },
   "keyafer-dimeka": {
    "status": "open",
-   "note": null
+   "note": null,
+   "surface": "gravel",
+   "minutes": 75
   },
   "dimeka-turmi": {
    "status": "open",
-   "note": null
+   "note": null,
+   "surface": "gravel",
+   "minutes": 40
   },
   "jinka-mago": {
    "status": "open",
-   "note": null
+   "note": null,
+   "surface": "gravel",
+   "minutes": 75
   },
   "weyto-arbore": {
    "status": "open",
-   "note": null
+   "note": null,
+   "surface": "gravel",
+   "minutes": 90
   },
   "turmi-arbore": {
    "status": "open",
-   "note": null
+   "note": null,
+   "surface": "gravel",
+   "minutes": 90
   }
  },
- "roadStatusUpdated": null
+ "roadStatusUpdated": null,
+ "rainyMonths": [
+  2,
+  3,
+  4
+ ],
+ "journeys": [
+  {
+   "id": "mago",
+   "image": "omo-savanna",
+   "stops": [
+    "jinka",
+    "mago"
+   ],
+   "name": {
+    "en": "Mago National Park",
+    "am": "የማጎ ብሔራዊ ፓርክ"
+   },
+   "sub": {
+    "en": "Wildlife & Mursi country",
+    "am": "የዱር እንስሳትና የሙርሲ ምድር"
+   },
+   "tip": {
+    "en": "Pay park fees and pick up a scout at the park gate. The Mursi villages lie further in, along park tracks.",
+    "am": "የፓርኩን ክፍያ ከፍለው በመግቢያው ስካውት ይያዙ። የሙርሲ መንደሮች በፓርኩ መንገዶች ወደ ውስጥ ይገኛሉ።"
+   },
+   "stayAt": [
+    "jinka",
+    "mago"
+   ],
+   "stayNote": {
+    "en": "Most visitors stay in Jinka and visit the park for the day. Campsites inside the park are booked at the HQ.",
+    "am": "አብዛኞቹ ጎብኚዎች ጂንካ አድረው ፓርኩን በቀን ይጎበኛሉ። በፓርኩ ውስጥ ያሉ የካምፕ ቦታዎች በፓርኩ ጽ/ቤት ይያዛሉ።"
+   }
+  },
+  {
+   "id": "markets",
+   "image": "banna-enterprise",
+   "stops": [
+    "jinka",
+    "keyafer"
+   ],
+   "name": {
+    "en": "Key Afer market",
+    "am": "የቀይ አፈር ገበያ"
+   },
+   "sub": {
+    "en": "Thursday market",
+    "am": "የሐሙስ ገበያ"
+   },
+   "tip": {
+    "en": "Thursday is market day. Arrive by mid-morning, when trading is at its busiest.",
+    "am": "ሐሙስ የገበያ ቀን ነው። ግብይቱ በሚደምቅበት ረፋድ ላይ ይድረሱ።"
+   },
+   "stayAt": [
+    "jinka"
+   ],
+   "stayNote": {
+    "en": "Key Afer is an easy morning drive from Jinka, so stay in Jinka the night before.",
+    "am": "ቀይ አፈር ከጂንካ በጠዋት በቀላሉ ይደረሳል፤ የቀደመውን ሌሊት ጂንካ ያድሩ።"
+   }
+  },
+  {
+   "id": "hamer",
+   "image": "hamer-ceremony",
+   "stops": [
+    "jinka",
+    "keyafer",
+    "dimeka",
+    "turmi"
+   ],
+   "name": {
+    "en": "Turmi & Hamer country",
+    "am": "ቱርሚና የሐመር ምድር"
+   },
+   "sub": {
+    "en": "Living heritage",
+    "am": "ህያው ቅርስ"
+   },
+   "tip": {
+    "en": "Turmi is the base for Hamer villages. Ceremonies are by invitation only; your guide can ask on your behalf.",
+    "am": "ቱርሚ ወደ ሐመር መንደሮች መነሻ ናት። ሥነ ሥርዓቶች በግብዣ ብቻ ናቸው፤ አስጎብኚዎ ሊጠይቅልዎ ይችላል።"
+   },
+   "stayAt": [
+    "turmi"
+   ],
+   "stayNote": {
+    "en": "Turmi is the best base for Hamer villages and the Monday market.",
+    "am": "ቱርሚ ለሐመር መንደሮችና ለሰኞ ገበያ ምርጥ መነሻ ናት።"
+   }
+  },
+  {
+   "id": "arbore",
+   "image": "turmi-hills",
+   "stops": [
+    "jinka",
+    "keyafer",
+    "weyto",
+    "arbore"
+   ],
+   "name": {
+    "en": "Arbore & Chew Bahir",
+    "am": "አርቦሬና የጨው ባሕር"
+   },
+   "sub": {
+    "en": "Lakes & birdlife",
+    "am": "ሐይቆችና አእዋፍ"
+   },
+   "tip": {
+    "en": "Flamingos gather on Chew Bahir after the rains. Fill up with fuel and water at Key Afer.",
+    "am": "ከዝናብ በኋላ ፍላሚንጎዎች በጨው ባሕር ይሰበሰባሉ። በቀይ አፈር ነዳጅና ውሃ ይሙሉ።"
+   },
+   "stayAt": [
+    "turmi"
+   ],
+   "stayNote": {
+    "en": "Arbore has few places to stay. Most visitors base themselves in Turmi, 48 km away.",
+    "am": "አርቦሬ ጥቂት ማረፊያዎች አሏት። አብዛኞቹ ጎብኚዎች 48 ኪ.ሜ ርቃ በምትገኘው ቱርሚ ያርፋሉ።"
+   }
+  },
+  {
+   "id": "omorate",
+   "image": "omo-river-omorate",
+   "stops": [
+    "jinka",
+    "keyafer",
+    "dimeka",
+    "turmi",
+    "omorate"
+   ],
+   "name": {
+    "en": "Omorate & the Lower Omo",
+    "am": "ኦሞራቴና የታችኛው ኦሞ"
+   },
+   "sub": {
+    "en": "UNESCO World Heritage",
+    "am": "የዩኔስኮ የዓለም ቅርስ"
+   },
+   "tip": {
+    "en": "Cross the Omo by dugout to Dassanech villages. Check in with the local authorities in Omorate before you cross.",
+    "am": "ኦሞን በታንኳ ተሻግረው የዳሰነች መንደሮችን ይጎብኙ። ከመሻገርዎ በፊት በኦሞራቴ ለአካባቢው ባለሥልጣናት ያሳውቁ።"
+   },
+   "stayAt": [
+    "turmi",
+    "omorate"
+   ],
+   "stayNote": {
+    "en": "Most visitors stay in Turmi and visit Omorate as a day trip.",
+    "am": "አብዛኞቹ ጎብኚዎች ቱርሚ አድረው ኦሞራቴን በቀን ጉዞ ይጎበኛሉ።"
+   }
+  }
+ ],
+ "itineraries": [
+  {
+   "id": "3day",
+   "start": 3,
+   "image": "hamer-boys",
+   "name": {
+    "en": "3 days · Hamer country & markets",
+    "am": "3 ቀን · የሐመር ምድርና ገበያዎች"
+   },
+   "sub": {
+    "en": "Mago, Key Afer, Dimeka, Turmi",
+    "am": "ማጎ፣ ቀይ አፈር፣ ዲመካ፣ ቱርሚ"
+   },
+   "days": [
+    {
+     "stops": [
+      "jinka",
+      "mago",
+      "jinka"
+     ],
+     "night": "jinka",
+     "note": {
+      "en": "Land at Jinka and drive into Mago National Park for the afternoon.",
+      "am": "ጂንካ አርፈው ከሰዓት በኋላ ወደ ማጎ ብሔራዊ ፓርክ ይጓዙ።"
+     }
+    },
+    {
+     "stops": [
+      "jinka",
+      "keyafer",
+      "dimeka",
+      "turmi"
+     ],
+     "night": "turmi",
+     "note": {
+      "en": "Stop at the Key Afer and Dimeka markets on the way south to Turmi.",
+      "am": "ወደ ቱርሚ ሲጓዙ በቀይ አፈርና በዲመካ ገበያዎች ይቆዩ።"
+     }
+    },
+    {
+     "stops": [
+      "turmi",
+      "dimeka",
+      "keyafer",
+      "jinka"
+     ],
+     "night": null,
+     "note": {
+      "en": "Morning in a Hamer village, then back to Jinka for your flight.",
+      "am": "ጠዋት የሐመር መንደር ጎብኝተው ለበረራዎ ወደ ጂንካ ይመለሱ።"
+     }
+    }
+   ]
+  },
+  {
+   "id": "5day",
+   "start": 0,
+   "image": "omo-river-aerial",
+   "name": {
+    "en": "5 days · Lower Omo circuit",
+    "am": "5 ቀን · የታችኛው ኦሞ ዙር"
+   },
+   "sub": {
+    "en": "Mago, Turmi, Omorate, Arbore",
+    "am": "ማጎ፣ ቱርሚ፣ ኦሞራቴ፣ አርቦሬ"
+   },
+   "days": [
+    {
+     "stops": [
+      "jinka",
+      "mago",
+      "jinka"
+     ],
+     "night": "jinka",
+     "note": {
+      "en": "Land at Jinka and spend the afternoon in Mago National Park.",
+      "am": "ጂንካ አርፈው ከሰዓት በኋላውን በማጎ ብሔራዊ ፓርክ ያሳልፉ።"
+     }
+    },
+    {
+     "stops": [
+      "jinka",
+      "keyafer",
+      "dimeka",
+      "turmi"
+     ],
+     "night": "turmi",
+     "note": {
+      "en": "Drive south through Banna and Hamer country to Turmi.",
+      "am": "በበና እና በሐመር ምድር አቋርጠው ወደ ቱርሚ ይጓዙ።"
+     }
+    },
+    {
+     "stops": [
+      "turmi",
+      "omorate",
+      "turmi"
+     ],
+     "night": "turmi",
+     "note": {
+      "en": "Day trip to Omorate and across the Omo to Dassanech villages.",
+      "am": "ወደ ኦሞራቴ የቀን ጉዞ፤ ኦሞን ተሻግረው የዳሰነች መንደሮችን ይጎብኙ።"
+     }
+    },
+    {
+     "stops": [
+      "turmi",
+      "arbore",
+      "turmi"
+     ],
+     "night": "turmi",
+     "note": {
+      "en": "Arbore villages and the shores of Chew Bahir.",
+      "am": "የአርቦሬ መንደሮችና የጨው ባሕር ዳርቻ።"
+     }
+    },
+    {
+     "stops": [
+      "turmi",
+      "dimeka",
+      "keyafer",
+      "jinka"
+     ],
+     "night": null,
+     "note": {
+      "en": "Thursday markets at Dimeka and Key Afer, then Jinka for your flight.",
+      "am": "የሐሙስ ገበያዎች በዲመካና በቀይ አፈር፤ ከዚያም ለበረራዎ ወደ ጂንካ።"
+     }
+    }
+   ]
+  }
+ ],
+ "labels": {
+  "en": {
+   "home": "Home",
+   "about": "The Zone",
+   "invest": "Invest",
+   "woredas": "Woredas",
+   "tourism": "Tourism",
+   "announcements": "Announcements",
+   "contact": "Contact",
+   "credits": "Photo credits",
+   "region": "South Ethiopia Regional State",
+   "officialPortal": "Official portal",
+   "exploreInvest": "Investment opportunities",
+   "planVisit": "Plan your visit",
+   "leaderEyebrow": "From the Chief Administrator",
+   "leaderTitle": "A message to our investors, partners and visitors",
+   "readFull": "Read the full message",
+   "watchVideo": "Watch video message",
+   "videoSoon": "The video message will be published here soon.",
+   "close": "Close",
+   "sectorsEyebrow": "Invest in South Omo",
+   "sectorsTitle": "Six sectors ready for investment",
+   "sectorsLead": "Land, water and a young workforce, with an administration committed to responsible development that our communities share in.",
+   "woredasEyebrow": "Our woredas",
+   "woredasTitle": "Eight woredas, each with its own strengths",
+   "allWoredas": "All woredas",
+   "tourismEyebrow": "Discover",
+   "tourismTitle": "A valley unlike anywhere else",
+   "tourismLead": "A UNESCO World Heritage landscape, wild savanna and living cultures that welcome respectful travellers.",
+   "exploreTourism": "Explore tourism",
+   "annEyebrow": "Notice board",
+   "annTitle": "Vacancies & tenders",
+   "vacancies": "Vacancies",
+   "tenders": "Tenders",
+   "all": "All",
+   "allAnn": "All announcements",
+   "open": "Open",
+   "closed": "Closed",
+   "daysLeft": "days left",
+   "dayLeft": "day left",
+   "closesToday": "Closes today",
+   "deadline": "Deadline",
+   "posted": "Posted",
+   "reference": "Reference",
+   "organization": "Office",
+   "location": "Location",
+   "requirements": "Requirements",
+   "showClosed": "Show closed",
+   "ctaTitle": "Talk to our investment desk",
+   "ctaText": "Tell us about your project. We will arrange meetings with the woreda and a site visit.",
+   "ctaBtn": "Contact the investment office",
+   "seat": "Administrative seat",
+   "peoples": "Peoples",
+   "highlights": "Highlights",
+   "keySectors": "Key sectors",
+   "opportunities": "Opportunities",
+   "viewWoreda": "View woreda",
+   "backWoredas": "All woredas",
+   "land": "Land",
+   "investment": "Investment",
+   "jobs": "Jobs",
+   "ha": "ha",
+   "musd": "M USD",
+   "search": "Search opportunities",
+   "sector": "Sector",
+   "woreda": "Woreda",
+   "noResults": "No results match your filters.",
+   "sample": "Sample listing: details to be confirmed by the Zone Investment Office.",
+   "sampleAnn": "Sample notices: official notices will be published by the zone HR and procurement offices.",
+   "stepsEyebrow": "How to invest",
+   "stepsTitle": "From first enquiry to operation",
+   "principlesEyebrow": "Our commitments",
+   "principlesTitle": "Responsible investment",
+   "attractions": "Attractions",
+   "markets": "Weekly markets",
+   "marketsLead": "Market days can change. Confirm with the tourism office or your guide before travelling.",
+   "today": "Today",
+   "etiquetteTitle": "Travel responsibly",
+   "peoplesTitle": "Peoples of South Omo",
+   "gettingThere": "Getting there",
+   "gettingThereText": "Fly from Addis Ababa to Jinka, then continue by road to Dimeka, Turmi and the rest of the zone. Most visitors travel with a licensed guide and a 4×4 vehicle.",
+   "bestTime": "When to visit",
+   "bestTimeText": "The drier months from about June to February are the easiest for travel. Heavy rains, usually from March to May, can make roads difficult.",
+   "aboutEyebrow": "About the zone",
+   "aboutTitle": "South Omo at a glance",
+   "capital": "Capital",
+   "contactTitle": "Get in touch",
+   "contactLead": "Our offices in Dimeka are open Monday to Friday. Write to the right desk and we will respond.",
+   "name": "Full name",
+   "email": "Email",
+   "subject": "Subject",
+   "message": "Message",
+   "send": "Send message",
+   "sent": "Thank you. Your message has been recorded.",
+   "sendError": "Your message could not be sent. Please try again or email us directly.",
+   "sendTooMany": "Too many messages from your connection. Please wait a minute and try again.",
+   "downloadNotice": "Download full notice (PDF)",
+   "general": "General enquiry",
+   "investDesk": "Investment desk",
+   "tourismDesk": "Tourism office",
+   "address": "Address",
+   "phone": "Phone",
+   "hours": "Office hours",
+   "creditsLead": "Photographs on this site are used under Creative Commons licences from Wikimedia Commons. We thank the photographers.",
+   "photo": "Photo",
+   "license": "License",
+   "source": "Source",
+   "footerAbout": "The official portal of the South Omo Zone Administration for investors, visitors and citizens.",
+   "routeTitle": "From Jinka Airport into the valley",
+   "routeLead": "Flights from Addis Ababa land at Jinka. From the airport, licensed guides drive you by 4×4 to every corner of the zone. Choose a destination to follow the road.",
+   "addis": "Addis Ababa",
+   "jinka": "Jinka",
+   "byAir": "about 1 h 30 by air",
+   "replay": "Replay",
+   "asphaltRoad": "Asphalt road",
+   "gravelRoad": "Gravel road",
+   "placesToStay": "Places to stay",
+   "kmAsphalt": "km asphalt",
+   "kmGravel": "km gravel",
+   "byRoad": "By road",
+   "drive": "Drive",
+   "onTheWay": "On the way",
+   "direct": "Direct",
+   "town": "town",
+   "towns": "towns",
+   "airport": "Airport",
+   "travelTip": "Travel tip",
+   "whereToStay": "Where to stay",
+   "staysFlag": "Suggested stays, to be confirmed by the Zone Tourism Office.",
+   "hr": "h",
+   "min": "min",
+   "routeNote": "Distances follow the main roads. Drive times are estimates for the dry season with a 4×4 and will be longer after heavy rain.",
+   "fromJinka": "from Jinka Airport",
+   "seeRoute": "See the route",
+   "mapLabel": "Satellite map of roads from Jinka Airport",
+   "destinations": "Destinations",
+   "itinerariesTab": "Itineraries",
+   "day": "Day",
+   "nights": "nights",
+   "night": "Night",
+   "startOn": "Start on",
+   "bestStart": "best",
+   "market": "market",
+   "marketToday": "Market today",
+   "marketsToday": "Today is {day}: {places} market is on.",
+   "noMarketToday": "No market today. Next: {day}, {place}.",
+   "nextMarket": "Next market",
+   "roadOpen": "Open",
+   "roadSlow": "Slow",
+   "roadClosed": "Closed",
+   "roadsOnRoute": "Roads",
+   "allRoadsOpen": "All roads open",
+   "roadStatusUnconfirmed": "Status not yet confirmed by the roads office",
+   "roadStatusAsOf": "Checked {date}",
+   "rainyWarning": "Rainy season: gravel roads can be slow or blocked after heavy rain. Check with your guide before setting out.",
+   "fuel": "Fuel",
+   "bank": "Bank",
+   "health": "Health post",
+   "gate": "Park gate",
+   "lastFuel": "Last fuel",
+   "servicesNote": "Services to confirm locally",
+   "photoBy": "Photo",
+   "quickLinks": "Explore",
+   "reachUs": "Reach us",
+   "rights": "South Omo Zone Administration",
+   "loading": "Loading…",
+   "notFound": "Page not found.",
+   "menu": "Menu"
+  },
+  "am": {
+   "home": "መነሻ",
+   "about": "ዞኑ",
+   "invest": "ኢንቨስትመንት",
+   "woredas": "ወረዳዎች",
+   "tourism": "ቱሪዝም",
+   "announcements": "ማስታወቂያዎች",
+   "contact": "ያግኙን",
+   "credits": "የፎቶ ምስጋና",
+   "region": "የደቡብ ኢትዮጵያ ክልላዊ መንግሥት",
+   "officialPortal": "ኦፊሴላዊ ፖርታል",
+   "exploreInvest": "የኢንቨስትመንት ዕድሎች",
+   "planVisit": "ጉብኝትዎን ያቅዱ",
+   "leaderEyebrow": "ከዋና አስተዳዳሪው",
+   "leaderTitle": "ለባለሀብቶች፣ ለአጋሮችና ለጎብኚዎች የተላለፈ መልዕክት",
+   "readFull": "ሙሉውን መልዕክት ያንብቡ",
+   "watchVideo": "የቪዲዮ መልዕክቱን ይመልከቱ",
+   "videoSoon": "የቪዲዮ መልዕክቱ በቅርቡ እዚህ ይለቀቃል።",
+   "close": "ዝጋ",
+   "sectorsEyebrow": "በደቡብ ኦሞ ኢንቨስት ያድርጉ",
+   "sectorsTitle": "ለኢንቨስትመንት ዝግጁ የሆኑ ስድስት ዘርፎች",
+   "sectorsLead": "መሬት፣ ውሃና ወጣት የሰው ኃይል፤ ማህበረሰቦቻችን የሚጠቀሙበትን ኃላፊነት የተሞላበት ልማት ለማረጋገጥ ቁርጠኛ የሆነ አስተዳደር።",
+   "woredasEyebrow": "ወረዳዎቻችን",
+   "woredasTitle": "የየራሳቸው ጥንካሬ ያላቸው ስምንት ወረዳዎች",
+   "allWoredas": "ሁሉም ወረዳዎች",
+   "tourismEyebrow": "ይጎብኙ",
+   "tourismTitle": "እንደ እርሱ ያለ ሸለቆ የትም የለም",
+   "tourismLead": "በዩኔስኮ የተመዘገበ ምድር፣ የዱር ሳቫናና ጨዋ ጎብኚዎችን የሚቀበሉ ህያው ባህሎች።",
+   "exploreTourism": "ቱሪዝምን ይቃኙ",
+   "annEyebrow": "የማስታወቂያ ሰሌዳ",
+   "annTitle": "ክፍት የሥራ ቦታዎችና ጨረታዎች",
+   "vacancies": "ክፍት የሥራ ቦታዎች",
+   "tenders": "ጨረታዎች",
+   "all": "ሁሉም",
+   "allAnn": "ሁሉም ማስታወቂያዎች",
+   "open": "ክፍት",
+   "closed": "ተዘግቷል",
+   "daysLeft": "ቀናት ቀርተዋል",
+   "dayLeft": "ቀን ቀርቷል",
+   "closesToday": "ዛሬ ይዘጋል",
+   "deadline": "የመጨረሻ ቀን",
+   "posted": "የወጣበት ቀን",
+   "reference": "ማጣቀሻ",
+   "organization": "መሥሪያ ቤት",
+   "location": "ቦታ",
+   "requirements": "መስፈርቶች",
+   "showClosed": "የተዘጉትንም አሳይ",
+   "ctaTitle": "የኢንቨስትመንት ጽ/ቤታችንን ያነጋግሩ",
+   "ctaText": "ስለ ፕሮጀክትዎ ይንገሩን። ከወረዳው ጋር ስብሰባና የቦታ ጉብኝት እናዘጋጃለን።",
+   "ctaBtn": "የኢንቨስትመንት ጽ/ቤቱን ያግኙ",
+   "seat": "የአስተዳደር መቀመጫ",
+   "peoples": "ሕዝቦች",
+   "highlights": "ዋና ዋና መስህቦች",
+   "keySectors": "ቁልፍ ዘርፎች",
+   "opportunities": "ዕድሎች",
+   "viewWoreda": "ወረዳውን ይመልከቱ",
+   "backWoredas": "ሁሉም ወረዳዎች",
+   "land": "መሬት",
+   "investment": "ኢንቨስትመንት",
+   "jobs": "የሥራ ዕድል",
+   "ha": "ሄክታር",
+   "musd": "ሚ. ዶላር",
+   "search": "ዕድሎችን ይፈልጉ",
+   "sector": "ዘርፍ",
+   "woreda": "ወረዳ",
+   "noResults": "ከመረጡት ጋር የሚዛመድ ውጤት የለም።",
+   "sample": "ናሙና ዝርዝር፦ ዝርዝሩ በዞኑ ኢንቨስትመንት ጽ/ቤት ይረጋገጣል።",
+   "sampleAnn": "ናሙና ማስታወቂያዎች፦ ኦፊሴላዊ ማስታወቂያዎች በዞኑ የሰው ሀብትና የግዥ ጽ/ቤቶች ይወጣሉ።",
+   "stepsEyebrow": "እንዴት ኢንቨስት ያደርጋሉ",
+   "stepsTitle": "ከመጀመሪያ ጥያቄ እስከ ሥራ ጅምር",
+   "principlesEyebrow": "ቃል ኪዳኖቻችን",
+   "principlesTitle": "ኃላፊነት የተሞላበት ኢንቨስትመንት",
+   "attractions": "መስህቦች",
+   "markets": "ሳምንታዊ ገበያዎች",
+   "marketsLead": "የገበያ ቀናት ሊቀየሩ ይችላሉ። ከመጓዝዎ በፊት ከቱሪዝም ጽ/ቤቱ ወይም ከአስጎብኚዎ ያረጋግጡ።",
+   "today": "ዛሬ",
+   "etiquetteTitle": "በኃላፊነት ይጓዙ",
+   "peoplesTitle": "የደቡብ ኦሞ ሕዝቦች",
+   "gettingThere": "እንዴት ይደርሳሉ",
+   "gettingThereText": "ከአዲስ አበባ ወደ ጂንካ በአውሮፕላን ይብረሩ፤ ከዚያም በመንገድ ወደ ዲመካ፣ ቱርሚና ሌሎች የዞኑ አካባቢዎች ይቀጥሉ። አብዛኞቹ ጎብኚዎች ፈቃድ ካለው አስጎብኚና ባለአራት እግር ተሽከርካሪ ጋር ይጓዛሉ።",
+   "bestTime": "መቼ ይጎብኙ",
+   "bestTimeText": "ከሰኔ እስከ የካቲት ገደማ ያሉት ደረቅ ወራት ለጉዞ ምቹ ናቸው። አብዛኛውን ጊዜ ከመጋቢት እስከ ግንቦት የሚዘንበው ከባድ ዝናብ መንገዶችን አስቸጋሪ ሊያደርግ ይችላል።",
+   "aboutEyebrow": "ስለ ዞኑ",
+   "aboutTitle": "ደቡብ ኦሞ በጨረፍታ",
+   "capital": "ዋና ከተማ",
+   "contactTitle": "ያግኙን",
+   "contactLead": "በዲመካ የሚገኙት ቢሮዎቻችን ከሰኞ እስከ አርብ ክፍት ናቸው። ለሚመለከተው ክፍል ይጻፉ፤ ምላሽ እንሰጣለን።",
+   "name": "ሙሉ ስም",
+   "email": "ኢሜይል",
+   "subject": "ርዕስ",
+   "message": "መልዕክት",
+   "send": "መልዕክት ላክ",
+   "sent": "እናመሰግናለን። መልዕክትዎ ተመዝግቧል።",
+   "sendError": "መልዕክትዎ መላክ አልተቻለም። እባክዎ እንደገና ይሞክሩ ወይም በቀጥታ በኢሜይል ይጻፉልን።",
+   "sendTooMany": "ከእርስዎ ግንኙነት ብዙ መልዕክቶች ተልከዋል። እባክዎ አንድ ደቂቃ ቆይተው እንደገና ይሞክሩ።",
+   "downloadNotice": "ሙሉውን ማስታወቂያ ያውርዱ (PDF)",
+   "general": "አጠቃላይ ጥያቄ",
+   "investDesk": "የኢንቨስትመንት ጽ/ቤት",
+   "tourismDesk": "የቱሪዝም ጽ/ቤት",
+   "address": "አድራሻ",
+   "phone": "ስልክ",
+   "hours": "የሥራ ሰዓት",
+   "creditsLead": "በዚህ ድረ-ገጽ ላይ ያሉት ፎቶዎች ከዊኪሚዲያ ኮመንስ በክሪኤቲቭ ኮመንስ ፈቃድ የተወሰዱ ናቸው። ፎቶ አንሺዎቹን እናመሰግናለን።",
+   "photo": "ፎቶ",
+   "license": "ፈቃድ",
+   "source": "ምንጭ",
+   "footerAbout": "ለባለሀብቶች፣ ለጎብኚዎችና ለዜጎች የደቡብ ኦሞ ዞን አስተዳደር ኦፊሴላዊ ፖርታል።",
+   "routeTitle": "ከጂንካ አውሮፕላን ማረፊያ ወደ ሸለቆው",
+   "routeLead": "ከአዲስ አበባ የሚነሱ በረራዎች ጂንካ ያርፋሉ። ከአውሮፕላን ማረፊያው ፈቃድ ያላቸው አስጎብኚዎች በባለአራት እግር ተሽከርካሪ ወደ ዞኑ ማዕዘናት ሁሉ ይወስዱዎታል። መንገዱን ለመከተል መዳረሻ ይምረጡ።",
+   "addis": "አዲስ አበባ",
+   "jinka": "ጂንካ",
+   "byAir": "በአውሮፕላን 1 ሰዓት ተኩል ገደማ",
+   "replay": "እንደገና",
+   "asphaltRoad": "የአስፋልት መንገድ",
+   "gravelRoad": "የጠጠር መንገድ",
+   "placesToStay": "ማረፊያዎች",
+   "kmAsphalt": "ኪ.ሜ አስፋልት",
+   "kmGravel": "ኪ.ሜ ጠጠር",
+   "byRoad": "በመንገድ",
+   "drive": "ጉዞ",
+   "onTheWay": "በመንገድ ላይ",
+   "direct": "ቀጥታ",
+   "town": "ከተማ",
+   "towns": "ከተሞች",
+   "airport": "አውሮፕላን ማረፊያ",
+   "travelTip": "የጉዞ ምክር",
+   "whereToStay": "የት ማረፍ ይቻላል",
+   "staysFlag": "የተጠቆሙ ማረፊያዎች፤ በዞኑ ቱሪዝም ጽሕፈት ቤት የሚረጋገጡ።",
+   "hr": "ሰ",
+   "min": "ደ",
+   "routeNote": "ርቀቶቹ ዋና መንገዶችን ይከተላሉ። የጉዞ ሰዓቶቹ በበጋ ወቅት በባለአራት እግር ተሽከርካሪ የተገመቱ ሲሆኑ ከከባድ ዝናብ በኋላ ይረዝማሉ።",
+   "fromJinka": "ከጂንካ አውሮፕላን ማረፊያ",
+   "seeRoute": "መንገዱን ይመልከቱ",
+   "mapLabel": "ከጂንካ አውሮፕላን ማረፊያ የሚነሱ መንገዶች የሳተላይት ካርታ",
+   "destinations": "መዳረሻዎች",
+   "itinerariesTab": "የጉዞ ዕቅዶች",
+   "day": "ቀን",
+   "nights": "ምሽቶች",
+   "night": "ምሽት",
+   "startOn": "የሚጀምሩበት",
+   "bestStart": "ምርጥ",
+   "market": "ገበያ",
+   "marketToday": "ዛሬ ገበያ",
+   "marketsToday": "ዛሬ {day} ነው፤ የ{places} ገበያ ይውላል።",
+   "noMarketToday": "ዛሬ ገበያ የለም። ቀጣዩ፦ {day}፣ {place}።",
+   "nextMarket": "ቀጣይ ገበያ",
+   "roadOpen": "ክፍት",
+   "roadSlow": "አዝጋሚ",
+   "roadClosed": "ዝግ",
+   "roadsOnRoute": "መንገዶች",
+   "allRoadsOpen": "ሁሉም መንገዶች ክፍት ናቸው",
+   "roadStatusUnconfirmed": "ሁኔታው ገና በመንገድ ጽ/ቤቱ አልተረጋገጠም",
+   "roadStatusAsOf": "የተረጋገጠው {date}",
+   "rainyWarning": "የዝናብ ወቅት፦ ከከባድ ዝናብ በኋላ የጠጠር መንገዶች ሊያዘገዩ ወይም ሊዘጉ ይችላሉ። ከመነሳትዎ በፊት አስጎብኚዎን ይጠይቁ።",
+   "fuel": "ነዳጅ",
+   "bank": "ባንክ",
+   "health": "ጤና ጣቢያ",
+   "gate": "የፓርክ መግቢያ",
+   "lastFuel": "የመጨረሻ ነዳጅ",
+   "servicesNote": "አገልግሎቶቹ በአካባቢው ይረጋገጣሉ",
+   "photoBy": "ፎቶ",
+   "quickLinks": "ይቃኙ",
+   "reachUs": "ያግኙን",
+   "rights": "የደቡብ ኦሞ ዞን አስተዳደር",
+   "loading": "በመጫን ላይ…",
+   "notFound": "ገጹ አልተገኘም።",
+   "menu": "ማውጫ"
+  }
+ }
 }

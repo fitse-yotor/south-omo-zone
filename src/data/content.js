@@ -1,6 +1,9 @@
 // Content for the South Omo Zone portal.
 // FACTS (zone structure, woredas, heritage, peoples, sectors) are researched from public sources (see README).
 // LISTINGS (opportunities, vacancies, tenders) and the leader's name/message are SAMPLES to be replaced by the zone office.
+import { labels } from "./labels.js";
+import credits from "./credits.json" with { type: "json" };
+
 const day = 86400000;
 const iso = (offset) => new Date(Date.now() + offset * day).toISOString().slice(0, 10);
 
@@ -29,6 +32,14 @@ export const zone = {
     hours: { en: "Monday – Friday, 8:30 – 17:30", am: "ሰኞ – አርብ፣ 2፡30 – 11፡30" },
   },
 };
+
+// Home page slideshow: built-in photo ids (or uploaded photo URLs) with captions
+export const heroSlides = [
+  { id: "turmi-hills", caption: { en: "Hills near Turmi, Hamer", am: "በቱርሚ አቅራቢያ ያሉ ኮረብቶች፣ ሐመር" } },
+  { id: "omo-river-omorate", caption: { en: "The Omo River at Omorate", am: "የኦሞ ወንዝ በኦሞራቴ" } },
+  { id: "banna-village", caption: { en: "Farmland and homesteads, Bena Tsemay", am: "የእርሻ መሬትና መንደሮች፣ በና ጸማይ" } },
+  { id: "hamer-village", caption: { en: "A Hamer village near Turmi", am: "በቱርሚ አቅራቢያ የሐመር መንደር" } },
+];
 
 export const facts = [
   { value: "8", label: { en: "Woredas", am: "ወረዳዎች" } },
@@ -557,9 +568,19 @@ export const itineraries = [
 export const attractionJourney = { "lower-omo": "omorate", mago: "mago", "omo-river": "omorate", hamer: "hamer", markets: "markets", turkana: "arbore" };
 
 // Replaces the built-in content with what the admin panel publishes (see src/api.js → loadRemote).
-// Exports are live bindings, so every component that imports them sees the new values.
+// Objects and arrays are updated in place, so every module that imported them (including code that
+// read them when it loaded, like the route map) sees the admin's values. Missing keys keep the built-in content.
+const fill = (target, src) => {
+  if (Array.isArray(target) && Array.isArray(src)) target.splice(0, target.length, ...src);
+  else if (target && src && typeof src === "object") {
+    for (const k of Object.keys(target)) delete target[k];
+    Object.assign(target, src);
+  }
+};
+
 export function applyRemote(r) {
   if (!r || typeof r !== "object") return;
+  if (r.zone) for (const [k, v] of Object.entries(r.zone)) if (v && (v.en || v.am)) zone[k] = v;
   if (r.contact) Object.assign(zone.contact, Object.fromEntries(Object.entries(r.contact).filter(([, v]) => v)));
   if (r.leader) leader = { ...leader, ...r.leader };
   if (Array.isArray(r.sectors) && r.sectors.length) sectors = r.sectors;
@@ -567,6 +588,17 @@ export function applyRemote(r) {
   if (Array.isArray(r.opportunities)) opportunities = r.opportunities;
   if (Array.isArray(r.attractions) && r.attractions.length) attractions = r.attractions;
   if (Array.isArray(r.announcements)) announcements = r.announcements;
-  if (r.roadLegs) for (const [k, v] of Object.entries(r.roadLegs)) if (roadLegs[k]) Object.assign(roadLegs[k], { status: v.status, note: v.note || undefined });
   if ("roadStatusUpdated" in r) roadStatusUpdated = r.roadStatusUpdated;
+
+  for (const [key, target] of Object.entries({ heroSlides, facts, markets, peoples, peoplesAm, rainyMonths, journeys, itineraries })) {
+    if (Array.isArray(r[key]) && (r[key].length || key === "rainyMonths")) fill(target, r[key]);
+  }
+  for (const [key, target] of Object.entries({ etiquette, investSteps, principles, routeStops, townServices, townPhotos, stays, attractionJourney })) {
+    if (r[key] && typeof r[key] === "object" && Object.keys(r[key]).length) fill(target, r[key]);
+  }
+  // Road legs: keep the map's leg list, update what the roads office manages.
+  if (r.roadLegs) for (const [k, v] of Object.entries(r.roadLegs)) if (roadLegs[k]) Object.assign(roadLegs[k], v);
+  // Interface labels: overrides for individual keys.
+  if (r.labels) for (const lang of ["en", "am"]) Object.assign(labels[lang], r.labels[lang] || {});
+  if (Array.isArray(r.credits) && r.credits.length) fill(credits, r.credits);
 }

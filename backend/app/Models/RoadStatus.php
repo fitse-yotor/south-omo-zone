@@ -12,5 +12,7 @@ class RoadStatus extends Model
 
     public const STATUSES = ['open' => 'Open', 'slow' => 'Slow / difficult', 'closed' => 'Closed'];
 
+    public const SURFACES = ['asphalt' => 'Asphalt', 'gravel' => 'Gravel'];
+
     protected $guarded = ['id'];
 }

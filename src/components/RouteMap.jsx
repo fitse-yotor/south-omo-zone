@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { AlertTriangle, CheckCircle2, Fuel, Moon, RotateCcw } from "lucide-react";
+import { AlertTriangle, CheckCircle2, Fuel, Info, Moon, RotateCcw } from "lucide-react";
 import { useLang } from "../i18n";
 import { img, markets, rainyMonths, roadLegs, roadStatusUpdated, routeStops, stays, townPhotos, townServices } from "../data/content";
 import credits from "../data/credits.json";
@@ -115,6 +115,8 @@ export default function RouteMap({ journeys, itineraries, selected, onSelect }) 
   const fuelStop = lastFuel(trip);
   const tripKey = `${mode}:${trip.id}`;
   const notOpen = st.legs.filter((l) => l.info.status && l.info.status !== "open");
+  // Open roads that still carry a note from the roads office (e.g. roadworks)
+  const notedOpen = [...new Map(st.legs.filter((l) => l.info.status === "open" && l.info.note && tx(l.info.note)).map((l) => [l.key, l])).values()];
   const rainy = rainyMonths.includes(now.month) && st.gravel > 0;
   const fill2 = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k]);
 
@@ -318,7 +320,7 @@ export default function RouteMap({ journeys, itineraries, selected, onSelect }) 
         if (photo && !seenPhoto.has(leg.to)) {
           seenPhoto.add(leg.to);
           const c = credit(photo);
-          const card = add(L.marker(S[leg.to], { icon: L.divIcon({ className: "", iconSize: [0, 0], html: `<figure class="rm-photo"><img src="${img(photo)}" alt=""><figcaption>${town(leg.to)}${c ? `<small>© ${c.author} · ${c.license}</small>` : ""}</figcaption></figure>` }), interactive: false, zIndexOffset: 3000 }));
+          const card = add(L.marker(S[leg.to], { icon: L.divIcon({ className: "", iconSize: [0, 0], html: `<figure class="rm-photo"><img src="${img(photo)}" alt=""><figcaption>${town(leg.to)}${c ? `<small>© ${c.author}${c.license ? ` · ${c.license}` : ""}</small>` : ""}</figcaption></figure>` }), interactive: false, zIndexOffset: 3000 }));
           setTimeout(() => card.getElement()?.firstElementChild.classList.add("out"), 2100);
           setTimeout(() => alive() && map.removeLayer(card), 2600);
           pause = 1500;
@@ -449,7 +451,8 @@ export default function RouteMap({ journeys, itineraries, selected, onSelect }) 
               {st.gravel > 0 && <span><svg width="22" height="6"><line x1="2" y1="3" x2="21" y2="3" stroke="#e2bd76" strokeWidth="3" strokeDasharray="1 5" strokeLinecap="round" /></svg>{st.gravel} {t("kmGravel")}</span>}
               {notOpen.length === 0
                 ? <span title={roadStatusUpdated ? fill2(t("roadStatusAsOf"), { date: roadStatusUpdated }) : t("roadStatusUnconfirmed")}><CheckCircle2 size={14} className="text-leaf-500" />{t("allRoadsOpen")}{!roadStatusUpdated && <sup>*</sup>}</span>
-                : [...new Map(notOpen.map((l) => [l.key, l])).values()].map((l) => <span key={l.key} className={l.info.status === "closed" ? "text-ember-500" : "text-sun-400"}><AlertTriangle size={14} />{town(l.key.split("-")[0])}–{town(l.key.split("-")[1])}: {t(l.info.status === "closed" ? "roadClosed" : "roadSlow")}</span>)}
+                : [...new Map(notOpen.map((l) => [l.key, l])).values()].map((l) => <span key={l.key} className={l.info.status === "closed" ? "text-ember-500" : "text-sun-400"}><AlertTriangle size={14} />{town(l.key.split("-")[0])}–{town(l.key.split("-")[1])}: {t(l.info.status === "closed" ? "roadClosed" : "roadSlow")}{l.info.note && tx(l.info.note) ? ` · ${tx(l.info.note)}` : ""}</span>)}
+              {notedOpen.map((l) => <span key={"n" + l.key}><Info size={14} className="text-royal-300" />{town(l.key.split("-")[0])}–{town(l.key.split("-")[1])}: {tx(l.info.note)}</span>)}
               {fuelStop && <span><Fuel size={14} className="text-sun-400" />{t("lastFuel")}: {town(fuelStop)}</span>}
             </div>
           </div>

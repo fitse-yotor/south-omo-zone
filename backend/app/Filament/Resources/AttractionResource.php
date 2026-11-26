@@ -26,7 +26,8 @@ class AttractionResource extends Resource
     {
         return $form->schema([
             Forms\Components\TextInput::make('slug')->label('ID')->required()->alphaDash()->unique(ignoreRecord: true),
-            Forms\Components\TextInput::make('sort')->numeric()->default(0),
+            Forms\Components\Select::make('journey_slug')->label('"Plan this trip" opens the journey')
+                ->options(fn () => \App\Models\Journey::orderBy('sort')->pluck('name_en', 'slug'))->native(false),
             Bi::tabs(['title' => ['Title'], 'tag' => ['Label (e.g. "Wildlife & savanna")', 'text', ['optional' => true]], 'text' => ['Description', 'textarea', ['rows' => 5]]]),
             Bi::photo('attractions'),
         ])->columns(2);

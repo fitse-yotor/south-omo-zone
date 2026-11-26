@@ -5,23 +5,17 @@ import { ArrowRight, Play, Quote } from "lucide-react";
 import { useLang } from "../i18n";
 import { useAsync, daysLeft } from "../hooks";
 import { getHome } from "../api";
-import { img, zone } from "../data/content";
+import { heroSlides, img, zone } from "../data/content";
 import credits from "../data/credits.json";
 import { AnnDetail, AnnRow, icons, Loading, Modal, Photo, Reveal, Rings, SectionHeading, VideoPlayer, WoredaCard } from "../components/ui";
 import { LOGO } from "../components/Layout";
 
-const SLIDES = [
-  { id: "turmi-hills", caption: { en: "Hills near Turmi, Hamer", am: "በቱርሚ አቅራቢያ ያሉ ኮረብቶች፣ ሐመር" } },
-  { id: "omo-river-omorate", caption: { en: "The Omo River at Omorate", am: "የኦሞ ወንዝ በኦሞራቴ" } },
-  { id: "banna-village", caption: { en: "Farmland and homesteads, Bena Tsemay", am: "የእርሻ መሬትና መንደሮች፣ በና ጸማይ" } },
-  { id: "hamer-village", caption: { en: "A Hamer village near Turmi", am: "በቱርሚ አቅራቢያ የሐመር መንደር" } },
-];
 
 function Hero() {
   const { t, tx } = useLang();
   const [i, setI] = useState(0);
-  useEffect(() => { const id = setInterval(() => setI((x) => (x + 1) % SLIDES.length), 7000); return () => clearInterval(id); }, []);
-  const s = SLIDES[i];
+  useEffect(() => { const id = setInterval(() => setI((x) => (x + 1) % heroSlides.length), 7000); return () => clearInterval(id); }, []);
+  const s = heroSlides[i];
   const c = credits.find((x) => x.id === s.id);
   return (
     <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-royal-950 text-white">
@@ -48,13 +42,13 @@ function Hero() {
       <div className="absolute bottom-24 left-0 right-0">
         <div className="container flex items-end justify-between gap-6">
           <div className="flex gap-2">
-            {SLIDES.map((x, k) => (
+            {heroSlides.map((x, k) => (
               <button key={x.id} onClick={() => setI(k)} aria-label={tx(x.caption)} className="h-1 w-10 overflow-hidden rounded-full bg-white/25">
                 {k === i && <motion.span key={i} className="block h-full bg-sun-400" initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 7, ease: "linear" }} />}
               </button>
             ))}
           </div>
-          <p className="hidden text-right text-xs text-white/60 sm:block">{tx(s.caption)}<span className="hidden sm:inline"> · © {c?.author}, {c?.license}</span></p>
+          <p className="hidden text-right text-xs text-white/60 sm:block">{tx(s.caption)}<span className="hidden sm:inline"> · © {c?.author}{c?.license ? `, ${c.license}` : ""}</span></p>
         </div>
       </div>
     </section>

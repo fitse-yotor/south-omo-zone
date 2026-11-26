@@ -47,15 +47,22 @@ class Bi
         return $out;
     }
 
-    /** Built-in photo picker plus an optional upload that replaces it. */
-    public static function photo(string $directory): Section
+    /** Built-in photo picker plus an optional upload (with its credit) that replaces it. */
+    public static function photo(string $directory, bool $required = false): Section
     {
+        $builtin = Select::make('image')->label('Built-in photo')->options(self::builtinPhotos())->searchable()
+            ->helperText('Licensed photos that ship with the site. Their credits show automatically.');
+        if ($required) {
+            $builtin->requiredWithout('photo')->validationMessages(['required_without' => 'Choose a built-in photo or upload one.']);
+        }
+
         return Section::make('Photo')->schema([
-            Select::make('image')->label('Built-in photo')->options(self::builtinPhotos())->searchable()
-                ->helperText('Licensed photos that ship with the site. Their credits show automatically.'),
-            FileUpload::make('photo')->label('Upload a new photo (replaces the built-in one)')->disk('uploads')->directory($directory)
+            $builtin,
+            FileUpload::make('photo')->label('Or upload a new photo (replaces the built-in one)')->disk('uploads')->directory($directory)
                 ->image()->imageResizeMode('cover')->imageResizeTargetWidth('1920')->maxSize(6144)
                 ->helperText('JPG or PNG, landscape, up to 6 MB. Only upload photos the zone owns or may use.'),
+            TextInput::make('photo_credit')->label('Credit for the uploaded photo')->maxLength(255)
+                ->placeholder('e.g. South Omo Zone Culture & Tourism Department')->columnSpanFull(),
         ])->columns(2)->collapsible();
     }
 
@@ -63,11 +70,31 @@ class Bi
     {
         static $opts;
         if ($opts === null) {
-            $data = json_decode(@file_get_contents(database_path('data/content.json')) ?: '{}', true);
-            $opts = collect($data['photos'] ?? [])->mapWithKeys(fn ($p) => [$p['id'] => ucfirst(str_replace('-', ' ', $p['id'])).' — © '.$p['credit']])->all();
+            $opts = \App\Models\PhotoCredit::orderBy('photo_id')->get()
+                ->mapWithKeys(fn ($p) => [$p->photo_id => ucfirst(str_replace('-', ' ', $p->photo_id)).' — © '.$p->author])->all();
+            if (! $opts) { // before the credits are seeded
+                $data = json_decode(@file_get_contents(database_path('data/content.json')) ?: '{}', true);
+                $opts = collect($data['photos'] ?? [])->mapWithKeys(fn ($p) => [$p['id'] => ucfirst(str_replace('-', ' ', $p['id'])).' — © '.$p['credit']])->all();
+            }
         }
 
         return $opts;
+    }
+
+    /** Towns on the tourism map, for route pickers. */
+    public static function stopOptions(): array
+    {
+        return \App\Models\RouteStop::orderBy('sort')->pluck('name_en', 'key')->all();
+    }
+
+    /** Validation rule: consecutive towns must be joined by a road on the map. */
+    public static function routeRule(): \Closure
+    {
+        return fn (): \Closure => function (string $attribute, $value, \Closure $fail) {
+            if ($error = \App\Support\MapData::routeError(array_values((array) $value))) {
+                $fail($error);
+            }
+        };
     }
 
     public static function canEditContent(): bool

@@ -43,6 +43,22 @@ trait Bilingual
      * Images are either a built-in photo id shipped with the site (e.g. "turmi-hills")
      * or a file uploaded through the admin panel (stored on the "uploads" disk).
      */
+    /** The photo shown for this record: an upload if there is one, otherwise the built-in photo id. */
+    public function photoRef(): ?string
+    {
+        return self::imageRef($this->photo ?: $this->image);
+    }
+
+    /** Credit entry for an uploaded photo, so the site can show "© …" for it like the built-in ones. */
+    public function uploadedPhotoCredit(): ?array
+    {
+        if (! $this->photo || ! $this->photo_credit) {
+            return null;
+        }
+
+        return ['id' => self::imageRef($this->photo), 'title' => null, 'author' => $this->photo_credit, 'license' => '', 'source' => null];
+    }
+
     public static function imageRef(?string $value): ?string
     {
         if (! $value) {

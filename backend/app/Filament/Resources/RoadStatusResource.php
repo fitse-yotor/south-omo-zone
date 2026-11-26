@@ -33,8 +33,10 @@ class RoadStatusResource extends Resource
 
     public static function form(Form $form): Form
     {
-        return $form->schema([
+        return $form->columns(3)->schema([
             Forms\Components\Select::make('status')->options(RoadStatus::STATUSES)->required()->native(false),
+            Forms\Components\Select::make('surface')->options(RoadStatus::SURFACES)->required()->native(false),
+            Forms\Components\TextInput::make('minutes')->label('Drive time in the dry season, 4×4 (minutes)')->numeric()->minValue(5)->maxValue(1440)->required(),
             Bi::tabs(['note' => ['Note for travellers (optional)', 'text', ['optional' => true]]]),
         ]);
     }
@@ -47,6 +49,9 @@ class RoadStatusResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('leg')->label('Road')->formatStateUsing(fn ($state) => collect(explode('-', $state))->map(fn ($x) => ucfirst($x))->join(' → ')),
                 Tables\Columns\SelectColumn::make('status')->options(RoadStatus::STATUSES)->selectablePlaceholder(false),
+                Tables\Columns\TextColumn::make('surface')->badge()->formatStateUsing(fn ($state) => RoadStatus::SURFACES[$state] ?? $state)
+                    ->color(fn ($state) => $state === 'asphalt' ? 'gray' : 'warning'),
+                Tables\Columns\TextColumn::make('minutes')->label('Drive time')->formatStateUsing(fn ($state) => intdiv((int) $state, 60).' h '.str_pad((string) ((int) $state % 60), 2, '0', STR_PAD_LEFT).' min'),
                 Tables\Columns\TextColumn::make('note_en')->label('Note')->placeholder('—')->wrap(),
                 Tables\Columns\TextColumn::make('updated_at')->label('Changed')->since(),
             ])
@@ -57,7 +62,7 @@ class RoadStatusResource extends Resource
                         Notification::make()->title('Road status confirmed for today')->success()->send();
                     }),
             ])
-            ->actions([Tables\Actions\EditAction::make()->label('Note')]);
+            ->actions([Tables\Actions\EditAction::make()->label('Edit')]);
     }
 
     public static function getPages(): array

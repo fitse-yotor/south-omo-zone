@@ -22,6 +22,6 @@ class Sector extends Model
 
     public function toPortal(): array
     {
-        return ['id' => $this->slug, 'icon' => $this->icon, 'image' => self::imageRef($this->photo ?: $this->image), 'title' => $this->bi('title'), 'text' => $this->bi('text')];
+        return ['id' => $this->slug, 'icon' => $this->icon, 'image' => $this->photoRef(), 'title' => $this->bi('title'), 'text' => $this->bi('text')];
     }
 }

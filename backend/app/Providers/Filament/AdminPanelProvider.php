@@ -36,8 +36,10 @@ class AdminPanelProvider extends PanelProvider
             ->colors(['primary' => Color::hex('#2a55bd'), 'success' => Color::hex('#2a9104'), 'warning' => Color::hex('#e0a82e'), 'danger' => Color::hex('#c8372d')])
             ->navigationGroups([
                 NavigationGroup::make('Notice board'),
+                NavigationGroup::make('Home page'),
                 NavigationGroup::make('Investment'),
                 NavigationGroup::make('Zone & tourism'),
+                NavigationGroup::make('Tourism map'),
                 NavigationGroup::make('Settings'),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
