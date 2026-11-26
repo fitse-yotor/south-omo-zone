@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, MapPin, Users } from "lucide-react";
 import { useLang } from "../i18n";
+import { zone } from "../data/content";
 import { useAsync } from "../hooks";
 import { getWoreda } from "../api";
 import { icons, Loading, OppCard, PageHero, Reveal, SectionHeading } from "../components/ui";
@@ -41,7 +42,7 @@ export default function WoredaDetail() {
       {opportunities.length > 0 && (
         <section className="bg-sand-100 py-24">
           <div className="container">
-            <SectionHeading eyebrow={tx(w.name)} title={`${t("opportunities")} (${opportunities.length})`} lead={t("sample")} />
+            <SectionHeading eyebrow={tx(w.name)} title={`${t("opportunities")} (${opportunities.length})`} lead={zone.showSampleNotice ? t("sample") : undefined} />
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{opportunities.map((o) => <OppCard key={o.id} o={o} sectors={sectors} showWoreda={false} />)}</div>
           </div>
         </section>

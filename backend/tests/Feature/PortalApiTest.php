@@ -98,4 +98,41 @@ class PortalApiTest extends TestCase
         $this->assertSame([6], \App\Models\Market::first()->days);
         $this->assertSame(3, \App\Models\Market::count());
     }
+
+    public function test_english_only_content_can_be_saved_and_falls_back(): void
+    {
+        $this->seed([PortalSeeder::class, SiteContentSeeder::class]);
+        \App\Models\Announcement::create(['type' => 'vacancy', 'title_en' => 'Driver', 'organization_en' => 'Zone HR',
+            'summary_en' => 'Driving licence required.', 'posted_on' => today(), 'deadline' => today()->addWeek()]);
+
+        $a = collect($this->getJson('/api/content')->json('announcements'))->firstWhere('title.en', 'Driver');
+        $this->assertSame('Driver', $a['title']['am']);
+    }
+
+    public function test_logo_and_sample_notice_settings_reach_the_website(): void
+    {
+        $this->seed([PortalSeeder::class, SiteContentSeeder::class]);
+        $this->getJson('/api/content')->assertJsonPath('zone.showSampleNotice', true)->assertJsonPath('zone.logo', null);
+
+        \App\Models\SiteSetting::current()->update(['logo' => 'brand/emblem.png', 'show_sample_notice' => false]);
+
+        $zone = $this->getJson('/api/content')->json('zone');
+        $this->assertFalse($zone['showSampleNotice']);
+        $this->assertStringEndsWith('/uploads/brand/emblem.png', $zone['logo']);
+    }
+
+    public function test_launch_checklist_tracks_placeholders(): void
+    {
+        $this->seed([PortalSeeder::class, SiteContentSeeder::class]);
+        $open = fn () => collect(\App\Support\LaunchChecklist::items())->reject->done->pluck('label');
+
+        $this->assertContains('Replace the sample vacancies and tenders', $open());
+        $this->assertContains('Add the missing woreda seats', $open());
+
+        \App\Models\Announcement::where('is_sample', true)->delete();
+        \App\Models\Woreda::whereNull('seat_en')->update(['seat_en' => 'Seat', 'seat_am' => 'መቀመጫ']);
+
+        $this->assertNotContains('Replace the sample vacancies and tenders', $open());
+        $this->assertNotContains('Add the missing woreda seats', $open());
+    }
 }

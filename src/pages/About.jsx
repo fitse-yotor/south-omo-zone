@@ -6,7 +6,7 @@ import { useAsync } from "../hooks";
 import { getAbout } from "../api";
 import { zone } from "../data/content";
 import { Loading, Modal, PageHero, Photo, Reveal, Rings, SectionHeading, VideoPlayer, WoredaCard } from "../components/ui";
-import { LOGO } from "../components/Layout";
+import { logoSrc } from "../components/Layout";
 import { CTA } from "./Home";
 
 export default function About() {
@@ -54,7 +54,7 @@ export default function About() {
                     {data.leader.photo ? <img src={data.leader.photo} alt="" className="h-full w-full object-cover" /> : (
                       <div className="flex h-full flex-col items-center justify-center">
                         <Rings className="absolute h-[130%] w-[130%] text-white/10" />
-                        <img src={LOGO} alt="" className="relative h-28 w-28 rounded-full bg-white p-1" />
+                        <img src={logoSrc()} alt="" className="relative h-28 w-28 rounded-full bg-white p-1" />
                       </div>
                     )}
                   </div>

@@ -21,6 +21,20 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
 {
+    /** Uploaded emblem from the settings, else the built-in one. */
+    public static function logoUrl(): ?string
+    {
+        try {
+            if ($url = \App\Models\SiteSetting::query()->first()?->logoUrl()) {
+                return $url;
+            }
+        } catch (\Throwable) {
+            // before the first migration
+        }
+
+        return is_file(public_path('brand/logo.png')) ? asset('brand/logo.png') : null;
+    }
+
     public function panel(Panel $panel): Panel
     {
         return $panel
@@ -30,9 +44,9 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->passwordReset()
             ->brandName('South Omo Zone · Admin')
-            ->brandLogo(fn () => is_file(public_path('brand/logo.png')) ? asset('brand/logo.png') : null)
+            ->brandLogo(fn () => self::logoUrl())
             ->brandLogoHeight('2.75rem')
-            ->favicon(fn () => is_file(public_path('brand/logo.png')) ? asset('brand/logo.png') : null)
+            ->favicon(fn () => self::logoUrl())
             ->colors(['primary' => Color::hex('#2a55bd'), 'success' => Color::hex('#2a9104'), 'warning' => Color::hex('#e0a82e'), 'danger' => Color::hex('#c8372d')])
             ->navigationGroups([
                 NavigationGroup::make('Notice board'),
@@ -44,7 +58,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->pages([Pages\Dashboard::class])
-            ->widgets([PortalStats::class])
+            ->widgets([\App\Filament\Widgets\LaunchChecklist::class, PortalStats::class])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

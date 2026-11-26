@@ -113,6 +113,12 @@ class SiteContentSeeder extends Seeder
                     Label::create(['key' => $key, 'en' => $en, 'am' => $d['labels']['am'][$key] ?? null]);
                 }
             }
+            // Upgrades: mark sample notices and opportunities that were seeded earlier and never edited.
+            $sampleTitles = collect($d['announcements'])->pluck('title.en');
+            \App\Models\Announcement::whereIn('title_en', $sampleTitles)->whereColumn('created_at', 'updated_at')->update(['is_sample' => true]);
+            $sampleOpps = collect($d['opportunities'])->pluck('title.en');
+            \App\Models\Opportunity::whereIn('title_en', $sampleOpps)->whereColumn('created_at', 'updated_at')->update(['is_sample' => true]);
+
             foreach ($d['credits'] as $c) {
                 PhotoCredit::firstOrCreate(['photo_id' => $c['id']], ['title' => $c['title'] ?? null, 'author' => $c['author'], 'license' => $c['license'] ?? null, 'source_url' => $c['source'] ?? null]);
             }

@@ -48,7 +48,7 @@ class PortalSeeder extends Seeder
             $sector = Sector::pluck('id', 'slug');
             Opportunity::query()->delete();
             foreach ($d['opportunities'] as $i => $o) {
-                Opportunity::create(['woreda_id' => $woreda[$o['woreda']], 'sector_id' => $sector[$o['sector']], 'land_ha' => $o['landHa'],
+                Opportunity::create(['is_sample' => true, 'woreda_id' => $woreda[$o['woreda']], 'sector_id' => $sector[$o['sector']], 'land_ha' => $o['landHa'],
                     'investment_usd_m' => $o['investmentUsdM'], 'jobs' => $o['jobs'], 'sort' => $i] + $bi($o['title'], 'title') + $bi($o['summary'], 'summary'));
             }
             foreach ($d['attractions'] as $i => $a) {
@@ -59,7 +59,7 @@ class PortalSeeder extends Seeder
             $exported = \Carbon\Carbon::parse($d['exportedOn'] ?? today());
             $shift = fn (string $date) => today()->addDays((int) $exported->diffInDays(\Carbon\Carbon::parse($date), false));
             foreach ($d['announcements'] as $a) {
-                Announcement::create(['type' => $a['type'], 'reference' => $a['ref'] ?? null, 'posted_on' => $shift($a['posted']), 'deadline' => $shift($a['deadline'])]
+                Announcement::create(['is_sample' => true, 'type' => $a['type'], 'reference' => $a['ref'] ?? null, 'posted_on' => $shift($a['posted']), 'deadline' => $shift($a['deadline'])]
                     + $bi($a['title'], 'title') + $bi($a['org'], 'organization') + $bi($a['location'], 'location') + $bi($a['summary'], 'summary') + $lines($a['details'], 'details'));
             }
             foreach ($d['roadLegs'] as $leg => $r) {

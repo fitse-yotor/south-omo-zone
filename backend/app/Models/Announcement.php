@@ -15,7 +15,7 @@ class Announcement extends Model
 
     protected $guarded = ['id'];
 
-    protected $casts = ['posted_on' => 'date', 'deadline' => 'date', 'is_published' => 'boolean'];
+    protected $casts = ['posted_on' => 'date', 'deadline' => 'date', 'is_published' => 'boolean', 'is_sample' => 'boolean'];
 
     public function scopeOpen(Builder $q): Builder
     {

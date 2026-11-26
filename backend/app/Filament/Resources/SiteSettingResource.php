@@ -33,6 +33,20 @@ class SiteSettingResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
+            Forms\Components\Section::make('Emblem and launch')->schema([
+                Forms\Components\FileUpload::make('logo')->label('Zone emblem / logo')->disk('uploads')->directory('brand')
+                    ->image()->imageEditor()->imageCropAspectRatio('1:1')->imageResizeTargetWidth('512')->imageResizeTargetHeight('512')
+                    ->maxSize(2048)->avatar()
+                    ->helperText('Square PNG with a transparent or white background works best. Shown in the website header, footer, browser tab and this admin panel. Leave empty to use the built-in emblem.'),
+                Forms\Components\Toggle::make('show_sample_notice')->label('Show "sample listing" notes on the website')
+                    ->helperText('Turn off once the sample opportunities and notices have been replaced with real ones.'),
+                Forms\Components\Toggle::make('amharic_reviewed')->label('Amharic reviewed by a native speaker')
+                    ->afterStateHydrated(fn ($component, $record) => $component->state((bool) $record?->amharic_reviewed_at))
+                    ->dehydrated(false)
+                    ->afterStateUpdated(fn ($state, $record) => $record?->update(['amharic_reviewed_at' => $state ? now() : null]))
+                    ->live()
+                    ->helperText(fn ($record) => $record?->amharic_reviewed_at ? 'Marked as reviewed on '.$record->amharic_reviewed_at->format('d M Y').'.' : 'Tick this when a native speaker has checked all Amharic texts.'),
+            ])->columns(2),
             Forms\Components\Section::make('Zone name and home page')->schema([
                 Bi::tabs([
                     'name' => ['Zone name'],

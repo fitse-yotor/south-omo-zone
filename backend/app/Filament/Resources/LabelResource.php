@@ -47,6 +47,12 @@ class LabelResource extends Resource
                 Tables\Columns\TextInputColumn::make('en')->label('English')->searchable()->rules(['required', 'max:2000']),
                 Tables\Columns\TextInputColumn::make('am')->label('አማርኛ')->searchable()->rules(['nullable', 'max:2000']),
             ])
+            ->filters([
+                Tables\Filters\Filter::make('missing_am')->label('Missing Amharic')
+                    ->query(fn ($query) => $query->where(fn ($q) => $q->whereNull('am')->orWhere('am', ''))),
+                Tables\Filters\Filter::make('same_as_en')->label('Amharic same as English (likely untranslated)')
+                    ->query(fn ($query) => $query->whereColumn('am', 'en')),
+            ])
             ->actions([Tables\Actions\EditAction::make()->label('Long text')]);
     }
 

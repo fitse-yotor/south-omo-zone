@@ -5,7 +5,8 @@ import { Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { useLang } from "../i18n";
 import { zone } from "../data/content";
 
-export const LOGO = "./brand/logo.png";
+// The zone emblem: uploaded in the admin panel, or the built-in one
+export const logoSrc = () => zone.logo || "./brand/logo.png";
 const NAV = [["/", "home"], ["/about", "about"], ["/invest", "invest"], ["/woredas", "woredas"], ["/tourism", "tourism"], ["/announcements", "announcements"], ["/contact", "contact"]];
 
 function LangSwitch({ dark }) {
@@ -24,7 +25,7 @@ function Brand({ dark }) {
   const { tx, lang } = useLang();
   return (
     <Link to="/" className="flex items-center gap-3">
-      <img src={LOGO} alt="" className="h-11 w-11 sm:h-12 sm:w-12 shrink-0 rounded-full bg-white object-contain p-0.5 shadow-soft" />
+      <img src={logoSrc()} alt="" className="h-11 w-11 sm:h-12 sm:w-12 shrink-0 rounded-full bg-white object-contain p-0.5 shadow-soft" />
       <span className="leading-tight">
         <span className={`block whitespace-nowrap font-serif text-base sm:text-lg ${dark ? "text-royal-950" : "text-white"}`}>{tx(zone.name)}</span>
         <span className={`block text-[11px] ${dark ? "text-ink-mute" : "text-white/70"}`}>{lang === "en" ? zone.name.am : zone.name.en}</span>
@@ -97,7 +98,7 @@ export default function Layout() {
         <div className="container grid gap-12 py-16 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
-              <img src={LOGO} alt="" className="h-14 w-14 rounded-full bg-white p-0.5" />
+              <img src={logoSrc()} alt="" className="h-14 w-14 rounded-full bg-white p-0.5" />
               <div><p className="font-serif text-xl text-white">{tx(zone.name)}</p><p className="text-xs">{tx(zone.region)}</p></div>
             </div>
             <p className="mt-6 max-w-sm text-sm leading-relaxed">{t("footerAbout")}</p>

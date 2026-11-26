@@ -12,7 +12,7 @@ class SiteSetting extends Model
 
     protected $guarded = ['id'];
 
-    protected $casts = ['road_status_checked_on' => 'date', 'rainy_months' => 'array'];
+    protected $casts = ['road_status_checked_on' => 'date', 'rainy_months' => 'array', 'show_sample_notice' => 'boolean', 'amharic_reviewed_at' => 'datetime'];
 
     public static function current(): self
     {
@@ -23,7 +23,16 @@ class SiteSetting extends Model
     public function zoneTexts(): array
     {
         return collect(['name', 'admin', 'region', 'capital', 'tagline', 'intro'])
-            ->mapWithKeys(fn ($f) => [$f => $this->bi($f)])->filter()->all();
+            ->mapWithKeys(fn ($f) => [$f => $this->bi($f)])->filter()
+            ->put('logo', $this->logoUrl())
+            ->put('showSampleNotice', (bool) ($this->show_sample_notice ?? true))
+            ->all();
+    }
+
+    /** Uploaded emblem, or null to keep the built-in one. */
+    public function logoUrl(): ?string
+    {
+        return $this->logo ? \Illuminate\Support\Facades\Storage::disk('uploads')->url($this->logo) : null;
     }
 
     public function toPortal(): array

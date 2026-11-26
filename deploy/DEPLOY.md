@@ -101,13 +101,18 @@ php artisan filament:optimize
   roads, journeys, itineraries, interface labels and photo credits. Run it **once**, on the first install only.
 - `portal:admin` asks for a name, email, role and password for the first administrator.
 
-Open `https://your-domain/admin`, sign in, then:
+Open `https://your-domain/admin` and sign in. The dashboard shows a **Launch checklist** of everything still left
+from the original content, with a link to fix each item:
 
-1. **Home page → Zone texts & contact**: replace the placeholder phone and emails.
-2. **Zone & tourism → Leader's message**: name, portrait, YouTube link.
-3. **Notice board**: delete the sample vacancies and tenders, and add real ones.
-4. **Investment → Opportunities**: confirm or replace the sample listings.
-5. **Settings → Staff accounts**: add staff. Use the role *Vacancies & tenders only* for HR and procurement officers.
+- upload the zone emblem, and replace the placeholder phone and emails (*Home page → Zone texts & contact*)
+- complete the leader's message: name, portrait and YouTube link
+- replace the sample vacancies, tenders and opportunities. Each has a *Sample* badge, and *Delete all samples* removes them in one click.
+- turn off the "sample listing" notes on the website
+- add the missing woreda seats
+- fill in missing Amharic. Then have a native speaker review it and switch on *Amharic reviewed*.
+  On *Settings → Interface labels*, the *Missing Amharic* and *Same as English* filters show what still needs translating.
+
+Add staff under *Settings → Staff accounts*. Use the role *Vacancies & tenders only* for HR and procurement officers.
 
 If the host runs PHP through a different command in Terminal (for example `ea-php82`), use that instead of `php`.
 

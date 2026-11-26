@@ -42,6 +42,8 @@ class AnnouncementResource extends Resource
             Forms\Components\FileUpload::make('attachment')->label('Attachment (PDF: full notice or bid document)')->disk('uploads')->directory('notices')
                 ->acceptedFileTypes(['application/pdf'])->maxSize(10240)->downloadable()->openable()->columnSpanFull(),
             Forms\Components\Toggle::make('is_published')->label('Published on the site')->default(true),
+            Forms\Components\Toggle::make('is_sample')->label('Sample (example data)')
+                ->helperText('Switch off when this has been replaced with real, confirmed information.'),
         ])->columns(2);
     }
 
@@ -59,8 +61,11 @@ class AnnouncementResource extends Resource
                     ->description(fn ($record) => $record->deadline->isPast() ? 'Closed' : $record->deadline->diffForHumans()),
                 Tables\Columns\IconColumn::make('attachment')->label('PDF')->boolean()->getStateUsing(fn ($record) => (bool) $record->attachment),
                 Tables\Columns\ToggleColumn::make('is_published')->label('Published'),
+                Tables\Columns\TextColumn::make('is_sample')->label('')->badge()->color('warning')
+                    ->formatStateUsing(fn ($state) => $state ? 'Sample' : null)->placeholder(''),
             ])
             ->filters([
+                Tables\Filters\TernaryFilter::make('is_sample')->label('Samples')->trueLabel('Samples only')->falseLabel('Real only'),
                 Tables\Filters\SelectFilter::make('type')->options(Announcement::TYPES),
                 Tables\Filters\TernaryFilter::make('open')->label('Status')->placeholder('All')->trueLabel('Open')->falseLabel('Closed')
                     ->queries(true: fn (Builder $q) => $q->whereDate('deadline', '>=', today()), false: fn (Builder $q) => $q->whereDate('deadline', '<', today())),

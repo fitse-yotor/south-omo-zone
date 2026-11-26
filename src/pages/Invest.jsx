@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Check, Info, Search } from "lucide-react";
 import { useLang } from "../i18n";
+import { zone } from "../data/content";
 import { useAsync } from "../hooks";
 import { getInvest } from "../api";
 import { icons, Loading, OppCard, PageHero, Photo, Reveal, SectionHeading } from "../components/ui";
@@ -40,7 +41,7 @@ export default function Invest() {
           <section id="opportunities" className="bg-sand-100 py-24">
             <div className="container">
               <SectionHeading eyebrow={t("invest")} title={t("opportunities")}>
-                <p className="mt-5 inline-flex items-start gap-2 rounded-xl bg-sun-100 px-4 py-3 text-sm text-sun-600"><Info size={16} className="mt-0.5 shrink-0" />{t("sample")}</p>
+                {zone.showSampleNotice && <p className="mt-5 inline-flex items-start gap-2 rounded-xl bg-sun-100 px-4 py-3 text-sm text-sun-600"><Info size={16} className="mt-0.5 shrink-0" />{t("sample")}</p>}
               </SectionHeading>
               <div className="mb-6 grid gap-3 md:grid-cols-[1fr_240px]">
                 <label className="relative">

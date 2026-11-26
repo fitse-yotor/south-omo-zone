@@ -8,7 +8,7 @@ import { getHome } from "../api";
 import { heroSlides, img, zone } from "../data/content";
 import credits from "../data/credits.json";
 import { AnnDetail, AnnRow, icons, Loading, Modal, Photo, Reveal, Rings, SectionHeading, VideoPlayer, WoredaCard } from "../components/ui";
-import { LOGO } from "../components/Layout";
+import { logoSrc } from "../components/Layout";
 
 
 function Hero() {
@@ -86,7 +86,7 @@ function Leader({ leader }) {
               {leader.photo ? <img src={leader.photo} alt={tx(leader.name)} className="h-full w-full object-cover" /> : (
                 <div className="flex h-full flex-col items-center justify-center text-center text-white">
                   <Rings className="absolute h-[130%] w-[130%] text-white/10" />
-                  <img src={LOGO} alt="" className="relative h-32 w-32 rounded-full bg-white p-1 shadow-lift" />
+                  <img src={logoSrc()} alt="" className="relative h-32 w-32 rounded-full bg-white p-1 shadow-lift" />
                   <p className="relative mt-6 font-serif text-xl">{tx(leader.name)}</p>
                   <p className="relative text-sm text-white/60">{tx(leader.title)}</p>
                 </div>

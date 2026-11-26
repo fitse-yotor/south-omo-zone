@@ -33,6 +33,8 @@ class OpportunityResource extends Resource
             Forms\Components\TextInput::make('jobs')->label('Jobs created')->numeric()->minValue(0)->default(0),
             Forms\Components\TextInput::make('sort')->numeric()->default(0)->helperText('Lower numbers show first.'),
             Forms\Components\Toggle::make('is_published')->label('Published on the site')->default(true),
+            Forms\Components\Toggle::make('is_sample')->label('Sample (example data)')
+                ->helperText('Switch off when this has been replaced with real, confirmed information.'),
         ])->columns(2);
     }
 
@@ -49,8 +51,11 @@ class OpportunityResource extends Resource
                 Tables\Columns\TextColumn::make('investment_usd_m')->label('M USD')->numeric(1),
                 Tables\Columns\TextColumn::make('jobs')->numeric(),
                 Tables\Columns\ToggleColumn::make('is_published')->label('Published'),
+                Tables\Columns\TextColumn::make('is_sample')->label('')->badge()->color('warning')
+                    ->formatStateUsing(fn ($state) => $state ? 'Sample' : null)->placeholder(''),
             ])
             ->filters([
+                Tables\Filters\TernaryFilter::make('is_sample')->label('Samples')->trueLabel('Samples only')->falseLabel('Real only'),
                 Tables\Filters\SelectFilter::make('woreda')->relationship('woreda', 'name_en'),
                 Tables\Filters\SelectFilter::make('sector')->relationship('sector', 'title_en'),
             ])

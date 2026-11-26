@@ -11,6 +11,10 @@ const iso = (offset) => new Date(Date.now() + offset * day).toISOString().slice(
 export const img = (id) => (/^(https?:)?\/\/|^\.?\//.test(id || "") ? id : `./images/${id}.jpg`);
 
 export const zone = {
+  // Emblem shown in the header, footer and browser tab (uploadable in the admin panel)
+  logo: "./brand/logo.png",
+  // Show "sample listing" notes on opportunities and notices until real ones are published
+  showSampleNotice: true,
   name: { en: "South Omo Zone", am: "ደቡብ ኦሞ ዞን" },
   admin: { en: "South Omo Zone Administration", am: "የደቡብ ኦሞ ዞን አስተዳደር" },
   region: { en: "South Ethiopia Regional State", am: "የደቡብ ኢትዮጵያ ክልላዊ መንግሥት" },
@@ -580,7 +584,11 @@ const fill = (target, src) => {
 
 export function applyRemote(r) {
   if (!r || typeof r !== "object") return;
-  if (r.zone) for (const [k, v] of Object.entries(r.zone)) if (v && (v.en || v.am)) zone[k] = v;
+  if (r.zone) {
+    for (const [k, v] of Object.entries(r.zone)) if (v && (v.en || v.am)) zone[k] = v;
+    if (r.zone.logo) zone.logo = r.zone.logo;
+    if (typeof r.zone.showSampleNotice === "boolean") zone.showSampleNotice = r.zone.showSampleNotice;
+  }
   if (r.contact) Object.assign(zone.contact, Object.fromEntries(Object.entries(r.contact).filter(([, v]) => v)));
   if (r.leader) leader = { ...leader, ...r.leader };
   if (Array.isArray(r.sectors) && r.sectors.length) sectors = r.sectors;

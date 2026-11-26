@@ -12,7 +12,7 @@ class Opportunity extends Model
 
     protected $guarded = ['id'];
 
-    protected $casts = ['is_published' => 'boolean', 'investment_usd_m' => 'float'];
+    protected $casts = ['is_published' => 'boolean', 'is_sample' => 'boolean', 'investment_usd_m' => 'float'];
 
     public function woreda(): BelongsTo
     {

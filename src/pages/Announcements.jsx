@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Info } from "lucide-react";
 import { useLang } from "../i18n";
+import { zone } from "../data/content";
 import { useAsync, daysLeft } from "../hooks";
 import { getAnnouncements } from "../api";
 import { AnnDetail, AnnRow, Loading, Modal, PageHero, Reveal } from "../components/ui";
@@ -33,7 +34,7 @@ export default function Announcements() {
                 <input type="checkbox" checked={showClosed} onChange={(e) => setShowClosed(e.target.checked)} className="h-4 w-4 rounded border-royal-200 text-royal-600 focus:ring-royal-400" />{t("showClosed")}
               </label>
             </Reveal>
-            <p className="mt-6 flex items-start gap-2 text-sm text-ink-mute"><Info size={15} className="mt-0.5 shrink-0" />{t("sampleAnn")}</p>
+            {zone.showSampleNotice && <p className="mt-6 flex items-start gap-2 text-sm text-ink-mute"><Info size={15} className="mt-0.5 shrink-0" />{t("sampleAnn")}</p>}
             <div className="mt-6 divide-y divide-sand-200 rounded-3xl bg-sand-100 p-3">
               {list.length ? list.map((a) => <AnnRow key={a.id} a={a} onOpen={setSel} />) : <p className="p-10 text-center text-ink-mute">{t("noResults")}</p>}
             </div>
