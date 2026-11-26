@@ -42,6 +42,19 @@ Photo credits page and on hover. Keep the credits if you keep the photos. To add
 - [Kibish Formation fossils (IUGS)](https://iugs-geoheritage.org/?p=10716), [Omo National Park](https://en.wikipedia.org/wiki/Omo_National_Park): oldest Homo sapiens (about 233,000 years), Mago National Park wildlife
 - Tour operator listings ([example](https://gowithguide.com/ethiopia/tour/jinka-5-day-omo-valley-cultural-tour-from-jinka-17408)): market days, access via Jinka, travel season. Market days change, and the site says so.
 
+## Backend and admin panel (Laravel)
+`backend/` is a Laravel 12 application with a [Filament](https://filamentphp.com) admin panel and a MySQL database, built for ordinary shared hosting (cPanel, PHP 8.2+).
+
+- **Admin panel** at `/admin`: staff edit vacancies and tenders (with PDF attachments), investment opportunities, sectors, woredas, attractions,
+  the leader's message and video, road status for the Tourism map, contact details, and read contact-form messages.
+  Every text has English and Amharic fields.
+- **Roles:** *Administrator* (everything), *Content editor* (all content), *Vacancies & tenders only* (HR and procurement staff).
+- **API:** `GET /api/content` returns everything the admin panel controls, in the same shape as `src/data/content.js`,
+  cached and refreshed automatically when staff save. `POST /api/contact` stores messages, emails the right desk, rate-limits and filters spam.
+- **Website:** built with `VITE_API_URL=./api`, it loads the published content at startup.
+  Without `VITE_API_URL`, or if the API is unreachable, it uses its built-in content, so `npm run dev` works with no backend.
+- **Deploy:** `bash deploy/build-release.sh` builds an upload-ready zip. Step-by-step cPanel instructions are in [`deploy/DEPLOY.md`](deploy/DEPLOY.md).
+
 ## Marketing materials
 `npm run marketing` rebuilds everything from the current site and content (needs ffmpeg, python3 with numpy, and Playwright):
 

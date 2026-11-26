@@ -12,6 +12,7 @@ import "@fontsource/noto-sans-ethiopic/600.css";
 import "@fontsource/noto-serif-ethiopic/400.css";
 import "@fontsource/noto-serif-ethiopic/600.css";
 import "./index.css";
+import { loadRemote } from "./api";
 import { LangProvider } from "./i18n";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -25,7 +26,8 @@ import Contact from "./pages/Contact";
 import Credits from "./pages/Credits";
 import { PageHero } from "./components/ui";
 
-createRoot(document.getElementById("root")).render(
+// Load the admin-published content (if an API is configured), then render.
+loadRemote().finally(() => createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <LangProvider>
       <HashRouter>
@@ -46,4 +48,4 @@ createRoot(document.getElementById("root")).render(
       </HashRouter>
     </LangProvider>
   </React.StrictMode>
-);
+));

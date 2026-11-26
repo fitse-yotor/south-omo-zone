@@ -242,7 +242,10 @@ export function AnnDetail({ a }) {
       <ul className="mt-3 space-y-2">
         {tx(a.details).map((d, i) => <li key={i} className="flex gap-3 text-sm text-ink-soft"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sun-500" />{d}</li>)}
       </ul>
-      <div className="mt-6"><Deadline date={a.deadline} /></div>
+      <div className="mt-6 flex flex-wrap items-center gap-4">
+        <Deadline date={a.deadline} />
+        {a.attachment && <a href={a.attachment} target="_blank" rel="noreferrer" className="btn-outline !py-2"><FileText size={15} />{t("downloadNotice")}</a>}
+      </div>
     </div>
   );
 }

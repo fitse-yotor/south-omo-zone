@@ -3,3 +3,6 @@ marketing/output/*.html
 marketing/output/music.wav
 marketing/output/still-*
 node_modules
+
+# Release packages
+release/

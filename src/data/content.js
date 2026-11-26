@@ -4,7 +4,8 @@
 const day = 86400000;
 const iso = (offset) => new Date(Date.now() + offset * day).toISOString().slice(0, 10);
 
-export const img = (id) => `./images/${id}.jpg`;
+// A built-in photo id ("turmi-hills") or a full URL to a photo uploaded in the admin panel.
+export const img = (id) => (/^(https?:)?\/\/|^\.?\//.test(id || "") ? id : `./images/${id}.jpg`);
 
 export const zone = {
   name: { en: "South Omo Zone", am: "ደቡብ ኦሞ ዞን" },
@@ -36,7 +37,7 @@ export const facts = [
   { value: "233,000", label: { en: "Years: oldest Homo sapiens fossils", am: "ዓመታት፦ ጥንታዊው የሆሞ ሳፒየንስ ቅሪተ አካል" } },
 ];
 
-export const leader = {
+export let leader = {
   // SAMPLE: replace with the administrator's name, photo (public/images/leader.jpg) and video URL.
   name: { en: "Chief Administrator", am: "ዋና አስተዳዳሪ" },
   title: { en: "South Omo Zone Administration", am: "የደቡብ ኦሞ ዞን አስተዳደር" },
@@ -62,7 +63,7 @@ export const leader = {
   },
 };
 
-export const sectors = [
+export let sectors = [
   {
     id: "agriculture", icon: "Sprout", image: "banna-village", color: "leaf",
     title: { en: "Irrigated agriculture", am: "የመስኖ ግብርና" },
@@ -113,7 +114,7 @@ export const sectors = [
   },
 ];
 
-export const woredas = [
+export let woredas = [
   {
     id: "hamer", image: "hamer-village", seat: { en: "Dimeka", am: "ዲመካ" },
     name: { en: "Hamer", am: "ሐመር" },
@@ -217,7 +218,7 @@ const opp = (woreda, sector, en, am, sEn, sAm, landHa, usdM, jobs) => ({
   id: `opp-${++n}`, woreda, sector, title: { en, am }, summary: { en: sEn, am: sAm }, landHa, investmentUsdM: usdM, jobs,
 });
 // SAMPLE listings: to be confirmed by the Zone Investment Office.
-export const opportunities = [
+export let opportunities = [
   opp("hamer", "agriculture", "Irrigated cotton and sorghum", "የመስኖ ጥጥና ማሽላ", "Commercial farm on the Weyto plain with an outgrower component for local farmers.", "በወይጦ ሜዳ ላይ ለአካባቢው አርሶ አደሮች የአውትግሮወር ድርሻ ያለው የንግድ እርሻ።", 2000, 8, 600),
   opp("hamer", "livestock", "Cattle feedlot and export abattoir", "የከብት ማደለቢያና የኤክስፖርት ቄራ", "Feedlot, quarantine and abattoir sourcing from Hamer and Bena Tsemay herders.", "ከሐመርና ከበና ጸማይ አርብቶ አደሮች የሚገዛ ማደለቢያ፣ ኳራንቲንና ቄራ።", 150, 6, 260),
   opp("hamer", "tourism", "Community eco-lodge near Turmi", "በቱርሚ አቅራቢያ የማህበረሰብ ኢኮ-ሎጅ", "Twenty-room lodge with a revenue-sharing agreement with the host community.", "ከአስተናጋጁ ማህበረሰብ ጋር ገቢ የሚጋራ ሃያ ክፍሎች ያሉት ሎጅ።", 12, 1.4, 45),
@@ -234,7 +235,7 @@ export const opportunities = [
   opp("bako-gazer", "processing", "Spice and honey packing centre", "የቅመማ ቅመምና የማር ማሸጊያ ማዕከል", "Aggregation, grading and packing near Jinka airport.", "በጂንካ አውሮፕላን ማረፊያ አቅራቢያ መሰብሰብ፣ ደረጃ መለየትና ማሸግ።", 4, 0.9, 70),
 ];
 
-export const attractions = [
+export let attractions = [
   {
     id: "lower-omo", image: "lower-omo-aerial",
     title: { en: "Lower Valley of the Omo", am: "የታችኛው ኦሞ ሸለቆ" },
@@ -349,7 +350,7 @@ export const principles = {
 };
 
 // SAMPLE announcements: replace from the HR and procurement offices.
-export const announcements = [
+export let announcements = [
   {
     id: "v1", type: "vacancy", posted: iso(-4), deadline: iso(10),
     title: { en: "Irrigation Engineer", am: "የመስኖ መሐንዲስ" },
@@ -442,7 +443,7 @@ export const routeStops = {
 // Per road leg: surface, dry-season drive time in minutes with a 4×4, and current status.
 // TOURISM / ROADS OFFICE: update `status` ("open", "slow" or "closed"), add a `note` if needed,
 // and set roadStatusUpdated to the date you checked. The map and journey card follow automatically.
-export const roadStatusUpdated = null; // e.g. "2026-12-01"
+export let roadStatusUpdated = null; // e.g. "2026-12-01"
 export const roadLegs = {
   "jinka-keyafer": { surface: "asphalt", minutes: 60, status: "open" },
   "keyafer-weyto": { surface: "asphalt", minutes: 60, status: "open" },
@@ -554,3 +555,18 @@ export const itineraries = [
 
 // Which journey each attraction on the Tourism page links to
 export const attractionJourney = { "lower-omo": "omorate", mago: "mago", "omo-river": "omorate", hamer: "hamer", markets: "markets", turkana: "arbore" };
+
+// Replaces the built-in content with what the admin panel publishes (see src/api.js → loadRemote).
+// Exports are live bindings, so every component that imports them sees the new values.
+export function applyRemote(r) {
+  if (!r || typeof r !== "object") return;
+  if (r.contact) Object.assign(zone.contact, Object.fromEntries(Object.entries(r.contact).filter(([, v]) => v)));
+  if (r.leader) leader = { ...leader, ...r.leader };
+  if (Array.isArray(r.sectors) && r.sectors.length) sectors = r.sectors;
+  if (Array.isArray(r.woredas) && r.woredas.length) woredas = r.woredas;
+  if (Array.isArray(r.opportunities)) opportunities = r.opportunities;
+  if (Array.isArray(r.attractions) && r.attractions.length) attractions = r.attractions;
+  if (Array.isArray(r.announcements)) announcements = r.announcements;
+  if (r.roadLegs) for (const [k, v] of Object.entries(r.roadLegs)) if (roadLegs[k]) Object.assign(roadLegs[k], { status: v.status, note: v.note || undefined });
+  if ("roadStatusUpdated" in r) roadStatusUpdated = r.roadStatusUpdated;
+}
