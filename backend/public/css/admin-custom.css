@@ -1,0 +1,530 @@
+/* ============================================================
+   South Omo Zone · Admin panel theme (Anthropic look)
+   Loaded after Filament's own CSS by AdminPanelProvider.
+   Colours come from the panel palette (rgb(var(--gray-*)), rgb(var(--primary-*))),
+   so light and dark mode each get their own steps instead of one hard-coded scheme.
+   Type: Poppins for interface and headings, Lora for reading text (fonts/fonts.css).
+   ============================================================ */
+
+:root {
+    --soz-serif: 'Lora', Georgia, 'Times New Roman', serif;
+    --soz-radius: 0.75rem;
+}
+
+/* ── Type ────────────────────────────────────────────────── */
+
+.fi-body {
+    font-feature-settings: 'tnum' 1;            /* figures line up in tables and stats */
+    -webkit-font-smoothing: antialiased;
+}
+
+.fi-header-heading {
+    font-weight: 600 !important;
+    letter-spacing: -0.02em;
+}
+
+/* Reading text in Lora: page intros, section notes, report content */
+.fi-header-subheading,
+.fi-section-header-description,
+.fi-in-text-item-prose,
+.fi-ta-ctn .fi-ta-header-description,
+.soz-prose {
+    font-family: var(--soz-serif);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.fi-in-text .fi-in-text-item {
+    line-height: 1.6;
+}
+
+.fi-section-header-heading {
+    font-weight: 600 !important;
+    letter-spacing: -0.01em;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+
+.fi-sidebar {
+    background: rgb(var(--gray-100));
+    border-inline-end: 1px solid rgb(var(--gray-200));
+}
+.dark .fi-sidebar {
+    background: rgb(var(--gray-900));
+    border-inline-end-color: rgb(var(--gray-800));
+}
+
+.fi-sidebar-header {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid rgb(var(--gray-200));
+}
+.dark .fi-sidebar-header {
+    border-bottom-color: rgb(var(--gray-800));
+}
+
+/* Group headings: small caps style, readable in both modes */
+.fi-sidebar-group-label {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--gray-600)) !important;
+}
+.dark .fi-sidebar-group-label {
+    color: rgb(var(--gray-400)) !important;
+}
+
+.fi-sidebar-group-button {
+    border-radius: 0.5rem;
+}
+.fi-sidebar-group-button:hover {
+    background: rgb(var(--gray-200) / 0.6);
+}
+.dark .fi-sidebar-group-button:hover {
+    background: rgb(255 255 255 / 0.04);
+}
+.fi-sidebar-group-collapse-button {
+    color: rgb(var(--gray-500)) !important;
+}
+.dark .fi-sidebar-group-collapse-button {
+    color: rgb(var(--gray-400)) !important;
+}
+
+/* Items */
+.fi-sidebar-item-button {
+    border-radius: 0.5rem !important;
+    transition: background-color 120ms ease, color 120ms ease;
+}
+.fi-sidebar-item-label {
+    color: rgb(var(--gray-700)) !important;
+    font-weight: 500;
+}
+.dark .fi-sidebar-item-label {
+    color: rgb(var(--gray-300)) !important;
+}
+.fi-sidebar-item-icon {
+    color: rgb(var(--gray-500)) !important;
+}
+.dark .fi-sidebar-item-icon {
+    color: rgb(var(--gray-400)) !important;
+}
+.fi-sidebar-item-button:hover {
+    background: rgb(var(--gray-200) / 0.7) !important;
+}
+.dark .fi-sidebar-item-button:hover {
+    background: rgb(255 255 255 / 0.05) !important;
+}
+
+/* Active page: white chip with a clay bar (light), lifted chip (dark) */
+.fi-sidebar-item.fi-active > .fi-sidebar-item-button {
+    background: rgb(255 255 255) !important;
+    box-shadow: 0 1px 2px rgb(var(--gray-950) / 0.06), inset 3px 0 0 rgb(var(--primary-500));
+}
+.dark .fi-sidebar-item.fi-active > .fi-sidebar-item-button {
+    background: rgb(255 255 255 / 0.07) !important;
+    box-shadow: inset 3px 0 0 rgb(var(--primary-400));
+}
+.fi-sidebar-item.fi-active .fi-sidebar-item-label {
+    color: rgb(var(--gray-950)) !important;
+    font-weight: 600;
+}
+.dark .fi-sidebar-item.fi-active .fi-sidebar-item-label {
+    color: rgb(var(--gray-50)) !important;
+}
+.fi-sidebar-item.fi-active .fi-sidebar-item-icon {
+    color: rgb(var(--primary-600)) !important;
+}
+.dark .fi-sidebar-item.fi-active .fi-sidebar-item-icon {
+    color: rgb(var(--primary-400)) !important;
+}
+
+/* Collapsed sidebar (desktop): centred icons, same active cue */
+.fi-sidebar:not(.fi-sidebar-open) .fi-sidebar-item-button {
+    justify-content: center;
+}
+
+/* ── Top bar ─────────────────────────────────────────────── */
+
+.fi-topbar > nav {
+    background: rgb(var(--gray-50) / 0.85) !important;
+    backdrop-filter: saturate(1.4) blur(8px);
+    box-shadow: none !important;
+    border-bottom: 1px solid rgb(var(--gray-200));
+}
+.dark .fi-topbar > nav {
+    background: rgb(var(--gray-950) / 0.85) !important;
+    border-bottom-color: rgb(var(--gray-800));
+}
+
+/* ── Cards: sections, stats, tables, charts ──────────────── */
+
+.fi-section,
+.fi-ta-ctn,
+.fi-wi-stats-overview-stat,
+.fi-wi-chart > .fi-section {
+    border-radius: var(--soz-radius) !important;
+    box-shadow: 0 1px 2px rgb(var(--gray-950) / 0.04) !important;
+    --tw-ring-color: rgb(var(--gray-200)) !important;
+}
+.dark .fi-section,
+.dark .fi-ta-ctn,
+.dark .fi-wi-stats-overview-stat {
+    background: rgb(var(--gray-900)) !important;
+    --tw-ring-color: rgb(var(--gray-800)) !important;
+}
+
+/* Stat tiles */
+.fi-wi-stats-overview-stat-label {
+    font-size: 0.8rem !important;
+    color: rgb(var(--gray-600)) !important;
+}
+.dark .fi-wi-stats-overview-stat-label {
+    color: rgb(var(--gray-400)) !important;
+}
+.fi-wi-stats-overview-stat-value {
+    font-weight: 600 !important;
+    letter-spacing: -0.02em;
+    color: rgb(var(--gray-950)) !important;
+}
+.dark .fi-wi-stats-overview-stat-value {
+    color: rgb(var(--gray-50)) !important;
+}
+
+/* Table heads: quiet, warm */
+.fi-ta-header-cell {
+    background: rgb(var(--gray-50)) !important;
+}
+.dark .fi-ta-header-cell {
+    background: rgb(255 255 255 / 0.03) !important;
+}
+.fi-ta-header-cell-label {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgb(var(--gray-600)) !important;
+}
+.dark .fi-ta-header-cell-label {
+    color: rgb(var(--gray-400)) !important;
+}
+
+/* ── Buttons, badges ─────────────────────────────────────── */
+
+.fi-btn {
+    border-radius: 0.6rem !important;
+}
+/* Dark mode: keep primary buttons on the darker clay so white text stays readable */
+.dark .fi-btn.fi-color-primary {
+    background: rgb(var(--primary-600)) !important;
+}
+.dark .fi-btn.fi-color-primary:hover {
+    background: rgb(var(--primary-700)) !important;
+}
+
+.fi-badge {
+    border-radius: 9999px !important;
+}
+
+/* ── Forms ───────────────────────────────────────────────── */
+
+/* Sector headings inside "Figures for this month" */
+.soz-sector-label {
+    display: block;
+    margin-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid rgb(var(--gray-200));
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--primary-700));
+}
+.dark .soz-sector-label {
+    border-bottom-color: rgb(var(--gray-800));
+    color: rgb(var(--primary-300));
+}
+
+/* Language tabs (English / አማርኛ) */
+.fi-tabs-item {
+    font-weight: 500;
+}
+
+/* ── Report discussion ───────────────────────────────────── */
+
+.soz-thread {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.soz-msg {
+    max-width: 46rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--soz-radius);
+    border: 1px solid rgb(var(--gray-200));
+    background: rgb(var(--gray-50));
+}
+.dark .soz-msg {
+    border-color: rgb(var(--gray-800));
+    background: rgb(255 255 255 / 0.03);
+}
+/* Zone messages carry the clay bar; woreda messages sit to the right */
+.soz-msg--zone {
+    box-shadow: inset 3px 0 0 rgb(var(--primary-500));
+}
+.soz-msg--woreda {
+    align-self: flex-end;
+    background: rgb(255 255 255);
+}
+.dark .soz-msg--woreda {
+    background: rgb(255 255 255 / 0.06);
+}
+.soz-msg-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.6rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.8rem;
+}
+.soz-msg-author {
+    font-weight: 600;
+    color: rgb(var(--gray-950));
+}
+.dark .soz-msg-author {
+    color: rgb(var(--gray-50));
+}
+.soz-msg-side {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgb(var(--primary-700));
+}
+.dark .soz-msg-side {
+    color: rgb(var(--primary-300));
+}
+.soz-msg-time,
+.soz-thread-empty,
+.soz-muted {
+    color: rgb(var(--gray-500));
+}
+.dark .soz-msg-time,
+.dark .soz-thread-empty,
+.dark .soz-muted {
+    color: rgb(var(--gray-400));
+}
+.soz-msg-body {
+    font-family: var(--soz-serif);
+    line-height: 1.6;
+}
+
+/* ── Report files ────────────────────────────────────────── */
+
+.soz-files {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.soz-files-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: 0.75rem;
+}
+.soz-files-photo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: rgb(var(--gray-600));
+}
+.dark .soz-files-photo {
+    color: rgb(var(--gray-400));
+}
+.soz-files-photo img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(var(--gray-200));
+    background: rgb(var(--gray-100));
+}
+.dark .soz-files-photo img {
+    border-color: rgb(var(--gray-800));
+    background: rgb(var(--gray-800));
+}
+.soz-files-photo:hover img {
+    outline: 2px solid rgb(var(--primary-500));
+    outline-offset: 1px;
+}
+.soz-files-photo span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.soz-files-list {
+    display: flex;
+    flex-direction: column;
+}
+.soz-files-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgb(var(--gray-100));
+}
+.dark .soz-files-list li {
+    border-bottom-color: rgb(255 255 255 / 0.05);
+}
+.soz-files-list li:last-child {
+    border-bottom: 0;
+}
+.soz-files-icon {
+    flex: none;
+    color: rgb(var(--primary-600));
+}
+.dark .soz-files-icon {
+    color: rgb(var(--primary-400));
+}
+.soz-files-meta {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+}
+.soz-files-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+.soz-files-size {
+    font-size: 0.75rem;
+    color: rgb(var(--gray-500));
+}
+.dark .soz-files-size {
+    color: rgb(var(--gray-400));
+}
+
+/* ── Circular receipts table ─────────────────────────────── */
+
+.soz-receipts {
+    overflow-x: auto;
+}
+.soz-receipts table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+.soz-receipts th {
+    padding: 0.5rem 0.75rem;
+    text-align: start;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgb(var(--gray-600));
+    border-bottom: 1px solid rgb(var(--gray-200));
+}
+.dark .soz-receipts th {
+    color: rgb(var(--gray-400));
+    border-bottom-color: rgb(var(--gray-800));
+}
+.soz-receipts td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid rgb(var(--gray-100));
+    vertical-align: top;
+}
+.dark .soz-receipts td {
+    border-bottom-color: rgb(255 255 255 / 0.05);
+}
+.soz-receipts-name {
+    font-weight: 600;
+}
+.soz-receipts-reply {
+    font-family: var(--soz-serif);
+}
+
+/* ── System status ───────────────────────────────────────── */
+
+.soz-status-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+.soz-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 9999px;
+    border: 1px solid rgb(var(--gray-200));
+    background: rgb(255 255 255);
+    font-size: 0.875rem;
+}
+.dark .soz-status-pill {
+    border-color: rgb(var(--gray-800));
+    background: rgb(var(--gray-900));
+}
+.soz-checks {
+    display: flex;
+    flex-direction: column;
+}
+.soz-check {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgb(var(--gray-100));
+}
+.dark .soz-check {
+    border-bottom-color: rgb(255 255 255 / 0.05);
+}
+.soz-check:last-child {
+    border-bottom: 0;
+}
+.soz-check-icon {
+    flex: none;
+    margin-top: 0.1rem;
+}
+.soz-check-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+}
+.soz-check-label {
+    font-weight: 600;
+}
+.soz-check-state {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.soz-check-detail {
+    font-size: 0.875rem;
+    color: rgb(var(--gray-600));
+}
+.dark .soz-check-detail {
+    color: rgb(var(--gray-400));
+}
+.soz-check-fix {
+    margin-top: 0.25rem;
+    font-family: var(--soz-serif);
+    font-size: 0.9rem;
+}
+/* Status colours always come with an icon and a word, never colour alone */
+.soz-check--ok .soz-check-icon, .soz-check--ok .soz-check-state, .soz-status-pill--ok svg { color: rgb(var(--success-600)); }
+.soz-check--warn .soz-check-icon, .soz-check--warn .soz-check-state, .soz-status-pill--warn svg { color: rgb(var(--warning-600)); }
+.soz-check--fail .soz-check-icon, .soz-check--fail .soz-check-state, .soz-status-pill--fail svg { color: rgb(var(--danger-600)); }
+.soz-check--info .soz-check-icon, .soz-check--info .soz-check-state, .soz-status-pill--info svg { color: rgb(var(--info-600)); }
+.dark .soz-check--ok .soz-check-icon, .dark .soz-check--ok .soz-check-state, .dark .soz-status-pill--ok svg { color: rgb(var(--success-400)); }
+.dark .soz-check--warn .soz-check-icon, .dark .soz-check--warn .soz-check-state, .dark .soz-status-pill--warn svg { color: rgb(var(--warning-400)); }
+.dark .soz-check--fail .soz-check-icon, .dark .soz-check--fail .soz-check-state, .dark .soz-status-pill--fail svg { color: rgb(var(--danger-400)); }
+.dark .soz-check--info .soz-check-icon, .dark .soz-check--info .soz-check-state, .dark .soz-status-pill--info svg { color: rgb(var(--info-400)); }
+
+/* ── Login page ──────────────────────────────────────────── */
+
+.fi-simple-main {
+    border-radius: 1rem !important;
+    box-shadow: 0 1px 2px rgb(var(--gray-950) / 0.04), 0 12px 32px -12px rgb(var(--gray-950) / 0.12) !important;
+}

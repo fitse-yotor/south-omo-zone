@@ -15,6 +15,9 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    // The React site's public/ folder, used for built-in photos before deploy/build-release.sh copies them (App\Support\SiteAssets).
+    'site_public_path' => env('SITE_PUBLIC_PATH', dirname(__DIR__, 2).'/public'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

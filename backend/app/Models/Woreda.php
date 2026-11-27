@@ -19,6 +19,26 @@ class Woreda extends Model
         return $this->hasMany(Opportunity::class);
     }
 
+    public function users(): HasMany
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function reports(): HasMany
+    {
+        return $this->hasMany(WoredaReport::class);
+    }
+
+    public function circulars(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Circular::class)->withPivot(['read_at', 'acknowledged_at', 'acknowledged_by', 'response']);
+    }
+
+    public function planProgress(): HasMany
+    {
+        return $this->hasMany(PlanTaskProgress::class);
+    }
+
     public function toPortal(): array
     {
         return [
