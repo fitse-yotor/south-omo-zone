@@ -36,6 +36,8 @@ return [
             'driver' => 'local',
             'root' => env('UPLOADS_PATH', public_path('uploads')),
             'url' => rtrim(env('APP_URL', ''), '/').'/uploads',
+            // Optional fixed address for uploads (e.g. a CDN). Empty: built from the address the admin was opened on.
+            'fixed_url' => env('UPLOADS_URL'),
             'visibility' => 'public',
             'throw' => false,
         ],

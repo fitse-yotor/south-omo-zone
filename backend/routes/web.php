@@ -10,3 +10,13 @@ Route::get('/', function () {
 
     return response()->file($index, ['Content-Type' => 'text/html; charset=UTF-8']);
 });
+
+// Built-in photos and emblem. On a live server these files sit in public/ and never reach Laravel;
+// on a developer PC (before deploy/build-release.sh) they are served from the React site's public/ folder,
+// so admin previews and the panel logo work there too.
+Route::get('/{folder}/{file}', function (string $folder, string $file) {
+    $path = \App\Support\SiteAssets::path($folder, $file);
+    abort_unless($path, 404);
+
+    return response()->file($path, ['Cache-Control' => 'public, max-age=86400']);
+})->whereIn('folder', \App\Support\SiteAssets::FOLDERS)->where('file', '[A-Za-z0-9._-]+');

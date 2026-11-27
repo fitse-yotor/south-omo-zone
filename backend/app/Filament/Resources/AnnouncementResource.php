@@ -22,7 +22,7 @@ class AnnouncementResource extends Resource
 
     public static function canViewAny(): bool
     {
-        return (bool) Auth::user(); // every role, including "notices"
+        return Bi::isZoneStaff(); // every zone role including "notices", but NOT woreda accounts
     }
 
     public static function form(Form $form): Form

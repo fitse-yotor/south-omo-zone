@@ -106,4 +106,10 @@ class Bi
     {
         return (bool) Auth::user()?->isAdmin();
     }
+
+    /** True for admin, editor and notices — but NOT for woreda accounts. */
+    public static function isZoneStaff(): bool
+    {
+        return (bool) Auth::user()?->isZoneStaff();
+    }
 }

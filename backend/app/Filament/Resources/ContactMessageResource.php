@@ -23,7 +23,7 @@ class ContactMessageResource extends Resource
 
     public static function canViewAny(): bool
     {
-        return (bool) Auth::user();
+        return Bi::isZoneStaff(); // every zone role including "notices", but NOT woreda accounts
     }
 
     public static function canCreate(): bool
