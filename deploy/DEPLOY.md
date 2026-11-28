@@ -172,7 +172,14 @@ php artisan portal:admin
 php artisan serve               # http://127.0.0.1:8000 (website) and http://127.0.0.1:8000/admin
 ```
 
-To work on the website with instant reload, run this in a second terminal from the repository root:
+After that first setup, start everything with one command from the repository root (Windows: or double-click `start.bat`):
+
+```bash
+npm start               # admin + API on http://127.0.0.1:8000, website on http://127.0.0.1:5173; Ctrl+C stops both
+npm start -- --open     # also opens both in the browser
+```
+
+To run the website on its own with instant reload, use a second terminal from the repository root:
 
 ```bash
 npm ci

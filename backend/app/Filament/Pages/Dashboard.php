@@ -2,61 +2,52 @@
 
 namespace App\Filament\Pages;
 
-use App\Models\Woreda;
-use App\Support\Indicators;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Form;
 use Filament\Pages\Dashboard as BaseDashboard;
-use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 use Illuminate\Support\Facades\Auth;
 
-/**
- * Cumulative zone / woreda dashboard. The filters (scope + fiscal year) are read by every
- * widget through InteractsWithPageFilters; woreda accounts are always scoped to their own woreda.
- */
 class Dashboard extends BaseDashboard
 {
-    use HasFiltersForm;
+    protected static ?string $navigationIcon = 'heroicon-o-home';
 
-    protected static ?string $navigationIcon = 'heroicon-o-chart-pie';
-
-    public function getTitle(): string
+    public function getHeading(): string
     {
         $user = Auth::user();
 
-        return $user?->isWoredaUser() && $user->woreda ? "{$user->woreda->name_en} woreda dashboard" : 'Zone dashboard';
+        if ($user?->isWoredaUser()) {
+            return app()->getLocale() === 'am'
+                ? __('admin.dashboard.title_woreda').', '.$user->name
+                : 'Welcome, '.$user->name;
+        }
+
+        return app()->getLocale() === 'am'
+            ? __('admin.dashboard.title_zone')
+            : 'South Omo Zone Admin';
     }
 
-    public function getSubheading(): ?string
+    public function getSubheading(): string
     {
-        return 'Figures from monthly woreda reports, added up from the start of the fiscal year (July).';
+        $user = Auth::user();
+
+        if ($user?->isWoredaUser()) {
+            $woreda = $user->woreda?->name_en ?? '';
+
+            return app()->getLocale() === 'am'
+                ? $user->woreda?->name_am.' · '.__('admin.dashboard.sub_woreda')
+                : $woreda.' Woreda · Submit reports and track your plan progress here.';
+        }
+
+        return app()->getLocale() === 'am'
+            ? __('admin.dashboard.sub_zone')
+            : 'Zone portal overview · reports, plans and content in one place.';
     }
 
-    public function filtersForm(Form $form): Form
+    public static function canAccess(): bool
     {
-        $woredaUser = Auth::user()?->isWoredaUser();
-
-        return $form->schema([
-            Section::make()->schema([
-                Select::make('woreda_id')
-                    ->label('Scope')
-                    ->placeholder('Whole zone (all woredas)')
-                    ->options(fn () => Woreda::orderBy('sort')->pluck('name_en', 'id'))
-                    ->native(false)
-                    ->hidden($woredaUser),
-                Select::make('fiscal_year')
-                    ->label('Fiscal year')
-                    ->options(fn () => Indicators::fiscalYearOptions())
-                    ->default(Indicators::fiscalYearStart()->year)
-                    ->selectablePlaceholder(false)
-                    ->native(false),
-            ])->columns($woredaUser ? 1 : 2)->compact(),
-        ]);
+        return Auth::user()?->is_active ?? false;
     }
 
     public function getColumns(): int|string|array
     {
-        return ['md' => 2, 'xl' => 2];
+        return 2;
     }
 }

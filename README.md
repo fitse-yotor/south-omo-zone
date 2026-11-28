@@ -5,7 +5,8 @@ Built with React, Vite, Tailwind CSS, Framer Motion and Lucide icons.
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
+npm start        # website + admin panel together (needs the backend set up once, see deploy/DEPLOY.md); Windows: start.bat
+npm run dev      # website only, http://localhost:5173
 npm run build    # static site in dist/ (hash routing: works on any static host)
 ```
 

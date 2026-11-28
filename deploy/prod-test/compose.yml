@@ -1,0 +1,56 @@
+# Production-like test of the portal on this PC (needs Docker Desktop). From the repository root:
+#   docker compose -f deploy/prod-test/compose.yml up -d --build     build the release package and start
+#   docker compose -f deploy/prod-test/compose.yml down              stop, keep the test data
+#   docker compose -f deploy/prod-test/compose.yml down -v           stop and erase the test data
+#   docker compose -f deploy/prod-test/compose.yml run --rm --build tests    automated tests on MariaDB
+# Website http://localhost:8080  ·  Admin http://localhost:8080/admin
+# The passwords here are for this local test only; the site listens on this PC only. Never reuse them live.
+name: soz-prodtest
+
+services:
+  web:
+    build: { context: ../.., dockerfile: deploy/prod-test/Dockerfile, target: server }
+    ports: ["127.0.0.1:8080:80"]
+    environment:
+      PORTAL_URL: http://localhost:8080
+      DB_PASSWORD: local-test-only
+      TEST_ADMIN_EMAIL: admin@prodtest.local
+      TEST_ADMIN_PASSWORD: ProdTest-local-2026
+      SAMPLE_DATA: "1"   # sample woreda accounts, reports, plan and circular
+    volumes:
+      - storage:/var/www/southomo/storage/app
+      - uploads:/var/www/southomo/public/uploads
+    depends_on:
+      db: { condition: service_healthy }
+
+  db:
+    image: mariadb:10.6
+    environment:
+      MARIADB_DATABASE: southomo
+      MARIADB_USER: portal
+      MARIADB_PASSWORD: local-test-only
+      MARIADB_ROOT_PASSWORD: local-root-only
+    volumes:
+      - db:/var/lib/mysql
+      - ./init-test-db.sql:/docker-entrypoint-initdb.d/init-test-db.sql:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 3s
+      retries: 40
+
+  # The automated tests on the same database engine as the live site, in a separate throwaway database.
+  tests:
+    profiles: ["tests"]
+    build: { context: ../.., dockerfile: deploy/prod-test/Dockerfile, target: build }
+    working_dir: /src/backend
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_DATABASE: southomo_test
+      DB_USERNAME: portal
+      DB_PASSWORD: local-test-only
+    command: sh -c "composer install --no-interaction -q && cp .env.example .env && php artisan key:generate --force -q && php artisan test"
+    depends_on:
+      db: { condition: service_healthy }
+
+volumes: { db: {}, storage: {}, uploads: {} }

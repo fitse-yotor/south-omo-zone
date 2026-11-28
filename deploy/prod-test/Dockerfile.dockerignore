@@ -1,0 +1,26 @@
+# Keep this PC's packages, secrets, database and uploads out of the test build.
+.git
+**/node_modules
+dist
+release
+marketing/output
+backend/vendor
+backend/.env
+backend/.env.testing
+backend/.env.backup
+backend/.env.production
+backend/database/*.sqlite*
+backend/storage/app/private/*
+backend/storage/app/public/*
+backend/storage/logs/*
+backend/storage/framework/cache/data/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/bootstrap/cache/*.php
+backend/bootstrap/cache/filament
+backend/public/uploads
+backend/public/index.html
+backend/public/assets
+backend/public/images
+backend/public/brand
+backend/.phpunit.result.cache

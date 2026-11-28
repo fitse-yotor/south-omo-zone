@@ -84,17 +84,24 @@ class AdminPanelProvider extends PanelProvider
                 'panels::head.end',
                 fn () => new \Illuminate\Support\HtmlString(
                     '<link rel="stylesheet" href="'.asset('css/admin-custom.css').'?v='.@filemtime(public_path('css/admin-custom.css')).'">'
+                    .(app()->getLocale() === 'am'
+                        ? '<style>body,input,button,select,textarea{font-family:"Noto Sans Ethiopic",system-ui,sans-serif!important}.fi-sidebar-item-label,.fi-topbar .fi-breadcrumbs-item-label{font-family:"Noto Sans Ethiopic",sans-serif!important}</style>'
+                        : '')
                 )
+            )
+            ->renderHook(
+                'panels::topbar.start',
+                fn () => \Illuminate\Support\Facades\Blade::render('<livewire:language-switcher />')
             )
             // Everyday work open; content sections start folded (Filament remembers each person's choice).
             ->navigationGroups([
-                NavigationGroup::make('Woreda Portal'),
-                NavigationGroup::make('Notice board'),
-                NavigationGroup::make('Home page')->collapsed(),
-                NavigationGroup::make('Investment')->collapsed(),
-                NavigationGroup::make('Zone & tourism')->collapsed(),
-                NavigationGroup::make('Tourism map')->collapsed(),
-                NavigationGroup::make('Settings')->collapsed(),
+                NavigationGroup::make(fn () => app()->getLocale() === 'am' ? __('admin.nav.woreda_portal') : 'Woreda Portal'),
+                NavigationGroup::make(fn () => app()->getLocale() === 'am' ? __('admin.nav.notice_board') : 'Notice board'),
+                NavigationGroup::make(fn () => app()->getLocale() === 'am' ? __('admin.nav.home_page') : 'Home page')->collapsed(),
+                NavigationGroup::make(fn () => app()->getLocale() === 'am' ? __('admin.nav.investment') : 'Investment')->collapsed(),
+                NavigationGroup::make(fn () => app()->getLocale() === 'am' ? __('admin.nav.zone_tourism') : 'Zone & tourism')->collapsed(),
+                NavigationGroup::make(fn () => app()->getLocale() === 'am' ? __('admin.nav.tourism_map') : 'Tourism map')->collapsed(),
+                NavigationGroup::make(fn () => app()->getLocale() === 'am' ? __('admin.nav.settings') : 'Settings')->collapsed(),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->pages([\App\Filament\Pages\Dashboard::class, \App\Filament\Pages\SystemStatus::class])
@@ -129,7 +136,7 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->defaultAvatarProvider(\App\Filament\Support\InitialsAvatar::class)
-            ->authMiddleware([Authenticate::class])
+            ->authMiddleware([Authenticate::class, \App\Http\Middleware\SetAdminLocale::class])
             ->spa();
     }
 }

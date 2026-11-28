@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Register the admin language switcher Livewire component
+        Livewire::component('language-switcher', \App\Http\Livewire\LanguageSwitcher::class);
+
+        // Amharic translations for Filament packages live in lang/vendor/filament-*/am/.
+        // Laravel's translator auto-discovers them via the package's shortName convention,
+        // so no manual loadTranslationsFrom is needed here.
+
         // Uploaded photos and PDFs: build their URLs from the address the page was opened on, not APP_URL.
         // Otherwise opening the admin as http://localhost (or a XAMPP subfolder, or https) while APP_URL says
         // something else makes upload previews fail, because the browser has to fetch them cross-origin.

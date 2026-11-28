@@ -528,3 +528,36 @@
     border-radius: 1rem !important;
     box-shadow: 0 1px 2px rgb(var(--gray-950) / 0.04), 0 12px 32px -12px rgb(var(--gray-950) / 0.12) !important;
 }
+
+/* ── Amharic (አማርኛ) font override ───────────────────────── */
+/* Applied via inline <style> injected in panels::head.end   */
+/* when app locale is 'am'. Noto Sans Ethiopic is already    */
+/* served from public/fonts/. This block is a reference.     */
+
+@font-face {
+    font-family: 'Noto Sans Ethiopic';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/noto-sans-ethiopic-ethiopic-400-normal.woff2') format('woff2');
+    unicode-range: U+1200-137F, U+1380-139F, U+2D80-2DDF, U+AB00-AB2F;
+}
+
+@font-face {
+    font-family: 'Noto Sans Ethiopic';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/noto-sans-ethiopic-ethiopic-600-normal.woff2') format('woff2');
+    unicode-range: U+1200-137F, U+1380-139F, U+2D80-2DDF, U+AB00-AB2F;
+}
+
+/* Language switcher button refinement */
+.soz-lang-switcher button:focus {
+    outline: 2px solid rgba(42, 85, 189, 0.5) !important;
+    outline-offset: 1px !important;
+}
+
+.dark .soz-lang-switcher button {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}

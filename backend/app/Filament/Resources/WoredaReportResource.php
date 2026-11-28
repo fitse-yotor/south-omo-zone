@@ -210,12 +210,16 @@ class WoredaReportResource extends Resource
                     ->columnSpan(1),
             ])->columns(2),
 
-            Forms\Components\Section::make('Figures for this month')
-                ->description('Numbers for this month only, not running totals. The dashboard adds them up for the fiscal year. Leave a box empty if it does not apply.')
-                ->schema(self::indicatorInputs())
-                ->columns(3)
-                ->visible(fn (Forms\Get $get) => $get('period_type') === 'monthly')
-                ->collapsible(),
+            // The always-present Group keeps the page structure stable when the section is hidden. Without it,
+            // changing the report type broke the fields below, and files chosen afterwards were silently lost.
+            Forms\Components\Group::make([
+                Forms\Components\Section::make('Figures for this month')
+                    ->description('Numbers for this month only, not running totals. The dashboard adds them up for the fiscal year. Leave a box empty if it does not apply.')
+                    ->schema(self::indicatorInputs())
+                    ->columns(3)
+                    ->visible(fn (Forms\Get $get) => $get('period_type') === 'monthly')
+                    ->collapsible(),
+            ])->columnSpanFull(),
 
             Forms\Components\Section::make('Report Content')->schema([
                 Forms\Components\Textarea::make('summary')

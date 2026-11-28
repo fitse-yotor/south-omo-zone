@@ -28,6 +28,8 @@ echo "→ Packaging"
 mkdir -p release
 OUT="release/south-omo-portal-$(date +%Y%m%d-%H%M).zip"
 (cd backend && zip -qr "$ROOT/$OUT" . \
-  -x ".env" "database/database.sqlite" "storage/logs/*" "storage/framework/cache/data/*" \
-     "storage/framework/sessions/*" "storage/framework/views/*" "public/uploads/*" "node_modules/*" "tests/*" ".git*")
+  -x ".env" ".env.testing" ".env.backup" "database/*.sqlite*" "storage/logs/*" "storage/framework/cache/data/*" \
+     "storage/framework/sessions/*" "storage/framework/views/*" "storage/app/private/*" "storage/app/public/*" \
+     "bootstrap/cache/config.php" "bootstrap/cache/routes-*.php" "bootstrap/cache/events.php" \
+     "bootstrap/cache/blade-icons.php" "bootstrap/cache/filament/*" "public/uploads/*" "node_modules/*" "tests/*" ".git*")
 echo "✓ $OUT  — follow deploy/DEPLOY.md to upload it"

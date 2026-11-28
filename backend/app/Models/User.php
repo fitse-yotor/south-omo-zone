@@ -27,7 +27,7 @@ class User extends Authenticatable implements FilamentUser
         'woreda'  => 'Woreda account',
     ];
 
-    protected $fillable = ['name', 'email', 'password', 'role', 'is_active', 'woreda_id'];
+    protected $fillable = ['name', 'email', 'password', 'role', 'is_active', 'woreda_id', 'locale'];
 
     protected $hidden = ['password', 'remember_token'];
 
@@ -66,5 +66,10 @@ class User extends Authenticatable implements FilamentUser
     public function isZoneStaff(): bool
     {
         return in_array($this->role, ['admin', 'editor', 'notices'], true);
+    }
+
+    public function prefersAmharic(): bool
+    {
+        return ($this->locale ?? 'en') === 'am';
     }
 }

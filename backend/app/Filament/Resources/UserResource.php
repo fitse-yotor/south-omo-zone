@@ -64,6 +64,13 @@ class UserResource extends Resource
                 ->default(true)
                 ->disabled(fn (?User $record) => $record?->is(Auth::user()))
                 ->dehydrated(),
+
+            Forms\Components\Select::make('locale')
+                ->label('Admin UI Language')
+                ->options(['en' => '🇬🇧 English', 'am' => '🇪🇹 አማርኛ (Amharic)'])
+                ->default('en')
+                ->native(false)
+                ->helperText('The language this user sees in the admin panel.'),
         ])->columns(2);
     }
 
